@@ -1,1 +1,0 @@
-﻿alert('from out link');
