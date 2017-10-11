@@ -2,8 +2,6 @@
       {
 
           var RepairStartDate = $("#RepairStartDateId").val();
-
-
           if (RepairStartDate == "") {
 
               alert("请输入修理开始日期");
