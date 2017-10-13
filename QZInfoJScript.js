@@ -5,6 +5,9 @@ function init() {
 
 
 function Insert() {
+    
+    var regu = /^[0-9]+\.?[0-9]*$/;
+    
 
     var QZCtn_no = $("#QZCtn_noId").val();  //箱号
 
@@ -80,6 +83,15 @@ function Insert() {
 
     var QZRentCoin = $("#RentDailyCoinId").find("option:selected").text(); //日租金币种
     var RentDaily = $("#RentDailyId").val(); //日租金
+    
+    if (!regu.test(RentDaily)) {
+            alert("数量请输入数字");
+            $("#RentDailyId").focus();
+            return false;
+
+        }
+    
+    
     RentDaily = RentDaily * 1;
 
     if (QZRentCoin == "美元") {
@@ -95,6 +107,15 @@ function Insert() {
 
     var QZLintCoin = $("#QZLintCoinID").find("option:selected").text(); //起租装卸费币种
     var QZLint = $("#QZLintId").val(); //起租装卸费
+    
+    if (!regu.test(QZLint)) {
+            alert("数量请输入数字");
+            $("#QZLintCoinID").focus();
+            return false;
+
+        }
+    
+    
 
     QZLint = QZLint * 1;
 
@@ -111,6 +132,14 @@ function Insert() {
 
     var QZPtiFeeCoin = $("#QZPtiFeeCoinID").find("option:selected").text(); //起租pti费用币种
     var QZPtiFee = $("#QZPtiFeeID").val(); //起租pti费用
+    
+    
+    if (!regu.test(QZPtiFee)) {
+            alert("数量请输入数字");
+            $("#QZPtiFeeID").focus();
+            return false;
+
+        }
 
 
     QZPtiFee = QZPtiFee * 1;
@@ -128,6 +157,14 @@ function Insert() {
 
     var QZTransportFeeCoin = $("#QZTransportFeeCoinID").find("option:selected").text(); //起租运输费币种
     var QZTransportFee = $("#QZTransportFeeId").val(); //起租运输费
+    
+    
+    if (!regu.test(QZTransportFee)) {
+            alert("数量请输入数字");
+            $("#QZTransportFeeId").focus();
+            return false;
+
+        }
 
 
     QZTransportFee = QZTransportFee * 1;
@@ -186,6 +223,13 @@ function Delete() {
         return false;
 
     }
+    
+    if (!window.confirm('确定要删除箱号为' + QZCtn_no + '的记录吗')) {
+
+            return false;
+        }
+    
+    
 
     $.ajax({
         type: "get",
