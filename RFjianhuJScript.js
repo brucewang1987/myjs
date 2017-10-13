@@ -144,6 +144,11 @@ function RFinfoDelete() {
         return false;
 
     }
+    
+    if (!window.confirm('确定要删除箱号为' + CTNR_NO + '的记录吗')) {
+
+            return false;
+        }
 
 
     $.ajax({
