@@ -11,6 +11,17 @@ function Insert() {
         return false;
 
     }
+    
+    var rTZDate = TZDate.match(/^(\d{1,4})(-|\/)(\d{1,2})\2(\d{1,2})$/);
+        if (rTZDate == null) {
+            alert("请输入格式正确的日期\n\r日期格式：yyyy-mm-dd例    如：2008-08-08");
+            return false;
+        }
+    
+    
+    
+var regu = /^[0-9]+\.?[0-9]*$/;
+    
     var TZNo = $("#TZNoId").val(); //退租号
 
     if (TZNo == "") {
@@ -30,6 +41,15 @@ function Insert() {
     var Rent = $("#RentId").val();
     var TZLintCoin = $("#TZLintCoinID").find("option:selected").text(); //退租装卸费币种
     var TZLint = $("#TZLintId").val(); //退租装卸费
+    
+      if (!regu.test(TZLint)) {
+            alert("数量请输入数字");
+            $("#TZLintId").focus();
+            return false;
+
+        }
+    
+    
     TZLint = TZLint * 1;
     if (TZLintCoin == "美元") {
         totalUSD = totalUSD + TZLint;
@@ -42,6 +62,16 @@ function Insert() {
 
     var TZPtiFeeCoin = $("#TZPtiFeeCoinID").find("option:selected").text(); //退租pti费用币种
     var TZPtiFee = $("#TZPtiFeeID").val(); //退租pti费用
+    
+    
+      if (!regu.test(TZPtiFee)) {
+            alert("数量请输入数字");
+            $("#TZPtiFeeID").focus();
+            return false;
+
+        }
+    
+    
     TZPtiFee = TZPtiFee * 1;
 
     if (TZPtiFeeCoin == "美元") {
@@ -54,6 +84,15 @@ function Insert() {
     }
     var TZTransportFeeCoin = $("#TZTransportFeeCoinID").find("option:selected").text(); //退租运输费币种
     var TZTransportFee = $("#TZTransportFeeId").val(); //退租运输费
+    
+      if (!regu.test(TZTransportFee)) {
+            alert("数量请输入数字");
+            $("#TZTransportFeeId").focus();
+            return false;
+
+        }
+    
+    
     TZTransportFee = TZTransportFee * 1;
     if (TZTransportFeeCoin == "美元") {
         totalUSD = totalUSD + TZTransportFee;
@@ -66,6 +105,14 @@ function Insert() {
     }
     var TZRepairGPCoin = $("#TZRepairGPCoin").find("option:selected").text(); //退租修理费箱体币种
     var TZRepairGPfee = $("#TZRepairGPfeeID").val(); //退租修理费箱体
+    
+    
+      if (!regu.test(TZRepairGPfee)) {
+            alert("数量请输入数字");
+            $("#TZRepairGPfeeID").focus();
+            return false;
+
+        }
 
     TZRepairGPfee = TZRepairGPfee * 1;
 
@@ -79,6 +126,14 @@ function Insert() {
     }
     var TZRepairRFCoin = $("#TZRepairRFCoin").find("option:selected").text(); //退租修理费机组币种
     var TZRepairRFfee = $("#TZRepairRFfeeID").val(); //退租修理费机组
+    
+      if (!regu.test(TZRepairRFfee)) {
+            alert("数量请输入数字");
+            $("#TZRepairRFfeeID").focus();
+            return false;
+
+        }
+    
 
     TZRepairRFfee = TZRepairRFfee * 1;
 
@@ -123,6 +178,12 @@ function DeleteTZinfo() {
         alert("请输入箱号");
         return false;
     }
+    
+    
+    if (!window.confirm('确定要删除箱号为' + TZCtn_no + '的记录吗')) {
+
+            return false;
+        }
 
 
     $.ajax({
