@@ -90,7 +90,7 @@ function QueryGateIN() {
 
 
  function exportexcel() {
-        $("#BJInfotable").table2excel({
+        $("#RFInfotableBygateIN").table2excel({
             exclude: ".noExl",
             name: "Excel Document Name",
             filename: "myFileName",
