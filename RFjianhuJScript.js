@@ -8,6 +8,233 @@ function InsertRfinfo() {
         return false;
 
     }
+    
+    
+    
+    
+    
+    
+     var itotal = 0;
+
+            var ctn_no = CTNR_NO;
+
+            var ctnnoLen = ctn_no.length;
+
+            var regu = /^[0-9]+\.?[0-9]*$/;
+
+            var ctn7 = ctn_no.substr(4, 7);
+            var ctn4 = ctn_no.substr(0, 4);
+
+            if (ctnnoLen != 11) {
+
+                alert("箱号长度应为11位,请重新输入");
+                return false;
+
+            }
+                        else if (!/^[a-zA-Z]+$/.test(ctn4)) {
+
+                alert("箱号前4位必须是字母");
+                return false;
+
+                        }
+             if (isNaN(ctn7))
+{
+    alert("箱号后7位必须为数字");
+                    return false;
+}
+//            else if (!regu.test(ctn_no.substring(4, 7))) {
+
+//                alert("箱号后7位必须为数字");
+//                return false;
+//            
+//            }
+           
+
+            var iChar = 0;
+            for (var i = 0; i < ctn4.length; i++) {
+
+                var sChar = ctn4.substr(i, 1);
+
+                if (sChar == "A") {
+
+                    iChar = 10;
+
+                }
+                if (sChar == "B") {
+
+                    iChar = 12;
+
+                }
+                if (sChar == "C") {
+
+                    iChar = 13;
+
+                }
+                if (sChar == "D") {
+
+                    iChar = 14;
+
+                }
+                if (sChar == "E") {
+
+                    iChar = 15;
+
+                }
+                if (sChar == "F") {
+
+                    iChar = 16;
+
+                }
+                if (sChar == "G") {
+
+                    iChar = 17;
+
+                }
+                if (sChar == "H") {
+
+                    iChar = 18;
+
+                }
+                if (sChar == "I") {
+
+                    iChar = 19;
+
+                }
+                if (sChar == "J") {
+
+                    iChar = 20;
+
+                }
+                if (sChar == "K") {
+
+                    iChar = 21;
+
+                }
+                if (sChar == "L") {
+
+                    iChar = 23;
+
+                }
+                if (sChar == "M") {
+
+                    iChar = 24;
+
+                }
+                if (sChar == "N") {
+
+                    iChar = 25;
+
+                }
+                if (sChar == "O") {
+
+                    iChar = 26;
+
+                }
+                if (sChar == "P") {
+
+                    iChar = 27;
+
+                }
+                if (sChar == "Q") {
+
+                    iChar = 28;
+
+                }
+                if (sChar == "Q") {
+
+                    iChar = 28;
+
+                }
+                if (sChar == "R") {
+
+                    iChar = 29;
+
+                }
+                if (sChar == "S") {
+
+                    iChar = 30;
+
+                }
+                if (sChar == "T") {
+
+                    iChar = 31;
+
+                }
+                if (sChar == "U") {
+
+                    iChar = 32;
+
+                }
+                if (sChar == "V") {
+
+                    iChar = 34;
+
+                }
+                if (sChar == "W") {
+
+                    iChar = 35;
+
+                }
+                if (sChar == "X") {
+
+                    iChar = 36;
+
+                }
+                if (sChar == "Y") {
+
+                    iChar = 37;
+
+                }
+                if (sChar == "Z") {
+
+                    iChar = 38;
+
+                }
+//                iChar = ConvertChar(sChar);
+
+
+                var temp = iChar * Math.pow(2, i);
+
+                itotal = itotal + temp;
+            }
+
+            for (var i = 4; i < 10; i++) {
+
+                iChar = ctn_no.substr(i, 1) * 1;
+
+                console.log(iChar);
+
+                itotal = itotal + iChar * Math.pow(2, i);
+            }
+
+
+            var sCRC = (itotal % 11) + '';
+
+            if (sCRC == "10") {
+
+
+                sCRC = "0";
+
+            }
+
+            if (sCRC == ctn_no.substr(10, 1)) {
+
+
+                alert("箱号正确");
+
+            }
+            else {
+
+
+                alert("箱号非法,校验码为" + sCRC + "!");
+                return false;
+            }
+    
+    
+    
+    
+    
+    
 
     var INTO_PORT = $("#INTO_PORT_ID").val();
 
