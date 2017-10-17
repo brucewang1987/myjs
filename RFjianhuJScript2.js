@@ -68,6 +68,7 @@ function AddRFitem() {
             var str = JSON.stringify(ret.strAddFlag);
 
             alert(str);
+            window.location.reload();
 
         },
         error: function (XmlHttpRequest, textStatus, errorThrown) {
