@@ -347,8 +347,33 @@ function QueryGateInRF() {
 
 
             });
+            
+            
+            var html = "";
+            html += "<tr>";
+            html+="<td>箱号</td>";
+            html+="<td>进场时间</td>";
+            html+="<td>船名</td>";
+            html+="<td>设定温度</td>";
+            html+="<td>YENT</td>";
+            html+="<td>录入时间</td>";
+            
+            html += "</tr>";
+            $(_json).each(function (key)
+                          {    
+                
+                html += "<tr>";
+                html+="<td>_json[key].CTNR_NO</td>";
+                html+="<td>_json[key].INTO_PORT</td>";
+                html+="<td>_json[key].vol</td>";
+                html+="<td>_json[key].SET_Temp</td>";
+                html+="<td>_json[key].YENT</td>";
+                html+="<td>_json[key].date</td>";
+                html += "</tr>";
+            
 
-
+ });
+             $("#RFMainInfotable").html(html);
 
         },
         error: function (XmlHttpRequest, textStatus, errorThrown) {
