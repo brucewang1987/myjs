@@ -220,7 +220,7 @@ function InsertRfinfo() {
             if (sCRC == ctn_no.substr(10, 1)) {
 
 
-                alert("箱号正确");
+                console.log("箱号正确");
 
             }
             else {
