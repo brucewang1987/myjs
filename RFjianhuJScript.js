@@ -370,6 +370,7 @@ function QueryGateInRF() {
                 html+="<td>"+_json[key].YENT+"</td>";
                 html+="<td>"+_json[key].date+"</td>";
                 html += "</tr>";
+                
             
 
  });
