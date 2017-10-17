@@ -40,7 +40,10 @@ function AddRFitem() {
     }
 
 
-    var r = ptiDate.match(/^(\d{1,4})(-|\/)(\d{1,2})\2(\d{1,2})$/);
+   // var r = ptiDate.match(/^(\d{1,4})(-|\/)(\d{1,2})\2(\d{1,2})$/);
+    
+    var r = ptiDate.match(/^(0\d{1}|1\d{1}|2[0-3]):[0-5]\d{1}:([0-5]\d{1})$/);
+    
     if (r == null) {
         alert("请输入格式正确的日期\n\r日期格式：yyyy-mm-dd例    如：2008-08-08");
         return false;
