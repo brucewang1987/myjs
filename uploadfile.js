@@ -28,7 +28,7 @@ $(function () {
                         //alert(data.url);
                     },
                     error: function (error) { console.log(JSON.stringify(error)); },
-                    url: '/hsbs2.0/FileUploadCtrl.ashx', /*设置post提交到的页面*/
+                    url: './FileUploadCtrl.ashx', /*设置post提交到的页面*/
                     type: "post", /*设置表单以post方法提交*/
                     dataType: "json" /*设置返回值类型为文本*/
                 });
