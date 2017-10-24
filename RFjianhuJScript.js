@@ -226,8 +226,15 @@ function InsertRfinfo() {
             else {
 
 
-                alert("箱号非法,校验码为" + sCRC + "!");
+               // alert("箱号非法,校验码为" + sCRC + "!");
+               // return false;
+                
+                if(!window.confirm('不符合箱号规则是否强制录入'))
+                {
                 return false;
+                
+                }
+                
             }
     
     
