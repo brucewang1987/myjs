@@ -7,3 +7,51 @@
            font-size: x-large;
                
         }
+
+        .page-content
+        {
+            top: 352px;
+            min-height: 550px;
+            _height: 550px;
+            width: 640px;
+        }
+        
+
+       #div1
+{
+    <%--border:1px solid black;--%>
+    margin-bottom:20px;
+    width:300px;
+    height:300px;
+    position:relative;
+  
+ 
+
+}
+
+
+#div2
+{
+   <%-- border:1px solid black;--%>
+    
+   width:300px;
+    height:300px;
+ position: relative;
+}
+
+
+
+#div3
+{
+
+    border:1px solid black;
+    position: relative;
+    top:-500px;
+    width:400px;
+    height:400px;
+    background-color:#B0B0B0;
+    
+    
+    
+}
+
