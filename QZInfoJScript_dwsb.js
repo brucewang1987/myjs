@@ -179,13 +179,31 @@ function Insert() {
 
 
     }
+    
+    var TxType = $("#TXid").val();
+    
+    if(TxType=="")
+    {
+    alert("请输入提箱方式");
+        $("#TXid").focus();
+        return flase;
+    
+    }
+    
+    
 
     ////                        alert("提交成功,美元总金额：" + totalUSD + ",人民币总金额:" + totalrmb);
 
     $.ajax({
         type: "get",
         dataType: "json",
-        url: "QzinfoHandler.ashx?val1=" + QZCtn_no + "&val2=" + QZDate + "&val3=" + QZNo + "&val4=" + machineType + "&val5=" + MakeDate + "&val6=" + QZAddress + "&val7=" + QZRentCoin + "&val8=" + RentDaily + "&val9=" + QZLintCoin + "&val10=" + QZLint + "&val11=" + QZPtiFeeCoin + "&val12=" + QZPtiFee + "&val13=" + QZTransportFeeCoin + "&val14=" + QZTransportFee + "&val15=" + Rent + "&val16=" + totalUSD + "&val17=" + totalrmb + "&val18=" + "ADDQzinfo",
+        url: "QzinfoHandler.ashx?val1=" + QZCtn_no + "&val2=" + QZDate + "&val3=" + QZNo + 
+        "&val4=" + machineType + "&val5=" + MakeDate + "&val6=" + QZAddress + 
+        "&val7=" + QZRentCoin + "&val8=" + RentDaily + "&val9=" + QZLintCoin +
+        "&val10=" + QZLint + "&val11=" + QZPtiFeeCoin + 
+        "&val12=" + QZPtiFee + "&val13=" + QZTransportFeeCoin
+        + "&val14=" + QZTransportFee + "&val15=" + Rent + "&val16=" + totalUSD
+        + "&val17=" + totalrmb + "&val18=" + "ADDQzinfo"+"&val19="+TxType,
         success: function (ret) {
 
             //                    var _json = eval(ret);
