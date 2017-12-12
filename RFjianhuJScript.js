@@ -252,11 +252,37 @@ function InsertRfinfo() {
     }
 
 
+    
+    
+    /*
     var r = INTO_PORT.match(/^(\d{1,4})(-|\/)(\d{1,2})\2(\d{1,2})$/);
     if (r == null) {
         alert("请输入格式正确的日期\n\r日期格式：yyyy-mm-dd例    如：2008-08-08");
         return false;
     }
+    
+    */
+    
+    
+    var time1 = INTO_PORT.substr(0, 10);
+         var time2 = INTO_PORT.substr(11, 8);
+
+         var r2 = time1.match(/^(\d{1,4})(-|\/)(\d{1,2})\2(\d{1,2})$/);
+
+         var r = time2.match(/^(0\d{1}|1\d{1}|2[0-3]):[0-5]\d{1}:([0-5]\d{1})$/);
+
+         if (r == null) {
+             alert("请输入格式正确的日期\n\r日期格式：yyyy-mm-dd HH:mm:ss例    如：2008-08-08 00:00:00");
+             return false;
+         }
+         if (r2 == null) {
+             alert("请输入格式正确的日期\n\r日期格式：yyyy-mm-dd HH:mm:ss例    如：2008-08-08 00:00:00");
+             return false;
+
+         }
+
+    
+    
 
 
 
