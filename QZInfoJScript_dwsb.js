@@ -25,7 +25,7 @@ function Insert() {
 
     }
 
-    var rQZDate = INTO_PORT.match(/^(\d{1,4})(-|\/)(\d{1,2})\2(\d{1,2})$/);
+    var rQZDate = QZDate.match(/^(\d{1,4})(-|\/)(\d{1,2})\2(\d{1,2})$/);
     if (rQZDate == null) {
         alert("请输入格式正确的日期\n\r日期格式：yyyy-mm-dd例    如：2008-08-08");
         return false;
