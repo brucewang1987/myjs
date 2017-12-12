@@ -59,3 +59,36 @@ body
 }
 
 */
+
+
+
+  #div1
+         {
+             height: 800px;
+            width: 1000px;
+             
+             }
+             
+             .test
+             {
+                 height: 80px;
+            width: 70px; 
+                 font-size:50px;
+                 }
+                 
+                 .test2
+                 {
+                     height:70px;
+                     width:400px;
+                     font-size:50px;
+                     
+                     }
+                     
+                     .test3
+                     {
+                          height: 90px;
+            width: 150px; 
+            font-size:50px;
+                         }
+
+
