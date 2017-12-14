@@ -621,6 +621,14 @@
 
 
          var ctn_id = $("#ctn_id").val();
+      
+      if(ctn_id=="")
+      {
+      alert("未找到相关信息");
+       return false;
+      
+      }
+      
 
          if (!window.confirm('确定要删除箱号为' + CTNR_NO + '的记录吗')) {
 
