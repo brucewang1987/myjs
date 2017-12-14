@@ -305,7 +305,7 @@
 
              alert("请选择尺寸");
              return false;
-         
+
          }
 
          var ctn_type = $("#ctn_typeID").val();
@@ -321,7 +321,7 @@
 
              alert("请选择箱属");
              return false;
-         
+
          }
 
 
@@ -374,20 +374,20 @@
 
      function ChangeRFInfo() {
 
-         var CTNR_NO = $("#CTNR_NOID").val();
-         if (CTNR_NO == "") {
+         var ctn_id = $("#ctn_id").val();
+//         if (ctn_id == "") {
 
 
-             alert("请输入CTNR_NO");
-             return false;
+//             alert("请输入CTNR_NO");
+//             return false;
 
-         }
+//         }
 
          var INTO_PORT = $("#INTO_PORT_ID").val();
 
          if (INTO_PORT == "") {
 
-             alert("请选择INTO_PORT");
+             alert("请选择进场时间");
              return false;
          }
 
@@ -487,9 +487,9 @@
 
          $.ajax({
 
-          type: "get",
+             type: "get",
              dataType: "json",
-             url: "RFjianhuHandler.ashx?val1=" + CTNR_NO + "&val2=" + INTO_PORT +
+             url: "RFjianhuHandler.ashx?val1=" + ctn_id + "&val2=" + INTO_PORT +
                  "&val3=" + vol + "&val4=" + SET_Temp + "&val5=" + YENT + "&val8=" + "updateRFinfo"
                  + "&val9=" + vsl + "&val10=" + ctn_size + "&val11=" + ctn_type + "&val12=" + operator
                  ,
@@ -504,13 +504,13 @@
              error: function (XmlHttpRequest, textStatus, errorThrown) {
                  alert(XmlHttpRequest.responseText);
              }
-         
-         
+
+
          })
 
 
-     
-     
+
+
      }
 
 
@@ -556,6 +556,7 @@
                      $("#ctn_sizeID").val(_json[key].ctn_size);
                      $("#ctn_typeID").val(_json[key].ctn_type);
                      $("#operatorId").val(_json[key].operator);
+                     $("#ctn_id").val(_json[key].Ctn_ID);
 
                  });
 
@@ -564,7 +565,7 @@
                  html += "<tr>";
                  html += "<td>箱号</td>";
                  html += "<td>尺寸</td>";
-                 html += "<td>箱型</td>";          
+                 html += "<td>箱型</td>";
                  html += "<td>箱属</td>";
                  html += "<td>进场时间</td>";
                  html += "<td>船名</td>";
@@ -618,6 +619,9 @@
 
          }
 
+
+         var ctn_id = $("#ctn_id").val();
+
          if (!window.confirm('确定要删除箱号为' + CTNR_NO + '的记录吗')) {
 
              return false;
@@ -628,7 +632,7 @@
 
              type: "get",
              dataType: "json",
-             url: "RFjianhuHandler.ashx?val1=" + CTNR_NO + "&val8=" + "DeleteRfinfo",
+             url: "RFjianhuHandler.ashx?val1=" + ctn_id + "&val8=" + "DeleteRfinfo",
              success: function (ret) {
 
 
