@@ -1,14 +1,15 @@
- function init() {
+   function init() {
 
          $("#ctn_id").val("");
          $("#CTNR_NO2ID").val("");
          $("#RET_ID").val("");
          $("#ptiDateID").val("");
 
-
+         //将箱号只读去除
+         $("#CTNR_NO2ID").attr("readonly", false);
      }
 
-
+     init();
 
      function AddRFitem() {
 
@@ -57,12 +58,25 @@
          }
 
 
+         var datein = $("#DateIn").val();
+
+
+         if (datein == "") {
+
+             alert("请输入进场日期");
+             return false;
+         
+         }
+
+
 
          $.ajax({
 
              type: "get",
              dataType: "json",
-             url: "RFjianhuHandler.ashx?val1=" + CTNR_NO2 + "&val2=" + RET + "&val3=" + ptiDate + "&val8=" + "ADDRfiteminfo",
+             url: "RFjianhuHandler.ashx?val1=" + CTNR_NO2 + "&val2=" + RET + "&val3="
+              + ptiDate + "&val8=" + "ADDRfiteminfo" + "&val9=" + datein,
+
              success: function (ret) {
                  var str = JSON.stringify(ret.strAddFlag);
 
@@ -128,17 +142,11 @@
 
      function DeleteRFitemNew(i) {
 
-         var ctn_id = $("#RFInfotable").find("tr").eq(i).find("td").eq(0).text();
-
-         if (ctn_id == "") {
-
-             alert("请输入需要删除的ctn_id");
-             return false;
+         var Record_ID = $("#RFInfotable").find("tr").eq(i).find("td").eq(4).text();
 
 
-         }
 
-         if (!window.confirm('确定要删除箱id为' + ctn_id + '的记录吗')) {
+         if (!window.confirm('确定要删除这条记录吗')) {
 
              return false;
          }
@@ -147,7 +155,7 @@
          $.ajax({
              type: "get",
              dataType: "json",
-             url: "RFjianhuHandler.ashx?val1=" + ctn_id + "&val8=" + "DeleteRfiteminfo",
+             url: "RFjianhuHandler.ashx?val1=" + Record_ID + "&val8=" + "DeleteRfiteminfo",
 
              success: function (ret) {
 
@@ -199,14 +207,15 @@
                  var _json = eval(ret.DTByctn_no);
                  var html = "";
                  html += "<tr>";
-                 html += "<td>CTN_ID</td>"
-                 html += "<td>CTNR_NO</td>";
-                 html += "<td>PTIDate</td>";
-                 html += "<td>RET</td>";
-                 html += "<td>INTO_PORT</td>";
-                 html += "<td>vol</td>";
-                 html += "<td>SET_Temp</td>";
-                 html += "<td>YENT</td>";
+//                 html += "<td>CTN_ID</td>"
+                 html += "<td>箱号</td>";
+                 html += "<td>记录时间</td>";
+                 html += "<td>记录温度</td>";
+                 html += "<td>进场时间</td>";
+                 html += "<td style = " + "'" + "display:none;" + "'" + ">" + "Record_ID</td>"
+//                 html += "<td>vol</td>";
+//                 html += "<td>SET_Temp</td>";
+//                 html += "<td>YENT</td>";
                  html += "<td>操作</td>"
                  html += "</tr>"
 
@@ -214,16 +223,17 @@
                  $(_json).each(function (key) {
 
                      html += "<tr>";
-                     html += "<td>" + _json[key].ctn_id + "</td>";
+//                     html += "<td>" + _json[key].ctn_id + "</td>";
                      html += "<td>" + _json[key].ctn_no + "</td>";
                      html += "<td>" + _json[key].pti_date + "</td>";
                      html += "<td>" + _json[key].pti_temperature + "</td>";
                      html += "<td>" + _json[key].INTO_PORT + "</td>";
-                     html += "<td>" + _json[key].vol + "</td>";
-                     html += "<td>" + _json[key].SET_Temp + "</td>";
-                     html += "<td>" + _json[key].YENT + "</td>";
-                     html += "<td>" + "<input type = " + "'" + "button" + "' value = " + "'" + "修改"
-                      + "' onclick = '" + "divAppearnew(" + i + ")" + "'" + "/>" + "|"
+                     html += "<td style = " + "'" + "display:none;" + "'" + ">" + _json[key].Record_ID + "</td>"
+//                     html += "<td>" + _json[key].vol + "</td>";
+//                     html += "<td>" + _json[key].SET_Temp + "</td>";
+//                     html += "<td>" + _json[key].YENT + "</td>";
+                     html += "<td>" + "<input type = " + "'" + "button" + "' value = " + "'" + "编辑"
+                      + "' onclick = '" + "EditItem(" + i + ")" + "'" + "/>" + "|"
                        + "<input type = " + "'" + "button" + "' value = " + "'" +
                         "删除" + "' onclick = '" + "return DeleteRFitemNew(" + i + ")" + "'" + "/>" + "</td>";
 
@@ -299,46 +309,77 @@
      }
 
 
+     function EditItem(i) {
+
+         var Record_ID = $("#RFInfotable").find("tr").eq(i).find("td").eq(4).text();
+         $("#Record_ID").val(Record_ID);
+
+         var ctn_no = $("#RFInfotable").find("tr").eq(i).find("td").eq(0).text();
+         $("#CTNR_NO2ID").val(ctn_no);
+
+         var ptiDate = $("#RFInfotable").find("tr").eq(i).find("td").eq(1).text();
+         $("#ptiDateID").val(ptiDate);
+
+         var RET = $("#RFInfotable").find("tr").eq(i).find("td").eq(2).text();
+
+         $("#RET_ID").val(RET);
+
+         //将箱号设为只读
+         $("#CTNR_NO2ID").attr("readonly", true);
+
+
+     }
+
+
 
      function RFitemupdate() {
 
-         var ctn_id = $("#ctn_id").val();
+//         var ctn_id = $("#ctn_id").val();
 
-         if (ctn_id == "") {
-             alert("请输入需要打冷的ctn_id");
-             return false;
+//         if (ctn_id == "") {
+//             alert("请输入需要打冷的ctn_id");
+//             return false;
 
-         }
+//         }
+
+//         var RET = $("#RET_ID").val();
+
+//         if (RET == "") {
+
+//             alert("请输入温度");
+//             return false;
+
+//         }
+
+//         var ptiDate = $("#ptiDateID").val();
+
+
+//         if (ptiDate == "") {
+
+//             alert("请选择打冷的日期");
+//             return false;
+         //         }
+
+
+         var Record_ID = $("#Record_ID").val();
 
          var RET = $("#RET_ID").val();
 
-         if (RET == "") {
-
-             alert("请输入温度");
-             return false;
-
-         }
-
          var ptiDate = $("#ptiDateID").val();
 
-
-         if (ptiDate == "") {
-
-             alert("请选择打冷的日期");
-             return false;
-         }
-
+       
 
 
          $.ajax({
 
              type: "get",
              dataType: "json",
-             url: "RFjianhuHandler.ashx?val1=" + ctn_id + "&val2=" + RET + "&val3=" + ptiDate + "&val8=" + "UpdateRfiteminfo",
+             url: "RFjianhuHandler.ashx?val1=" + Record_ID + "&val2=" + RET + "&val3=" + ptiDate + "&val8=" + "UpdateRfiteminfo",
              success: function (ret) {
                  var str = JSON.stringify(ret.strAddFlag);
 
                  alert(str);
+                 window.location.reload();
 
              },
              error: function (XmlHttpRequest, textStatus, errorThrown) {
@@ -404,8 +445,8 @@
 
 
          })
-     
-     
+
+
      }
 
 
@@ -421,4 +462,3 @@
              exclude_inputs: true
          });
      }
-
