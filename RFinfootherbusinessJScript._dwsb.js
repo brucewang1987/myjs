@@ -8,6 +8,8 @@
 
 
 
+  
+
            var startDate = $("#RFStartDate_ID").val();
 
            if (startDate == "") {
