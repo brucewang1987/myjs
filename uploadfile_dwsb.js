@@ -93,7 +93,7 @@ $(function () {
                         //提交后的回调函数
                         success: function (data) {
                             if (data.status == "ok") {
-                                $("#container").html(data.fileName);
+                                $("#result").html(data.fileName);
                                 $("#FileCtrl").val('');
                                 alert("上传成功");
                             }
