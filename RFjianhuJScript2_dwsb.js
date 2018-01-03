@@ -127,7 +127,7 @@
         }
 
         var time1 = ptiDate.substr(0, 10);
-        var time2 = ptiDate.substr(11, 8);
+        var time2 = ptiDate.substr(11, 5);
 
         var r2 = time1.match(/^(\d{1,4})(-|\/)(\d{1,2})\2(\d{1,2})$/);
 
