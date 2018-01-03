@@ -41,7 +41,7 @@ function QueryPtidate() {
               type: "get",
               dataType: "json",
               url: "RFjianhuHandler.ashx?val1=" + ctn_no + "&val2=" + vol + "&val3="
-             + vsl + "&val4=" + dateIN + "&val8=" + "RFItemUniver",
+             + vsl + "&val8=" + "RFItemUniver",
 
               success: function (ret) {
 
