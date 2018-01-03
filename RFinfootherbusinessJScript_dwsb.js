@@ -61,6 +61,9 @@
                    var html = "";
                    html += "<tr>";
                    html += "<td>箱号</td>"
+                   html += "<td>通风口</td>"
+                   html +="<td>尺寸</td>"
+                   html +="<td>箱型</td>"
                    html += "<td>进场时间</td>";
                    html += "<td>船名</td>";
                    html += "<td>航次</td>";
@@ -73,6 +76,9 @@
 
                        html += "<tr>";
                        html += "<td>" + _json[key].CTNR_NO + "</td>";
+                       html += "<td>" + _json[key].YENT + "</td>";
+                       html += "<td>" + _json[key].ctn_size + "</td>";
+                       html += "<td>" + _json[key].ctn_type + "</td>";
                        html += "<td>" + _json[key].INTO_PORT + "</td>";
                        html += "<td>" + _json[key].vol + "</td>";
                        html += "<td>" + _json[key].vsl + "</td>";
