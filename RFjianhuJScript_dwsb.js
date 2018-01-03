@@ -263,7 +263,7 @@
 
 
          var time1 = INTO_PORT.substr(0, 10);
-         var time2 = INTO_PORT.substr(11, 8);
+         var time2 = INTO_PORT.substr(11, 5);
 
          var r2 = time1.match(/^(\d{1,4})(-|\/)(\d{1,2})\2(\d{1,2})$/);
 
@@ -405,7 +405,7 @@
 
 
          var time1 = INTO_PORT.substr(0, 10);
-         var time2 = INTO_PORT.substr(11, 8);
+         var time2 = INTO_PORT.substr(11, 5);
 
          var r2 = time1.match(/^(\d{1,4})(-|\/)(\d{1,2})\2(\d{1,2})$/);
 
@@ -571,7 +571,7 @@
                  html += "<td>船名</td>";
                  html += "<td>航次</td>";
                  html += "<td>设定温度</td>";
-                 html += "<td>YENT</td>";
+                 html += "<td>通风口</td>";
                  html += "<td>录入时间</td>";
                  html += "<td>修改时间</td>";
 
