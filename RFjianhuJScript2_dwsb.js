@@ -1,3 +1,4 @@
+   
     function init() {
 
         
@@ -130,14 +131,17 @@
 
         var r2 = time1.match(/^(\d{1,4})(-|\/)(\d{1,2})\2(\d{1,2})$/);
 
-        var r = time2.match(/^(0\d{1}|1\d{1}|2[0-3]):[0-5]\d{1}:([0-5]\d{1})$/);
+//        var r = time2.match(/^(0\d{1}|1\d{1}|2[0-3]):[0-5]\d{1}:([0-5]\d{1})$/);
+
+        var r = time2.match(/^(0\d{1}|1\d{1}|2[0-3]):([0-5]\d{1})$/);
+
 
         if (r == null) {
-            alert("请输入格式正确的日期\n\r日期格式：yyyy-mm-dd HH:mm:ss例    如：2008-08-08 00:00:00");
+            alert("请输入格式正确的日期\n\r日期格式：yyyy-mm-dd HH:mm 例    如：2008-08-08 00:00");
             return false;
         }
         if (r2 == null) {
-            alert("请输入格式正确的日期\n\r日期格式：yyyy-mm-dd HH:mm:ss例    如：2008-08-08 00:00:00");
+            alert("请输入格式正确的日期\n\r日期格式：yyyy-mm-dd HH:mm 例    如：2008-08-08 00:00");
             return false;
 
         }
@@ -340,9 +344,13 @@
                 $("#RFInfotable").html(html);
                 //                $("#CTNR_NO2ID").val("");
                 init2();
-                $("#tableToExcel").attr("disabled", false);
+//                $("#tableToExcel").attr("disabled", false);
                 $("#itemOk").attr("disabled", false);
                 $("#itemChange").attr("disabled", true);
+
+                $("#CTNR_NO2ID").attr("readonly", true);
+                $("#DateIn").attr("readonly", true);
+
 
 
                 //                init();
