@@ -25,7 +25,7 @@ function QueryPtidate() {
               return false;
           }
 
-
+/*
           var dateIN = $("#ptiDateID").val();
 
           if (dateIN == "") {
@@ -35,7 +35,7 @@ function QueryPtidate() {
           
           }
 
-
+*/
           $.ajax({
 
               type: "get",
