@@ -89,7 +89,7 @@
 
                    });
                    $("#RFInfotableBygateIN").html(html);
-                   init();
+                   
 
 
 
