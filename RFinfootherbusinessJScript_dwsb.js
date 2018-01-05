@@ -20,11 +20,17 @@
            }
            */
 
-           var r = startDate.match(/^(\d{1,4})(-|\/)(\d{1,2})\2(\d{1,2})$/);
+            if(startDate!="")
+            {
+            var r = startDate.match(/^(\d{1,4})(-|\/)(\d{1,2})\2(\d{1,2})$/);
            if (r == null) {
                alert("请输入格式正确的日期\n\r日期格式：yyyy-mm-dd例    如：2008-08-08");
                return false;
            }
+            
+            }
+   
+           
 
 
            var endDate = $("#RFEndDate_ID").val();
@@ -37,29 +43,50 @@
            
            */
 
-           var r2 = endDate.match(/^(\d{1,4})(-|\/)(\d{1,2})\2(\d{1,2})$/);
+  
+  if(endDate!="")
+  {
+   var r2 = endDate.match(/^(\d{1,4})(-|\/)(\d{1,2})\2(\d{1,2})$/);
            if (r2 == null) {
                alert("请输入格式正确的日期\n\r日期格式：yyyy-mm-dd例    如：2008-08-08");
                return false;
            }
   
+  }
+  
+          
+  
   
   
      var outstartDate = $("#outstartDate").val();
-      r = outstartDate.match(/^(\d{1,4})(-|\/)(\d{1,2})\2(\d{1,2})$/);
+  
+  if(outstartDate!="")
+  {
+   var r = outstartDate.match(/^(\d{1,4})(-|\/)(\d{1,2})\2(\d{1,2})$/);
   if (r == null) {
                alert("请输入格式正确的日期\n\r日期格式：yyyy-mm-dd例    如：2008-08-08");
                return false;
            }
   
+  }
+  
+     
+  
   
   
   var outendDate = $("#outendDate").val();
+  
+  if(outendDate!="")
+  {
   r2 = outendDate.match(/^(\d{1,4})(-|\/)(\d{1,2})\2(\d{1,2})$/);
    if (r2 == null) {
                alert("请输入格式正确的日期\n\r日期格式：yyyy-mm-dd例    如：2008-08-08");
                return false;
            }
+  
+  }
+  
+  
   
 
 
