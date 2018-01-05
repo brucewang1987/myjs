@@ -12,11 +12,13 @@
 
            var startDate = $("#RFStartDate_ID").val();
 
+          /*
            if (startDate == "") {
                alert("请选择开始时间");
                return false;
 
            }
+           */
 
            var r = startDate.match(/^(\d{1,4})(-|\/)(\d{1,2})\2(\d{1,2})$/);
            if (r == null) {
@@ -26,17 +28,39 @@
 
 
            var endDate = $("#RFEndDate_ID").val();
+  /*
            if (endDate == "") {
 
                alert("请选择结束时间");
                return false;
            }
+           
+           */
 
            var r2 = endDate.match(/^(\d{1,4})(-|\/)(\d{1,2})\2(\d{1,2})$/);
            if (r2 == null) {
                alert("请输入格式正确的日期\n\r日期格式：yyyy-mm-dd例    如：2008-08-08");
                return false;
            }
+  
+  
+  
+     var outstartDate = $("#outstartDate").val();
+      r = outstartDate.match(/^(\d{1,4})(-|\/)(\d{1,2})\2(\d{1,2})$/);
+  if (r == null) {
+               alert("请输入格式正确的日期\n\r日期格式：yyyy-mm-dd例    如：2008-08-08");
+               return false;
+           }
+  
+  
+  
+  var outendDate = $("#outendDate").val();
+  r2 = outendDate.match(/^(\d{1,4})(-|\/)(\d{1,2})\2(\d{1,2})$/);
+   if (r2 == null) {
+               alert("请输入格式正确的日期\n\r日期格式：yyyy-mm-dd例    如：2008-08-08");
+               return false;
+           }
+  
 
 
 
@@ -45,7 +69,7 @@
                type: "get",
                dataType: "json",
                url: "RFjianhuHandler.ashx?val1=" + startDate + "&val2=" + endDate +
-                "&val3=" + CTNR_NO + "&val4=" + vol + "&val5=" + vsl + "&val8=" + "RFInfoInout",
+                "&val3=" + CTNR_NO + "&val4=" + vol + "&val5=" + vsl+"&val6="+outstartDate+"&val7="+outendDate + "&val8=" + "RFInfoInout",
                success: function (ret) {
 
 //                   alert(ret);
