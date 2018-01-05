@@ -21,6 +21,7 @@
             if (name == "001" && pass == "123456") {
 
                 window.location.href = "Default.aspx?backurl=" + window.location.href;
+             window.close();
 
             }
             else {
