@@ -25,7 +25,7 @@ function QueryPtidate() {
               return false;
           }
 
-/*
+
           var dateIN = $("#ptiDateID").val();
 
           if (dateIN == "") {
@@ -35,13 +35,13 @@ function QueryPtidate() {
           
           }
 
-*/
+
           $.ajax({
 
               type: "get",
               dataType: "json",
               url: "RFjianhuHandler.ashx?val1=" + ctn_no + "&val2=" + vol + "&val3="
-             + vsl + "&val8=" + "RFItemUniver",
+             + vsl +"&val4="+dateIN+ "&val8=" + "RFItemUniver",
 
               success: function (ret) {
 
