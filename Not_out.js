@@ -22,13 +22,16 @@
                         html += "<tr>";
 
                         html += "<td>箱号</td>";
+                        html+="<td>是否记录</td>"
+                      
                         html += "</tr>"
 
 
                         $(_json).each(function (key) {
 
                             html += "<tr>";
-                            html += "<td>" + _json[key].CTNR_NO + "</td>";
+                            html += "<td>" + _json[key].ctn_no + "</td>";
+                            html += "<td>" + _json[key].is_record + "</td>";
                             html += "</tr>";
 
 
