@@ -261,7 +261,7 @@
     
          */
 
-
+/*
          var time1 = INTO_PORT.substr(0, 10);
          var time2 = INTO_PORT.substr(11, 5);
 
@@ -281,7 +281,7 @@
 
 
 
-
+*/
 
 
          var vol = $("#volID").val();
