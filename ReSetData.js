@@ -14,7 +14,7 @@
 
              success: function (ret) {
               
-                 alert("ajax");
+                 
 
                  var str = JSON.stringify(ret.strAddFlag);
 
