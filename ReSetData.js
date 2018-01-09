@@ -13,6 +13,8 @@
              url: "RFjianhuHandler.ashx?val8="+"ReSetData",
 
              success: function (ret) {
+              
+                 alert("ajax");
 
                  var str = JSON.stringify(ret.strAddFlag);
 
