@@ -2,7 +2,7 @@
 
 
         if (!window.confirm('确定要重置未出场未记录数据吗？')) {
-            window.location.href = "RFjianhuItem.aspx?backurl=" + window.location.href;
+           // window.location.href = "RFjianhuItem.aspx?backurl=" + window.location.href;
             return false;
         }
 
