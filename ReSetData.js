@@ -20,7 +20,7 @@
 
                  alert(str);
 
-                 window.location.href = "RFjianhuItem.aspx?backurl=" + window.location.href;
+                // window.location.href = "RFjianhuItem.aspx?backurl=" + window.location.href;
                  
              },
              error: function (XmlHttpRequest, textStatus, errorThrown) {
