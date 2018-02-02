@@ -264,7 +264,7 @@
      function UpdateQZinfo() {
       
       
-       var ctn_id = $("#ctn_id").val();
+      
 
 
          var ctn_no = $("#ctn_noId").val();
@@ -411,7 +411,7 @@
              url: "/QZBusiness/QZBusiness?val1=" + ctn_no + "&val2=" + QZDate +
             "&val3=" + QZAdress + "&val4=" + QZNo + "&val5=" + MachineNo +
             "&val6=" + MakeDate + "&val7=" + Rent + "&val8=" + QZLoadFee +
-            "&val9=" + QZCheckpti + "&val10=" + QZTranFee + "&val11=" + total +"&val12="+ctn_id+ "&val88=" + "UpdateQZinfo",
+            "&val9=" + QZCheckpti + "&val10=" + QZTranFee + "&val11=" + total + "&val88=" + "UpdateQZinfo",
 
              success: function (ret) {
 
