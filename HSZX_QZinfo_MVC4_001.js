@@ -1,4 +1,6 @@
  function AddInfo() {
+  
+        var regu = /^[0-9]+\.?[0-9]*$/;
 
          var ctn_no = $("#ctn_noId").val();
 
@@ -67,11 +69,20 @@
              return false;
 
          }
+      
+  
+        if (!regu.test(Rent)) {
+                alert("日租金请输入数字");
+                $("#RentId").focus();
+                return false;
+
+            }
+     
 
          Rent = Rent * 1;
 
          var total = 0;
-         var regu = /^[0-9]+\.?[0-9]*$/;
+        
 
          var QZLoadFee = $("#QZLoadFee").val();
 
