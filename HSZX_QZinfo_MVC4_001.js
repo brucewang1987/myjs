@@ -228,11 +228,11 @@
                  html += "<td>机型型号</td>";
                  html += "<td>制造日期</td>";
                  html += "<td>起租地点</td>";
-                 html += "<td>日租金</td>";
-                 html += "<td>起租装卸费</td>";
-                 html += "<td>起租pti检验费</td>";
-                 html += "<td>起租运输费</td>";
-                 html += "<td>起租总费用</td>";
+                 html += "<td>日租金(美元)</td>";
+                 html += "<td>起租装卸费(美元)</td>";
+                 html += "<td>起租pti检验费(美元)</td>";
+                 html += "<td>起租运输费(美元)</td>";
+                 html += "<td>起租总费用(美元)</td>";
                  html += "<td>录入时间</td>";
                  html += "<td>修改时间</td>";
                  html += "</tr>";
