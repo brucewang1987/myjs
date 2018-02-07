@@ -597,3 +597,7 @@ var now=year+'-'+p(month)+"-"+p(date)+" "+p(h)+':'+p(m);
             exclude_inputs: true
         });
     }
+
+function p(s) {
+    return s < 10 ? '0' + s: s;
+}
