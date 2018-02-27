@@ -6,6 +6,7 @@
              $("#RentDaily").attr("disabled", true);
              $("#QZDate").attr("disabled", true);
 
+  
 
          }
          init();
