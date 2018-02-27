@@ -40,6 +40,7 @@
                      if (str == "[]") {
                          alert("没有数据");
                          return false;
+                         
                      }
 
                      var _json = eval(map.dt);
