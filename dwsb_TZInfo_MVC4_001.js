@@ -40,7 +40,7 @@
                      if (str == "[]") {
                          alert("没有数据");
                          return false;
-                         
+                         window.location.reload();
                      }
 
                      var _json = eval(map.dt);
