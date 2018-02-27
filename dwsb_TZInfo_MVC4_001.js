@@ -64,7 +64,7 @@
                      });
 
                      $("#btnAdd").attr("disabled", false);
-                    
+                    $("#ctn_no").attr("disabled", true);
 
                  }
 
