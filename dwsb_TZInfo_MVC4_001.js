@@ -40,7 +40,7 @@
                      var str = JSON.stringify(map.dt);
                      if (str == "[]") {
                          alert("没有数据");
-                         return false;
+                         //return false;
                          window.location.reload();
                      }
 
