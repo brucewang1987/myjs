@@ -4,6 +4,7 @@
              $("#btnUpdate").attr("disabled", true);
              $("#RentDailyCoin").attr("disabled", true);
              $("#RentDaily").attr("disabled", true);
+             $("#QZDate").attr("disabled", true);
 
 
          }
@@ -63,7 +64,7 @@
                      });
 
                      $("#btnAdd").attr("disabled", false);
-
+                    
 
                  }
 
