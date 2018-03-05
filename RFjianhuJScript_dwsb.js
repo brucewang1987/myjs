@@ -8,8 +8,10 @@ function fuck()
     
     }
     
-    fuck();
+    
     
     
 
 }
+
+fuck();
