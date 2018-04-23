@@ -1,6 +1,7 @@
- function QueryInfo() {
+ 
+$("#queryInfo").click(function (){
 
-               var startDate = $("#startDateID").val();
+  var startDate = $("#startDateID").val();
 
                if (startDate == "") {
 
@@ -127,11 +128,14 @@
                })
 
 
+ 
 
-            }
+});
 
-            function exportexcel() {
-                $("#RFInfotable").table2excel({
+
+$("#tabletoExcel").click(function (){
+
+$("#RFInfotable").table2excel({
                     exclude: ".noExl",
                     name: "Excel Document Name",
                     filename: "myFileName",
@@ -139,4 +143,7 @@
                     exclude_links: true,
                     exclude_inputs: true
                 });
-            }
+
+});
+
+           
