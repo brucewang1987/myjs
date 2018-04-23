@@ -1,6 +1,8 @@
- function LogIn() {
 
-            var name = $("#username").val();
+
+$("#OK").click(function (){
+
+ var name = $("#username").val();
 
             if (name == "") {
 
@@ -30,8 +32,10 @@
                 window.location.reload();
             }
 
+});
 
-        
-        }
+
+
+
 
        
