@@ -1,7 +1,6 @@
-function QueryGateIn()
-        {
+ $("#query").click(function () {
 
-            console.log($("#CTNR_NOID").val());
+
             var CTNR_NO = $("#CTNR_NOID").val();
             if (CTNR_NO == "") {
 
@@ -55,13 +54,12 @@ function QueryGateIn()
 
 
             })
-        
-        
-        }
 
 
-        function GateOut() {
+        });
 
+
+        $("#btnOut").click(function () {
 
             var ctn_id = $("#ctn_id").val();
 
@@ -72,31 +70,31 @@ function QueryGateIn()
 
                 alert("请输入出场时间!");
                 return false;
-            
+
             }
-                
-              var time1 = out_port.substr(0, 10);
-        var time2 = out_port.substr(11, 5);
 
-        var r2 = time1.match(/^(\d{1,4})(-|\/)(\d{1,2})\2(\d{1,2})$/);
+            var time1 = out_port.substr(0, 10);
+            var time2 = out_port.substr(11, 5);
 
-//        var r = time2.match(/^(0\d{1}|1\d{1}|2[0-3]):[0-5]\d{1}:([0-5]\d{1})$/);
+            var r2 = time1.match(/^(\d{1,4})(-|\/)(\d{1,2})\2(\d{1,2})$/);
 
-        var r = time2.match(/^(0\d{1}|1\d{1}|2[0-3]):([0-5]\d{1})$/);
+            //        var r = time2.match(/^(0\d{1}|1\d{1}|2[0-3]):[0-5]\d{1}:([0-5]\d{1})$/);
+
+            var r = time2.match(/^(0\d{1}|1\d{1}|2[0-3]):([0-5]\d{1})$/);
 
 
-        if (r == null) {
-            alert("请输入格式正确的日期\n\r日期格式：yyyy-mm-dd HH:mm 例    如：2008-08-08 00:00");
-            return false;
-        }
-        if (r2 == null) {
-            alert("请输入格式正确的日期\n\r日期格式：yyyy-mm-dd HH:mm 例    如：2008-08-08 00:00");
-            return false;
+            if (r == null) {
+                alert("请输入格式正确的日期\n\r日期格式：yyyy-mm-dd HH:mm 例    如：2008-08-08 00:00");
+                return false;
+            }
+            if (r2 == null) {
+                alert("请输入格式正确的日期\n\r日期格式：yyyy-mm-dd HH:mm 例    如：2008-08-08 00:00");
+                return false;
 
-        }  
-                
-                
-                
+            }
+
+
+
 
 
             var in_port = $("#INTO_PORT_ID").val();
@@ -136,7 +134,5 @@ function QueryGateIn()
 
 
             })
-        
-        
-        }
-        
+
+        });
