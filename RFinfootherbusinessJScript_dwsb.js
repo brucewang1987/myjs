@@ -1,6 +1,6 @@
- function QueryGateIN() {
+$("#OK").click(function (){
 
-           var CTNR_NO = $("#CTNR_NOID").val();
+var CTNR_NO = $("#CTNR_NOID").val();
 
            var vol = $("#volID").val();
 
@@ -157,12 +157,12 @@
 
            })
 
+}); 
 
-       }
 
+$("#tableToExcel").click(function (){
 
-       function exportexcel() {
-           $("#RFInfotableBygateIN").table2excel({
+ $("#RFInfotableBygateIN").table2excel({
                exclude: ".noExl",
                name: "Excel Document Name",
                filename: "myFileName",
@@ -170,7 +170,12 @@
                exclude_links: true,
                exclude_inputs: true
            });
-       }
+
+
+
+});
+
+   
 
 
 
