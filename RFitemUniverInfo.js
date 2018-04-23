@@ -1,6 +1,6 @@
-function QueryPtidate() {
+$("#OK").click(function (){
 
-          var ctn_no = $("#ctn_no_ID").val();
+ var ctn_no = $("#ctn_no_ID").val();
 
           if (ctn_no == "") {
 
@@ -105,13 +105,12 @@ function QueryPtidate() {
           })
 
 
+});
 
 
-      }
+$("#tableToExcel").click(function (){
 
-
-      function exportexcel() {
-          $("#RFInfotableByptidate").table2excel({
+$("#RFInfotableByptidate").table2excel({
               exclude: ".noExl",
               name: "Excel Document Name",
               filename: "myFileName",
@@ -119,4 +118,7 @@ function QueryPtidate() {
               exclude_links: true,
               exclude_inputs: true
           });
-      }
+
+});
+
+     
