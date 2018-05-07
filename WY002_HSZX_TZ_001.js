@@ -1,236 +1,265 @@
- function init() {
+  function init() {
 
-             $("#btnAdd").attr("disabled", true);
-             $("#btnUpdate").attr("disabled", true);
-             $("#RentDailyCoin").attr("disabled", true);
-             $("#RentDaily").attr("disabled", true);
-             $("#QZDate").attr("disabled", true);
+         $("#btnAdd").attr("disabled", true);
+         $("#btnUpdate").attr("disabled", true);
+         $("#RentDailyCoin").attr("disabled", true);
+         $("#RentDaily").attr("disabled", true);
+         $("#QZDate").attr("disabled", true);
 
-  
+
+
+     }
+     init();
+
+
+     $("#btnAdd").click(function () {
+
+
+         TZInfoAdd();
+
+
+
+     });
+
+
+     $("#btnUpdate").click(function () {
+
+         TZInfoUpdate();
+
+     });
+
+
+     $("#btnQuery").click(function () {
+
+         QueryTZSingleInfo();
+
+     });
+
+
+     $("#btnQueryQZinfo").click(function () {
+
+         QueryQZinfo();
+
+     });
+
+     function QueryQZinfo() {
+
+
+         var ctn_no = $("#ctn_no").val();
+
+         if (ctn_no == "") {
+
+             alert("请输入箱号");
+             return false;
 
          }
-         init();
+
+         $.ajax({
 
 
-
-         function QueryQZinfo() {
-
-
-             var ctn_no = $("#ctn_no").val();
-
-             if (ctn_no == "") {
-
-                 alert("请输入箱号");
-                 return false;
-
-             }
-
-             $.ajax({
+             type: "get",
+             dataType: "json",
+             url: "/QZInfo/QZBusiness?val1=" + ctn_no + "&val88=" + "QueryQZInfo",
 
 
-                 type: "get",
-                 dataType: "json",
-                 url: "/QZInfo/QZBusiness?val1=" + ctn_no + "&val88=" + "QueryQZInfo",
+             success: function (ret) {
 
+                 var map = eval('(' + ret + ')');
 
-                 success: function (ret) {
-
-                     var map = eval('(' + ret + ')');
-
-                     var str = JSON.stringify(map.dt);
-                     if (str == "[]") {
-                         alert("没有数据");
-                         //return false;
-                         window.location.reload();
-                     }
-
-                     var _json = eval(map.dt);
-
-                     var response = JSON.stringify(map.Response);
-
-
-
-                     var html = "";
-
-
-                     $(_json).each(function (key) {
-
-
-                         $("#QZDate").val(_json[key].QZDate);
-                         $("#RentDailyCoin").find("option:selected").text(_json[key].RentDailyCoin);
-                         $("#RentDaily").val(_json[key].RentDaily);
-
-
-
-
-                     });
-
-                     $("#btnAdd").attr("disabled", false);
-                    $("#ctn_no").attr("disabled", true);
-
+                 var str = JSON.stringify(map.dt);
+                 if (str == "[]") {
+                     alert("没有数据");
+                     //return false;
+                     window.location.reload();
                  }
 
+                 var _json = eval(map.dt);
 
-             })
+                 var response = JSON.stringify(map.Response);
 
+
+
+                 var html = "";
+
+
+                 $(_json).each(function (key) {
+
+
+                     $("#QZDate").val(_json[key].QZDate);
+                     $("#RentDailyCoin").find("option:selected").text(_json[key].RentDailyCoin);
+                     $("#RentDaily").val(_json[key].RentDaily);
+
+
+
+
+                 });
+
+                 $("#btnAdd").attr("disabled", false);
+                 $("#ctn_no").attr("disabled", true);
+
+             }
+
+
+         })
+
+
+     }
+
+
+     function TZInfoAdd() {
+
+         var regu = /^[0-9]+\.?[0-9]*$/;
+
+         var ctn_no = $("#ctn_no").val();
+
+         var QZDate = $("#QZDate").val();
+
+         var QZ = new Date(QZDate.replace("-", "/").replace("-", "/"));
+
+
+         var RentDailyCoin = $("#RentDailyCoin").find("option:selected").text();
+
+         var RentDaily = $("#RentDaily").val();
+
+         var TZDate = $("#TZDate").val();
+
+         var TZ = new Date(TZDate.replace("-", "/").replace("-", "/"));
+
+
+         if (TZ < QZ) {
+
+             alert("退租日期不可小于起租日期");
+             $("#TZDate").focus();
+             return false;
 
          }
 
 
-         function TZInfoAdd() {
 
-             var regu = /^[0-9]+\.?[0-9]*$/;
-
-             var ctn_no = $("#ctn_no").val();
-
-             var QZDate = $("#QZDate").val();
-
-             var QZ = new Date(QZDate.replace("-", "/").replace("-", "/"));
+         var r = TZDate.match(/^(\d{1,4})(-|\/)(\d{1,2})\2(\d{1,2})$/);
+         if (r == null) {
+             alert("请输入格式正确的日期\n\r日期格式：yyyy-mm-dd例    如：2008-08-08");
+             return false;
+         }
 
 
-             var RentDailyCoin = $("#RentDailyCoin").find("option:selected").text();
+         var TZNO = $("#TZNO").val();
 
-             var RentDaily = $("#RentDaily").val();
+         var TZAdress = $("#TZAdress").val();
 
-             var TZDate = $("#TZDate").val();
+         var TZLoadFeeCoin = $("#TZLoadFeeCoin").find("option:selected").text();
 
-             var TZ = new Date(TZDate.replace("-", "/").replace("-", "/"));
+         var TZLoadFee = $("#TZLoadFee").val();
 
+         if (TZLoadFee == "") {
 
-             if (TZ < QZ) {
+             $("#TZLoadFee").val(0.00);
 
-                 alert("退租日期不可小于起租日期");
-                 $("#TZDate").focus();
-                 return false;
-             
-             }
+         }
 
+         if (!regu.test(TZLoadFee)) {
+             alert("退租装卸费格式不正确");
+             $("#TZLoadFee").focus();
+             return false;
 
-
-             var r = TZDate.match(/^(\d{1,4})(-|\/)(\d{1,2})\2(\d{1,2})$/);
-             if (r == null) {
-                 alert("请输入格式正确的日期\n\r日期格式：yyyy-mm-dd例    如：2008-08-08");
-                 return false;
-             }
+         }
 
 
-             var TZNO = $("#TZNO").val();
+         var TZPtiFeeCoin = $("#TZPtiFeeCoin").find("option:selected").text();
 
-             var TZAdress = $("#TZAdress").val();
+         var TZPtiFee = $("#TZPtiFee").val();
 
-             var TZLoadFeeCoin = $("#TZLoadFeeCoin").find("option:selected").text();
+         if (TZPtiFee == "") {
 
-             var TZLoadFee = $("#TZLoadFee").val();
+             $("#TZPtiFee").val(0.00);
 
-             if (TZLoadFee == "") {
+         }
+         if (!regu.test(TZPtiFee)) {
+             alert("退租pti费格式不正确");
+             $("#TZPtiFee").focus();
+             return false;
 
-                 $("#TZLoadFee").val(0.00);
-
-             }
-
-             if (!regu.test(TZLoadFee)) {
-                 alert("退租装卸费格式不正确");
-                 $("#TZLoadFee").focus();
-                 return false;
-
-             }
+         }
 
 
-             var TZPtiFeeCoin = $("#TZPtiFeeCoin").find("option:selected").text();
+         var TZTranFeeCoin = $("#TZTranFeeCoin").find("option:selected").text();
 
-             var TZPtiFee = $("#TZPtiFee").val();
+         var TZTranFee = $("#TZTranFee").val();
 
-             if (TZPtiFee == "") {
+         if (TZTranFee == "") {
 
-                 $("#TZPtiFee").val(0.00);
+             $("#TZTranFee").val(0.00);
 
-             }
-             if (!regu.test(TZPtiFee)) {
-                 alert("退租pti费格式不正确");
-                 $("#TZPtiFee").focus();
-                 return false;
+         }
 
-             }
+         if (!regu.test(TZTranFee)) {
+             alert("退租运输费格式不正确");
+             $("#TZTranFee").focus();
+             return false;
 
-
-             var TZTranFeeCoin = $("#TZTranFeeCoin").find("option:selected").text();
-
-             var TZTranFee = $("#TZTranFee").val();
-
-             if (TZTranFee == "") {
-
-                 $("#TZTranFee").val(0.00);
-
-             }
-
-             if (!regu.test(TZTranFee)) {
-                 alert("退租运输费格式不正确");
-                 $("#TZTranFee").focus();
-                 return false;
-
-             }
+         }
 
 
-             var TZXTFeeCoin = $("#TZXTFeeCoin").find("option:selected").text();
+         var TZXTFeeCoin = $("#TZXTFeeCoin").find("option:selected").text();
 
-             var TZXTFee = $("#TZXTFee").val();
+         var TZXTFee = $("#TZXTFee").val();
 
 
-             if (TZXTFee == "") {
+         if (TZXTFee == "") {
 
-                 $("#TZXTFee").val(0.00);
+             $("#TZXTFee").val(0.00);
 
-             }
-             if (!regu.test(TZXTFee)) {
-                 alert("退租箱体修理费格式不正确");
-                 $("#TZXTFee").focus();
-                 return false;
+         }
+         if (!regu.test(TZXTFee)) {
+             alert("退租箱体修理费格式不正确");
+             $("#TZXTFee").focus();
+             return false;
 
-             }
+         }
 
 
 
-             var TZJZFeeCoin = $("#TZJZFeeCoin").find("option:selected").text();
+         var TZJZFeeCoin = $("#TZJZFeeCoin").find("option:selected").text();
 
-             var TZJZFee = $("#TZJZFee").val();
-
-
-             if (TZJZFee == "") {
-
-                 $("#TZJZFee").val(0.00);
-             
-             }
-             if (!regu.test(TZJZFee)) {
-                 alert("退租机组修理费格式不正确");
-                 $("#TZJZFee").focus();
-                 return false;
-
-             }
-
-             var Rate = $("#Rate").val();
-
-             if (Rate == "") {
-
-                 $("#Rate").val(1);
-             }
-
-             if (!regu.test(Rate)) {
-                 alert("汇率格式不正确");
-                 $("#Rate").focus();
-                 return false;
-
-             }
+         var TZJZFee = $("#TZJZFee").val();
 
 
-             $.ajax({
-             
+         if (TZJZFee == "") {
+
+             $("#TZJZFee").val(0.00);
+
+         }
+         if (!regu.test(TZJZFee)) {
+             alert("退租机组修理费格式不正确");
+             $("#TZJZFee").focus();
+             return false;
+
+         }
+
+         var Rate = $("#Rate").val();
+
+         if (Rate == "") {
+
+             $("#Rate").val(1);
+         }
+
+         if (!regu.test(Rate)) {
+             alert("汇率格式不正确");
+             $("#Rate").focus();
+             return false;
+
+         }
+
+
+         $.ajax({
+
              type: "get",
              dataType: "json",
              url: "/TZInfo/TZBusiness?val1=" + ctn_no + "&val2=" + QZDate + "&val3=" + RentDailyCoin
-             + "&val4=" + RentDaily + "&val5=" + TZDate + "&val6=" + TZNO + "&val7=" + TZAdress+
-             "&val8=" + TZLoadFeeCoin + "&val9=" + TZLoadFee + "&val10=" + TZPtiFeeCoin+
-             "&val11=" + TZPtiFee + "&val12=" + TZTranFeeCoin + "&val13=" + TZTranFee+
-             "&val14=" + TZXTFeeCoin + "&val15=" + TZXTFee + "&val16=" + TZJZFeeCoin+
+             + "&val4=" + RentDaily + "&val5=" + TZDate + "&val6=" + TZNO + "&val7=" + TZAdress +
+             "&val8=" + TZLoadFeeCoin + "&val9=" + TZLoadFee + "&val10=" + TZPtiFeeCoin +
+             "&val11=" + TZPtiFee + "&val12=" + TZTranFeeCoin + "&val13=" + TZTranFee +
+             "&val14=" + TZXTFeeCoin + "&val15=" + TZXTFee + "&val16=" + TZJZFeeCoin +
              "&val17=" + TZJZFee + "&val18=" + Rate + "&val88=" + "AddTZinfo",
 
              success: function (ret) {
@@ -258,7 +287,7 @@
      function QueryTZSingleInfo() {
 
 
-         
+
 
          var ctn_no = $("#ctn_no").val();
 
@@ -316,7 +345,7 @@
                  html += "<td>汇率</td>"; //19
                  html += "<td>人民币总租金</td>"; //20
                  html += "<td>美元总租金</td>"; //21
-                 html+="<td>操作</td>"
+                 html += "<td>操作</td>"
                  html += "</tr>"
 
                  $(_json).each(function (key) {
@@ -348,7 +377,7 @@
                      html += "<td>" + _json[key].RentTotalUSD + "</td>"; //23
                      html += "<td>" + "<input type = " + "'" + "button" + "' value = " + "'" + "编辑"
                       + "' onclick = '" + "EditTZinfo(" + i + ")" + "'" + "/>" + "|" + "<input type = " +
-                      "'"+"button"+"' value="+"'"+"删除"+"' onclick = '"+"DeleteInfo("+i+")"+"'"+"/>" + "</td>";
+                      "'" + "button" + "' value=" + "'" + "删除" + "' onclick = '" + "DeleteInfo(" + i + ")" + "'" + "/>" + "</td>";
                      html += "</tr>";
                  });
                  $("#TZinfoTable").html(html);
@@ -419,7 +448,7 @@
          var ctn_id = $("#ctn_id").val();
          var regu = /^[0-9]+\.?[0-9]*$/;
 
-         
+
 
          var QZDate = $("#QZDate").val();
 
@@ -612,11 +641,11 @@
 
                  alert(response);
                  window.location.reload();
-             
+
              }
 
 
 
          })
-     
+
      }
