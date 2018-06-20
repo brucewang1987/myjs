@@ -67,5 +67,27 @@ $.ajax({
 });
 
 
+$("#btnQZBaseImport").click(function(){
 
+$.ajax({
+            
+            type: "get",
+             dataType: "json",
+             url: "/QZInfo/QZBusiness?val88="+"UploadQZBaseInfo",
+
+
+             success: function (ret) {
+
+                 var map = eval('(' + ret + ')');
+                 var response = JSON.stringify(map.Response);
+
+                 alert(response);
+
+                 window.location.reload();
+
+             }
+            
+            })
+
+});
          
