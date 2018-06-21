@@ -97,6 +97,11 @@
 
 
              var Rent_id = $("#QZRentinfoTable").find("tr").eq(i).find("td").eq(0).text();
+                 
+                 if (!window.confirm('确定要删除这条记录吗')) {
+
+             return false;
+         }
 
              $.ajax({
 
