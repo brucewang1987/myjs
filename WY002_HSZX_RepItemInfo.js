@@ -152,6 +152,7 @@ $("#btnExport").click(function () {
                       var i = 1;
 
                       html += "<tr>";
+                     html += "<td style = " + "'" + "display:none;" + "'" + ">" +"r_id" + "</td>"//0
                       html += "<td>关联代码</td>"; //1
                       html += "<td>备件名称</td>"; //2
                       html += "<td>备件号</td>"; //3
@@ -159,7 +160,7 @@ $("#btnExport").click(function () {
                       html += "<td>价格</td>"; //5
                       html += "<td>对应箱号</td>"; //6
                       html += "<td>录入时间</td>"; //7
-                      html += "<td>修改时间</td>"; //8
+                     // html += "<td>修改时间</td>"; //8
                       html += "<td>操作</td>"; //8
                       html += "</tr>";
 
@@ -175,7 +176,7 @@ $("#btnExport").click(function () {
                           html += "<td>" + _json[key].price + "</td>";  //5
                           html += "<td>" + _json[key].ctn_no + "</td>";  //6
                           html += "<td>" + _json[key].input_date + "</td>";  //7
-                          html += "<td>" + _json[key].update_date + "</td>";  //8
+                         // html += "<td>" + _json[key].update_date + "</td>";  //8
                           html += "<td>" + "<input type = " + "'" + "button" + "' value = " + "'" +
                         "删除" + "' onclick = '" + "return DeleteRepItemSettle(" + i + ")" + "'" + "/>" + "</td>";
                           html += "</tr>";
