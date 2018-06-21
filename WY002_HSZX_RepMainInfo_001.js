@@ -192,9 +192,9 @@
 
              }
 
-             if (XCode.indexOf("PATU") < 0) {
+             if (XCode.indexOf("PATU") < 0||XCode.indexOf("patu") < 0) {
 
-                 alert("请输入正确的关联代码,如PATI1234567");
+                 alert("请输入正确的关联代码,如PATU1234567");
                  $("#XCode").focus();
                  return false;
 
