@@ -1,4 +1,41 @@
- function init() {
+$("#btnExport").click(function(){
+
+exportexcel();
+
+
+}); 
+
+  function exportexcel() {
+
+           if ($("table tr").length > 1) {
+
+               $("#RepairMaininfoTable").table2excel({
+                   exclude: ".noExl",
+                   name: "Excel Document Name",
+                   filename: "myFileName",
+                   exclude_img: true,
+                   exclude_links: true,
+                   exclude_inputs: true
+               });
+
+           }
+           else {
+
+               alert("没有数据");
+               return false;
+
+           }
+
+
+       }
+
+
+
+
+
+
+
+function init() {
 
 
              $("#btnChange").attr("disabled", true);
