@@ -533,3 +533,91 @@
         
         }
 
+
+
+ $("#btnQZTotalPL").click(function () {
+
+
+            QZTotalPL();
+
+        });
+
+
+        function QZTotalPL() {
+
+
+
+            var QZStartDate = $("#QZStartDate").val();
+
+            if (QZStartDate == "") {
+                alert("请选择起租开始日期");
+                $("#QZStartDate").focus();
+                return false;
+            }
+
+            var r = QZStartDate.match(/^(\d{1,4})(-|\/)(\d{1,2})\2(\d{1,2})$/);
+            if (r == null) {
+                alert("请输入格式正确的日期\n\r日期格式：yyyy-mm-dd例    如：2008-08-08");
+                $("#QZStartDate").focus();
+                return false;
+            }
+
+
+            var QZEndDate = $("#QZEndDate").val();
+            if (QZEndDate == "") {
+                alert("请选择起租结束日期");
+                $("#QZEndDate").focus();
+                return false;
+            }
+
+            r = QZEndDate.match(/^(\d{1,4})(-|\/)(\d{1,2})\2(\d{1,2})$/);
+
+            if (r == null) {
+                alert("请输入格式正确的日期\n\r日期格式：yyyy-mm-dd例    如：2008-08-08");
+                $("#QZEndDate").focus();
+                return false;
+            }
+
+
+            var d1 = new Date(QZStartDate.replace(/\-/g, "\/"));
+            var d2 = new Date(QZEndDate.replace(/\-/g, "\/"));
+
+
+            if (d1 >= d2) {
+                alert("开始时间不能大于结束时间！");
+                return false;
+            }
+
+            var QZRate = prompt("请输入汇率", "6.32");
+
+
+            $.ajax({
+            
+             type: "get",
+               dataType: "json",
+               url: "/QZInfo/QZBusiness?val1=" + QZStartDate + "&val2="
+                 + QZEndDate +"&val3="+QZRate+ "&val88=" + "SettlementQZInfoPL",
+
+
+               success: function (ret) {
+
+                   var map = eval('(' + ret + ')');
+                   var response = JSON.stringify(map.Response);
+
+                   alert(response);
+
+                   QueryQZUniverInfo();
+
+
+               }
+
+
+            
+            })
+
+        
+        
+        }
+
+
+
