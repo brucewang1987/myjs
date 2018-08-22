@@ -653,6 +653,13 @@
 
                   return false;
               }
+             
+             if($("table tr").length ==2)
+             {
+             
+                alert("此模块只做批量退租处理单箱请至退租模块做退租操作");
+                return false;
+             }
 
 
               divdisplay();
