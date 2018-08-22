@@ -312,6 +312,12 @@
         function RentSettlePL() {
 
             var QZRentStartDate = prompt("请输入起租结算开始日期", "2018-08-01");
+           
+           if (prompt("input", "") === null) {
+    /* todo : cancel */
+    return false;
+}
+           
 
             var r = QZRentStartDate.match(/^(\d{1,4})(-|\/)(\d{1,2})\2(\d{1,2})$/);
 
