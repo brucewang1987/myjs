@@ -49,7 +49,9 @@
                  html += "<td>结算起始日期</td>"; //3
                  html += "<td>结算结束日期</td>"; //4
                  html += "<td>结算天数</td>"; //5
-                 html += "<td>结算金额</td>"; //6
+                 html+="<td>结算汇率</td>";//6
+                 html += "<td>结算美元金额</td>"; //7
+                 html+="<td>结算人民币金额</td>";//8
                  html += "</tr>";
 
                  $(_json).each(function (key) {
@@ -61,7 +63,9 @@
                      html += "<td>" + _json[key].RentStartDate + "</td>";  //3
                      html += "<td>" + _json[key].RentEndDate + "</td>";  //4
                      html += "<td>" + _json[key].RentDays + "</td>";  //5
-                     html += "<td>" + _json[key].RentTotal + "</td>";  //6
+                     html += "<td>" + _json[key].RentRate + "</td>";  //6  
+                     html += "<td>" + _json[key].RentTotal + "</td>";  //7
+                     html += "<td>" + _json[key].RentTotalRMB + "</td>";  //8
                      //                        html += "<td>" + "<input type = " + "'" + "button" + "' value = " + "'" + "编辑"
                      //                           + "' onclick = '" + "EditQZRentinfo(" + i + ")" + "'" + "/>"  +"|"
                      //                       + "<input type = " + "'" + "button" + "' value = " + "'" +
