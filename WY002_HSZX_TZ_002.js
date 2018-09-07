@@ -94,7 +94,7 @@
 
            if (TZStartDate == "") {
 
-               alert("请选择起租开始日期");
+               alert("请选择退租开始日期");
                return false;
 
            }
@@ -113,7 +113,7 @@
 
            if (TZEndDate == "") {
 
-               alert("请选择起租结束日期");
+               alert("请选择退租结束日期");
                return false;
 
            }
