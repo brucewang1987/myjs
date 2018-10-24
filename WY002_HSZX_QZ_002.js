@@ -301,9 +301,16 @@
 
         $("#btnQZSettle").click(function () {
 
+         if ($("table tr").length < 1)
+         {
+         alert("无数据操作");
+         }
+           else
+           {
+              RentSettlePL();
+           }
 
-
-            RentSettlePL();
+            
 
 
         });
@@ -398,7 +405,20 @@
         $("#btnQZUpdateRent").click(function () {
 
 
-            RentUpdatePL();
+           if ($("table tr").length < 1){
+           
+           alert("无数据操作");
+           
+           }
+           else
+           {
+           RentUpdatePL();
+           }
+        
+           
+           
+           
+            
 
 
         });
