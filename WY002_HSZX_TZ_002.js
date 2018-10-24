@@ -1,7 +1,16 @@
    $("#btnTZSettlePL").click(function () {
 
-
-           TZSettlePL();
+        if ($("table tr").length < 1)
+        {
+        alert("无数据操作");
+        }
+      else
+      {
+      TZSettlePL();
+      }
+      
+      
+           
 
 
        });
