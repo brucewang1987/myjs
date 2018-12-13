@@ -88,6 +88,9 @@
                     var str = JSON.stringify(map.dt);
                     if (str == "[]") {
                         alert("没有数据");
+                       
+                       window.location.reload();
+                       
                         return false;
                     }
 
