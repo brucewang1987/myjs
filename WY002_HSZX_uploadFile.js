@@ -90,4 +90,31 @@ $.ajax({
             })
 
 });
+
+$("#btnTZInfoImport").click(function(){
+  
+  $.ajax({
+            
+            type: "get",
+             dataType: "json",
+             url: "/TZInfo/TZBusiness?val88="+"UploadTZInfoPL",
+
+
+             success: function (ret) {
+
+                 var map = eval('(' + ret + ')');
+                 var response = JSON.stringify(map.Response);
+
+                 alert(response);
+
+                 window.location.reload();
+
+             }
+            
+            })
+  
+  
+  
+  });
+
          
