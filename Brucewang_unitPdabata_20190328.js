@@ -1,18 +1,18 @@
  function init() {
 
 
-          $("#r_cntsize").attr("disabled", true);
-          $("#r_cnttype").attr("disabled", true);
-          $("#r_cntsize").attr("disabled", true);
-          $("#r_cntweight").attr("disabled", true);
-          $("#r_cnt_netweight").attr("disabled", true);
-          $("#r_cnt_grossweight").attr("disabled", true);
-          $("#r_av").attr("disabled", true);
-          $("#r_cntym").attr("disabled", true);
-          $("#btnUnitInfoUpdate").attr("disabled", true);
-          $("#r_date").attr("disabled", true);
-          $("#inspection_Remark").attr("disabled", true);
-          $("#r_user").attr("disabled", true);
+        //  $("#r_cntsize").attr("disabled", true);
+         // $("#r_cnttype").attr("disabled", true);
+        //  $("#r_cntsize").attr("disabled", true);
+        //  $("#r_cntweight").attr("disabled", true);
+         // $("#r_cnt_netweight").attr("disabled", true);
+        //  $("#r_cnt_grossweight").attr("disabled", true);
+        //  $("#r_av").attr("disabled", true);
+        //  $("#r_cntym").attr("disabled", true);
+        //  $("#btnUnitInfoUpdate").attr("disabled", true);
+       //   $("#r_date").attr("disabled", true);
+      //    $("#inspection_Remark").attr("disabled", true);
+      //    $("#r_user").attr("disabled", true);
           $("#r_id").hide();
           $("#p_r_id").hide();
 
