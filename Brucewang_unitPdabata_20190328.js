@@ -9,7 +9,7 @@
         //  $("#r_cnt_grossweight").attr("disabled", true);
         //  $("#r_av").attr("disabled", true);
         //  $("#r_cntym").attr("disabled", true);
-        //  $("#btnUnitInfoUpdate").attr("disabled", true);
+          $("#btnUnitInfoUpdate").attr("disabled", true);
        //   $("#r_date").attr("disabled", true);
       //    $("#inspection_Remark").attr("disabled", true);
       //    $("#r_user").attr("disabled", true);
