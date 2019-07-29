@@ -13,6 +13,16 @@
        //   $("#r_date").attr("disabled", true);
       //    $("#inspection_Remark").attr("disabled", true);
       //    $("#r_user").attr("disabled", true);
+         $("#r_compcode").attr("disabled", true);
+  $("#r_pos").attr("disabled", true);
+  $("#r_damcode").attr("disabled", true);
+  $("#r_repaircode").attr("disabled", true);
+  $("#r_length").attr("disabled", true);
+  $("#r_width").attr("disabled", true);
+  $("#r_count").attr("disabled", true);
+  $("#r_resp").attr("disabled", true);
+  $("#r_desc").attr("disabled", true);
+  
           $("#r_id").hide();
           $("#p_r_id").hide();
 
