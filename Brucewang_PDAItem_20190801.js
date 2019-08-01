@@ -34,6 +34,8 @@
             $("#r_resp").attr("disabled", true);
             $("#r_desc").attr("disabled", true);
             $("#ctn_no").attr("disabled", true);
+                $("#rr_id").hide();
+            $("#p_rr_id").hide();
 
 
             QueryItem();
