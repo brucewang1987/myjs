@@ -118,7 +118,7 @@
 
                     });
                     $("#RepairItemInfotable").html(html);
-
+                    alert("数据加载完成");
 
                 }
 
