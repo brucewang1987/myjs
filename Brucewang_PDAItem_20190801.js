@@ -4,7 +4,7 @@
             if (url.indexOf("?") != -1) {    //判断是否有参数
                 var str = url.substr(1); //从第一个字符开始 因为第0个是?号 获取所有除问号的所有符串
                 strs = str.split("=");   //用等号进行分隔 （因为知道只有一个参数 所以直接用等号进分隔 如果有多个参数 要用&号分隔 再用等号进行分隔）
-//                alert(strs[1]);          //直接弹出第一个参数 （如果有多个参数 还要进行循环的）
+                //                alert(strs[1]);          //直接弹出第一个参数 （如果有多个参数 还要进行循环的）
             }
             var ctn_no = strs[1];
 
@@ -34,7 +34,7 @@
             $("#r_resp").attr("disabled", true);
             $("#r_desc").attr("disabled", true);
             $("#ctn_no").attr("disabled", true);
-                $("#rr_id").hide();
+            $("#rr_id").hide();
             $("#p_rr_id").hide();
 
 
@@ -51,12 +51,12 @@
 
             var ctn_no = $("#ctn_no").val();
 
-//            if (ctn_no == "") {
+            //            if (ctn_no == "") {
 
-//                alert("请输入箱号");
-//                return false;
+            //                alert("请输入箱号");
+            //                return false;
 
-//            }
+            //            }
 
 
             $.ajax({
@@ -92,6 +92,7 @@
                     html += "<td>费用划分</td>"; //9
                     html += "<td>明细</td>"; //10
                     html += "<td>内外</td>"; //11
+                    html += "<td>材质</td>"; //12
                     html += "</tr>"
 
 
@@ -111,6 +112,7 @@
                         html += "<td>" + _json[key].r_resp + "</td>"; //9 费用划分
                         html += "<td>" + _json[key].r_desc + "</td>"; //10 明细
                         html += "<td>" + _json[key].IO_mark + "</td>"; //11 内外
+                        html += "<td>" + _json[key].part_material_code + "</td>"; //12 材质
                         html += "</tr>";
                         j++;
 
@@ -128,14 +130,14 @@
         }
 
 
-//        function ReadCtn_no() {
+        //        function ReadCtn_no() {
 
-//            var ctn_no = $.query.get("ctn_no");
-//            $("#ctn_no").val(ctn_no);
+        //            var ctn_no = $.query.get("ctn_no");
+        //            $("#ctn_no").val(ctn_no);
 
-//        }
+        //        }
 
-//        ReadCtn_no();
+        //        ReadCtn_no();
 
         $("#btnItemOK").click(function () {
 
@@ -152,6 +154,9 @@
 
             var IO_mark = $("#IO_mark").val();
 
+            var part_material_code = $("#part_material_code").val();
+
+
             if (!window.confirm('确定要更新这条明细记录?')) {
 
                 return false;
@@ -161,7 +166,8 @@
 
                 type: "get",
                 dataType: "json",
-                url: "/RepairbillInfo/AddColdCtnInfo?val1=" + rr_id + "&val2=" + IO_mark + "&val88=" + "UpdateItemData",
+                url: "/RepairbillInfo/AddColdCtnInfo?val1=" + rr_id + "&val2=" + IO_mark + "&val3=" + part_material_code 
+                + "&val88=" + "UpdateItemData",
 
                 success: function (ret) {
 
@@ -205,6 +211,8 @@
             $("#r_desc").val(r_desc);
             var IO_mark = $("#RepairItemInfotable").find("tr").eq(j).find("td").eq(11).text();
             $("#IO_mark").val(IO_mark);
+            var part_material_code = $("#RepairItemInfotable").find("tr").eq(j).find("td").eq(12).text();
+            $("#part_material_code").val(part_material_code);
 
 
         }
