@@ -392,7 +392,7 @@
             $("#unit_date").val(unit_date);
             var r_isGetData = $("#RepairbillInfotable").find("tr").eq(i).find("td").eq(3).text();
 
-            if (r_isGetData == "未被读取" && r_cnttype.substr(0, 1) == "R") {
+            if (r_isGetData == "未被读取") {
 
                 $("#btnUnitInfoUpdate").attr("disabled", false);
 
