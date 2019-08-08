@@ -306,7 +306,7 @@
                         html += "<td>" + "<input type = " + "'" + "button" + "' value = " + "'" + "查看详细"
                       + "' onclick = '" + "return  Settlement(" + i + ")" + "'" + "/>" + "</td>"; //0
                         html += "<td style = " + "'" + "display:none;" + "'" + ">" + _json[key].r_id + "</td>"//1
-//                        html += "<td>" + _json[key].r_cntno + "</td>"; //2
+                        html += "<td>" + _json[key].r_cntno + "</td>"; //2
 //                        html += "<td>" + _json[key].r_cntweight + "</td>"; //3
 //                        html += "<td>" + _json[key].r_cnt_netweight + "</td>"; //4
 //                        html += "<td>" + _json[key].r_cnt_grossweight + "</td>"; //5
