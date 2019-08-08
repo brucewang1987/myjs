@@ -27,6 +27,7 @@
             $("#r_id").hide();
             $("#rr_id").hide();
             $("#p_r_id").hide();
+           alert("页面加载完成");
 
         }
 
