@@ -1,4 +1,4 @@
-   function init() {
+    function init() {
 
 
             //  $("#r_cntsize").attr("disabled", true);
@@ -277,16 +277,16 @@
                     html += "<td>操作</td>"; //0
                     html += "<td style = " + "'" + "display:none;" + "'" + ">" + "r_id" + "</td>"//1
                     html += "<td>箱号</td>"; //2
-                    html += "<td>箱毛重</td>"; //3
-                    html += "<td>箱自重</td>"; //4
-                    html += "<td>箱载重</td>"; //5
-                    html += "<td>箱型</td>"; //6
-                    html += "<td>尺寸</td>"; //7
-                    html += "<td>箱况</td>"; //8
-                    html += "<td>造箱年份</td>"; //9
-                    html += "<td>验箱时间</td>"; //10
-                    html += "<td>验箱人</td>"; //11
-                    html += "<td>验箱备注</td>"; //12
+//                    html += "<td>箱毛重</td>"; //3
+//                    html += "<td>箱自重</td>"; //4
+//                    html += "<td>箱载重</td>"; //5
+//                    html += "<td>箱型</td>"; //6
+//                    html += "<td>尺寸</td>"; //7
+//                    html += "<td>箱况</td>"; //8
+//                    html += "<td>造箱年份</td>"; //9
+//                    html += "<td>验箱时间</td>"; //10
+//                    html += "<td>验箱人</td>"; //11
+//                    html += "<td>验箱备注</td>"; //12
                     html += "<td>是否已被读取</td>"; //13
                     html += "<td>机组品牌</td>"; //14
                     html += "<td>机组型号</td>"; //15
@@ -306,17 +306,17 @@
                         html += "<td>" + "<input type = " + "'" + "button" + "' value = " + "'" + "查看详细"
                       + "' onclick = '" + "return  Settlement(" + i + ")" + "'" + "/>" + "</td>"; //0
                         html += "<td style = " + "'" + "display:none;" + "'" + ">" + _json[key].r_id + "</td>"//1
-                        html += "<td>" + _json[key].r_cntno + "</td>"; //2
-                        html += "<td>" + _json[key].r_cntweight + "</td>"; //3
-                        html += "<td>" + _json[key].r_cnt_netweight + "</td>"; //4
-                        html += "<td>" + _json[key].r_cnt_grossweight + "</td>"; //5
-                        html += "<td>" + _json[key].r_cnttype + "</td>"; //6
-                        html += "<td>" + _json[key].r_cntsize + "</td>"; //7
-                        html += "<td>" + _json[key].r_av + "</td>"; //8
-                        html += "<td>" + _json[key].r_cntym + "</td>"; //9
-                        html += "<td>" + _json[key].r_date + "</td>"; //10
-                        html += "<td>" + _json[key].r_user + "</td>"; //11
-                        html += "<td>" + _json[key].inspection_Remark + "</td>"; //12
+//                        html += "<td>" + _json[key].r_cntno + "</td>"; //2
+//                        html += "<td>" + _json[key].r_cntweight + "</td>"; //3
+//                        html += "<td>" + _json[key].r_cnt_netweight + "</td>"; //4
+//                        html += "<td>" + _json[key].r_cnt_grossweight + "</td>"; //5
+//                        html += "<td>" + _json[key].r_cnttype + "</td>"; //6
+//                        html += "<td>" + _json[key].r_cntsize + "</td>"; //7
+//                        html += "<td>" + _json[key].r_av + "</td>"; //8
+//                        html += "<td>" + _json[key].r_cntym + "</td>"; //9
+//                        html += "<td>" + _json[key].r_date + "</td>"; //10
+//                        html += "<td>" + _json[key].r_user + "</td>"; //11
+//                        html += "<td>" + _json[key].inspection_Remark + "</td>"; //12
                         html += "<td>" + _json[key].r_isGetData + "</td>"; //13
                         html += "<td>" + _json[key].MACH_TYPE + "</td>"; //14
                         html += "<td>" + _json[key].MODEL_NUM + "</td>"; //15
@@ -451,18 +451,17 @@
             var unit_date = $("#unit_date").val();
             var pti_status = $("#pti_status").val();
 
-            if (unit_date!="")
-            {
-            
-            var r = unit_date.match(/^(\d{1,4})(-|\/)(\d{1,2})\2(\d{1,2})$/);
-            if (r == null) {
-                alert("请输入格式正确的日期\n\r日期格式：yyyy-mm-dd例    如：2008-08-08");
-                return false;
-            }
-            
+            if (unit_date != "") {
+
+                var r = unit_date.match(/^(\d{1,4})(-|\/)(\d{1,2})\2(\d{1,2})$/);
+                if (r == null) {
+                    alert("请输入格式正确的日期\n\r日期格式：yyyy-mm-dd例    如：2008-08-08");
+                    return false;
+                }
+
             }
 
-            
+
 
 
             if (MACH_TYPE == "" && MODEL_NUM == "" && UNIT_SERIAL_NUM == "" && SnowSeed == "" && unit_voltage == "" && pti_type == "" && unit_date == "" && pti_status == "") {
