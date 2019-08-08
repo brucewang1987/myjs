@@ -1,4 +1,4 @@
-  function init() {
+   function init() {
 
 
             //  $("#r_cntsize").attr("disabled", true);
@@ -27,7 +27,7 @@
             $("#r_id").hide();
             $("#rr_id").hide();
             $("#p_r_id").hide();
-           alert("页面加载完成");
+            alert("页面加载完成");
 
         }
 
@@ -41,7 +41,7 @@
 
 
 
-  
+
 
         function SelectRepInfo() {
 
@@ -67,7 +67,7 @@
 
 
                     var str = JSON.stringify(map.dt);
-                    
+
 
                     if (str == "[]") {
                         alert("此箱未上传或已被读取");
@@ -76,9 +76,9 @@
                     }
 
                     var _json = eval(map.dt);
-                    
 
-                   
+
+
 
                     var response = JSON.stringify(map.Response);
 
@@ -135,8 +135,9 @@
                     });
 
                     $("#RepairbillInfotable").html(html);
+                    var r_id = $("#RepairbillInfotable").find("tr").eq(i).find("td").eq(0).text();
+                    $("#r_id").val(r_id);
 
-                 
 
 
                     var IsGetData = $("#RepairbillInfotable").find("tr").eq(i).find("td").eq(12).text();
@@ -166,77 +167,77 @@
 
         });
 
-//        $("#btnItemOK").click(function () {
+        //        $("#btnItemOK").click(function () {
 
 
 
-//            UpdateItemData();
+        //            UpdateItemData();
 
 
-//        });
+        //        });
 
-//        function UpdateItemData() {
+        //        function UpdateItemData() {
 
-//            var rr_id = $("#rr_id").val();
+        //            var rr_id = $("#rr_id").val();
 
-//            var IO_mark = $("#IO_mark").val();
+        //            var IO_mark = $("#IO_mark").val();
 
-//            if (!window.confirm('确定要更新这条明细记录?')) {
+        //            if (!window.confirm('确定要更新这条明细记录?')) {
 
-//                return false;
-//            }
+        //                return false;
+        //            }
 
-//            $.ajax({
+        //            $.ajax({
 
-//            type: "get",
-//              dataType: "json",
-//              url: "/RepairbillInfo/AddColdCtnInfo?val1=" + rr_id + "&val2=" + IO_mark+"&val88=" + "UpdateItemData",
+        //            type: "get",
+        //              dataType: "json",
+        //              url: "/RepairbillInfo/AddColdCtnInfo?val1=" + rr_id + "&val2=" + IO_mark+"&val88=" + "UpdateItemData",
 
-//              success: function (ret) {
+        //              success: function (ret) {
 
-//                  var map = eval('(' + ret + ')');
-//                  var response = JSON.stringify(map.Response);
+        //                  var map = eval('(' + ret + ')');
+        //                  var response = JSON.stringify(map.Response);
 
-//                  alert(response);
+        //                  alert(response);
 
-//                 
+        //                 
 
-//              }
-
-
-//            })
-//        
-//        
-//        }
+        //              }
 
 
-//        function SettlementItem(j) {
+        //            })
+        //        
+        //        
+        //        }
 
-//            var rr_id = $("#RepairItemInfotable").find("tr").eq(j).find("td").eq(1).text();
-//            $("#rr_id").val(rr_id);
-//            var r_pos = $("#RepairItemInfotable").find("tr").eq(j).find("td").eq(2).text();
-//            $("#r_pos").val(r_pos);
-//            var r_compcode = $("#RepairItemInfotable").find("tr").eq(j).find("td").eq(3).text();
-//            $("#r_compcode").val(r_compcode);
-//            var r_damcode = $("#RepairItemInfotable").find("tr").eq(j).find("td").eq(4).text();
-//            $("#r_damcode").val(r_damcode);
-//            var r_repaircode = $("#RepairItemInfotable").find("tr").eq(j).find("td").eq(5).text();
-//            $("#r_repaircode").val(r_repaircode);
-//            var r_length = $("#RepairItemInfotable").find("tr").eq(j).find("td").eq(6).text();
-//            $("#r_length").val(r_length);
-//            var r_width = $("#RepairItemInfotable").find("tr").eq(j).find("td").eq(7).text();
-//            $("#r_width").val(r_width);
-//            var r_count = $("#RepairItemInfotable").find("tr").eq(j).find("td").eq(8).text();
-//            $("#r_count").val(r_count);
-//            var r_resp = $("#RepairItemInfotable").find("tr").eq(j).find("td").eq(9).text();
-//            $("#r_resp").val(r_resp);
-//            var r_desc = $("#RepairItemInfotable").find("tr").eq(j).find("td").eq(10).text();
-//            $("#r_desc").val(r_desc);
-//            var IO_mark = $("#RepairItemInfotable").find("tr").eq(j).find("td").eq(11).text();
-//            $("#IO_mark").val(IO_mark);
 
-//        
-//        }
+        //        function SettlementItem(j) {
+
+        //            var rr_id = $("#RepairItemInfotable").find("tr").eq(j).find("td").eq(1).text();
+        //            $("#rr_id").val(rr_id);
+        //            var r_pos = $("#RepairItemInfotable").find("tr").eq(j).find("td").eq(2).text();
+        //            $("#r_pos").val(r_pos);
+        //            var r_compcode = $("#RepairItemInfotable").find("tr").eq(j).find("td").eq(3).text();
+        //            $("#r_compcode").val(r_compcode);
+        //            var r_damcode = $("#RepairItemInfotable").find("tr").eq(j).find("td").eq(4).text();
+        //            $("#r_damcode").val(r_damcode);
+        //            var r_repaircode = $("#RepairItemInfotable").find("tr").eq(j).find("td").eq(5).text();
+        //            $("#r_repaircode").val(r_repaircode);
+        //            var r_length = $("#RepairItemInfotable").find("tr").eq(j).find("td").eq(6).text();
+        //            $("#r_length").val(r_length);
+        //            var r_width = $("#RepairItemInfotable").find("tr").eq(j).find("td").eq(7).text();
+        //            $("#r_width").val(r_width);
+        //            var r_count = $("#RepairItemInfotable").find("tr").eq(j).find("td").eq(8).text();
+        //            $("#r_count").val(r_count);
+        //            var r_resp = $("#RepairItemInfotable").find("tr").eq(j).find("td").eq(9).text();
+        //            $("#r_resp").val(r_resp);
+        //            var r_desc = $("#RepairItemInfotable").find("tr").eq(j).find("td").eq(10).text();
+        //            $("#r_desc").val(r_desc);
+        //            var IO_mark = $("#RepairItemInfotable").find("tr").eq(j).find("td").eq(11).text();
+        //            $("#IO_mark").val(IO_mark);
+
+        //        
+        //        }
 
 
         function SelectRepInfoByCtn_no() {
@@ -450,11 +451,18 @@
             var unit_date = $("#unit_date").val();
             var pti_status = $("#pti_status").val();
 
+            if (unit_date<>"")
+            {
+            
             var r = unit_date.match(/^(\d{1,4})(-|\/)(\d{1,2})\2(\d{1,2})$/);
             if (r == null) {
                 alert("请输入格式正确的日期\n\r日期格式：yyyy-mm-dd例    如：2008-08-08");
                 return false;
             }
+            
+            }
+
+            
 
 
             if (MACH_TYPE == "" && MODEL_NUM == "" && UNIT_SERIAL_NUM == "" && SnowSeed == "" && unit_voltage == "" && pti_type == "" && unit_date == "" && pti_status == "") {
@@ -507,28 +515,28 @@
         });
 
 
-//        function divdisappear() {
+        //        function divdisappear() {
 
-//            $("#div2").hide();
+        //            $("#div2").hide();
 
-//        }
+        //        }
 
-//        divdisappear();
-
-
-//        function divdisplay() {
+        //        divdisappear();
 
 
-//            $("#div2").show();
-
-//        }
-
-//        $("#btnItemCancel").click(function () {
-
-//            divdisappear();
+        //        function divdisplay() {
 
 
-//        });
+        //            $("#div2").show();
+
+        //        }
+
+        //        $("#btnItemCancel").click(function () {
+
+        //            divdisappear();
+
+
+        //        });
 
 
 
@@ -536,29 +544,29 @@
 
             var ctn_no = $("#ctn_no").val();
 
-    
 
-           
+
+
 
             var tempwindow = window.open('_blank');
             tempwindow.location = "/RepairbillInfo/UnitItemUpdate?ctn_no=" + ctn_no;
 
 
-//            var ctn_no = $("#ctn_no").val();
+            //            var ctn_no = $("#ctn_no").val();
 
-//            window.location.href = "/RepairbillInfo/UnitItemUpdate?ctn_no=" + ctn_no;
+            //            window.location.href = "/RepairbillInfo/UnitItemUpdate?ctn_no=" + ctn_no;
 
-//            ToUnitMenu();
+            //            ToUnitMenu();
 
-//            divdisplay();
+            //            divdisplay();
 
-//            QueryItem();
+            //            QueryItem();
 
 
 
         });
 
-        
+
 
 
         function QueryItem() {
@@ -637,6 +645,6 @@
 
 
             })
-             
-        
+
+
         }
