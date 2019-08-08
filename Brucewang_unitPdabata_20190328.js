@@ -277,16 +277,16 @@
                     html += "<td>操作</td>"; //0
                     html += "<td style = " + "'" + "display:none;" + "'" + ">" + "r_id" + "</td>"//1
                     html += "<td>箱号</td>"; //2
-//                    html += "<td>箱毛重</td>"; //3
-//                    html += "<td>箱自重</td>"; //4
-//                    html += "<td>箱载重</td>"; //5
-//                    html += "<td>箱型</td>"; //6
-//                    html += "<td>尺寸</td>"; //7
-//                    html += "<td>箱况</td>"; //8
-//                    html += "<td>造箱年份</td>"; //9
-//                    html += "<td>验箱时间</td>"; //10
-//                    html += "<td>验箱人</td>"; //11
-//                    html += "<td>验箱备注</td>"; //12
+                    //                    html += "<td>箱毛重</td>"; //3
+                    //                    html += "<td>箱自重</td>"; //4
+                    //                    html += "<td>箱载重</td>"; //5
+                    //                    html += "<td>箱型</td>"; //6
+                    //                    html += "<td>尺寸</td>"; //7
+                    //                    html += "<td>箱况</td>"; //8
+                    //                    html += "<td>造箱年份</td>"; //9
+                    //                    html += "<td>验箱时间</td>"; //10
+                    //                    html += "<td>验箱人</td>"; //11
+                    //                    html += "<td>验箱备注</td>"; //12
                     html += "<td>是否已被读取</td>"; //13
                     html += "<td>机组品牌</td>"; //14
                     html += "<td>机组型号</td>"; //15
@@ -307,25 +307,25 @@
                       + "' onclick = '" + "return  Settlement(" + i + ")" + "'" + "/>" + "</td>"; //0
                         html += "<td style = " + "'" + "display:none;" + "'" + ">" + _json[key].r_id + "</td>"//1
                         html += "<td>" + _json[key].r_cntno + "</td>"; //2
-//                        html += "<td>" + _json[key].r_cntweight + "</td>"; //3
-//                        html += "<td>" + _json[key].r_cnt_netweight + "</td>"; //4
-//                        html += "<td>" + _json[key].r_cnt_grossweight + "</td>"; //5
-//                        html += "<td>" + _json[key].r_cnttype + "</td>"; //6
-//                        html += "<td>" + _json[key].r_cntsize + "</td>"; //7
-//                        html += "<td>" + _json[key].r_av + "</td>"; //8
-//                        html += "<td>" + _json[key].r_cntym + "</td>"; //9
-//                        html += "<td>" + _json[key].r_date + "</td>"; //10
-//                        html += "<td>" + _json[key].r_user + "</td>"; //11
-//                        html += "<td>" + _json[key].inspection_Remark + "</td>"; //12
-                        html += "<td>" + _json[key].r_isGetData + "</td>"; //13
-                        html += "<td>" + _json[key].MACH_TYPE + "</td>"; //14
-                        html += "<td>" + _json[key].MODEL_NUM + "</td>"; //15
-                        html += "<td>" + _json[key].UNIT_SERIAL_NUM + "</td>"; //16
-                        html += "<td>" + _json[key].SnowSeed + "</td>"; //17
-                        html += "<td>" + _json[key].unit_voltage + "</td>"; //18
-                        html += "<td>" + _json[key].pti_type + "</td>"; //19
-                        html += "<td>" + _json[key].pti_status + "</td>"; //20
-                        html += "<td>" + _json[key].unit_date + "</td>"; //21
+                        //                        html += "<td>" + _json[key].r_cntweight + "</td>"; //3
+                        //                        html += "<td>" + _json[key].r_cnt_netweight + "</td>"; //4
+                        //                        html += "<td>" + _json[key].r_cnt_grossweight + "</td>"; //5
+                        //                        html += "<td>" + _json[key].r_cnttype + "</td>"; //6
+                        //                        html += "<td>" + _json[key].r_cntsize + "</td>"; //7
+                        //                        html += "<td>" + _json[key].r_av + "</td>"; //8
+                        //                        html += "<td>" + _json[key].r_cntym + "</td>"; //9
+                        //                        html += "<td>" + _json[key].r_date + "</td>"; //10
+                        //                        html += "<td>" + _json[key].r_user + "</td>"; //11
+                        //                        html += "<td>" + _json[key].inspection_Remark + "</td>"; //12
+                        html += "<td>" + _json[key].r_isGetData + "</td>"; //3
+                        html += "<td>" + _json[key].MACH_TYPE + "</td>"; //4
+                        html += "<td>" + _json[key].MODEL_NUM + "</td>"; //5
+                        html += "<td>" + _json[key].UNIT_SERIAL_NUM + "</td>"; //6
+                        html += "<td>" + _json[key].SnowSeed + "</td>"; //7
+                        html += "<td>" + _json[key].unit_voltage + "</td>"; //8
+                        html += "<td>" + _json[key].pti_type + "</td>"; //9
+                        html += "<td>" + _json[key].pti_status + "</td>"; //10
+                        html += "<td>" + _json[key].unit_date + "</td>"; //11
                         html += "</tr>";
                         i++;
 
@@ -374,23 +374,23 @@
             //          $("#inspection_Remark").val(inspection_Remark);
             //          var r_user = $("#RepairbillInfotable").find("tr").eq(i).find("td").eq(11).text();
             //          $("#r_user").val(r_user);
-            var MODEL_NUM = $("#RepairbillInfotable").find("tr").eq(i).find("td").eq(15).text();
+            var MODEL_NUM = $("#RepairbillInfotable").find("tr").eq(i).find("td").eq(5).text();
             $("#MODEL_NUM").val(MODEL_NUM);
-            var MACH_TYPE = $("#RepairbillInfotable").find("tr").eq(i).find("td").eq(14).text();
+            var MACH_TYPE = $("#RepairbillInfotable").find("tr").eq(i).find("td").eq(4).text();
             $("#MACH_TYPE").val(MACH_TYPE);
-            var UNIT_SERIAL_NUM = $("#RepairbillInfotable").find("tr").eq(i).find("td").eq(16).text();
+            var UNIT_SERIAL_NUM = $("#RepairbillInfotable").find("tr").eq(i).find("td").eq(6).text();
             $("#UNIT_SERIAL_NUM").val(UNIT_SERIAL_NUM);
-            var SnowSeed = $("#RepairbillInfotable").find("tr").eq(i).find("td").eq(17).text();
+            var SnowSeed = $("#RepairbillInfotable").find("tr").eq(i).find("td").eq(7).text();
             $("#SnowSeed").val(SnowSeed);
-            var unit_voltage = $("#RepairbillInfotable").find("tr").eq(i).find("td").eq(18).text();
+            var unit_voltage = $("#RepairbillInfotable").find("tr").eq(i).find("td").eq(8).text();
             $("#unit_voltage").val(unit_voltage);
-            var pti_type = $("#RepairbillInfotable").find("tr").eq(i).find("td").eq(19).text();
+            var pti_type = $("#RepairbillInfotable").find("tr").eq(i).find("td").eq(9).text();
             $("#pti_type").val(pti_type);
-            var pti_status = $("#RepairbillInfotable").find("tr").eq(i).find("td").eq(20).text();
+            var pti_status = $("#RepairbillInfotable").find("tr").eq(i).find("td").eq(10).text();
             $("#pti_status").val(pti_status);
-            var unit_date = $("#RepairbillInfotable").find("tr").eq(i).find("td").eq(21).text();
+            var unit_date = $("#RepairbillInfotable").find("tr").eq(i).find("td").eq(11).text();
             $("#unit_date").val(unit_date);
-            var r_isGetData = $("#RepairbillInfotable").find("tr").eq(i).find("td").eq(13).text();
+            var r_isGetData = $("#RepairbillInfotable").find("tr").eq(i).find("td").eq(3).text();
 
             if (r_isGetData == "未被读取" && r_cnttype.substr(0, 1) == "R") {
 
