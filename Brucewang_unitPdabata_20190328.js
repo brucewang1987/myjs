@@ -451,7 +451,7 @@
             var unit_date = $("#unit_date").val();
             var pti_status = $("#pti_status").val();
 
-            if (unit_date<>"")
+            if (unit_date!="")
             {
             
             var r = unit_date.match(/^(\d{1,4})(-|\/)(\d{1,2})\2(\d{1,2})$/);
