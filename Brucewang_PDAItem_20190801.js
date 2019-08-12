@@ -1,5 +1,5 @@
 
-        function GetRequest() {
+         function GetRequest() {
             var url = location.search; //获取url中"?"符后的字串
             if (url.indexOf("?") != -1) {    //判断是否有参数
                 var str = url.substr(1); //从第一个字符开始 因为第0个是?号 获取所有除问号的所有符串
@@ -166,7 +166,7 @@
 
                 type: "get",
                 dataType: "json",
-                url: "/RepairbillInfo/AddColdCtnInfo?val1=" + rr_id + "&val2=" + IO_mark + "&val3=" + part_material_code 
+                url: "/RepairbillInfo/AddColdCtnInfo?val1=" + rr_id + "&val2=" + IO_mark + "&val3=" + part_material_code
                 + "&val88=" + "UpdateItemData",
 
                 success: function (ret) {
@@ -210,7 +210,24 @@
             var r_desc = $("#RepairItemInfotable").find("tr").eq(j).find("td").eq(10).text();
             $("#r_desc").val(r_desc);
             var IO_mark = $("#RepairItemInfotable").find("tr").eq(j).find("td").eq(11).text();
-            $("#IO_mark").val(IO_mark);
+
+            if (IO_mark == "IN") {
+
+                $("#IO_mark").val("I");
+
+            }
+            else if (IO_mark == "OUT") {
+
+                $("#IO_mark").val("E");
+
+            }
+
+            else {
+
+                $("#IO_mark").val("");
+            
+            }
+            
             var part_material_code = $("#RepairItemInfotable").find("tr").eq(j).find("td").eq(12).text();
             $("#part_material_code").val(part_material_code);
 
