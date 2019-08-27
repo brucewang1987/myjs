@@ -1,4 +1,4 @@
-    function init() {
+     function init() {
 
 
             //  $("#r_cntsize").attr("disabled", true);
@@ -104,17 +104,17 @@
                     $(_json).each(function (key) {
 
 
-                        //                      $("#r_cntsize").val(_json[key].r_cntsize);
-                        //                      $("#r_cnttype").val(_json[key].r_cnttype);
-                        //                      $("#r_cntweight").val(_json[key].r_cntweight);
-                        //                      $("#r_cnt_netweight").val(_json[key].r_cnt_netweight);
-                        //                      $("#r_cnt_grossweight").val(_json[key].r_cnt_grossweight);
-                        //                      $("#r_av").val(_json[key].r_av);
-                        //                      $("#r_cntym").val(_json[key].r_cntym);
-                        //                      $("#r_date").val(_json[key].r_date);
-                        //                      $("#inspection_Remark").val(_json[key].inspection_Remark);
-                        //                      $("#r_user").val(_json[key].r_user);
-                        //                      $("#r_id").val(_json[key].r_id);
+                        $("#r_cntsize").val(_json[key].r_cntsize);                      
+                        $("#r_cnttype").val(_json[key].r_cnttype);
+                        $("#r_cntweight").val(_json[key].r_cntweight);
+                        $("#r_cnt_netweight").val(_json[key].r_cnt_netweight);
+                        $("#r_cnt_grossweight").val(_json[key].r_cnt_grossweight);
+                        $("#r_av").val(_json[key].r_av);
+                        $("#r_cntym").val(_json[key].r_cntym);
+                        $("#r_date").val(_json[key].r_date);
+                        $("#inspection_Remark").val(_json[key].inspection_Remark);
+                        $("#r_user").val(_json[key].r_user);
+                        $("#r_id").val(_json[key].r_id);
 
                         html += "<tr>";
                         html += "<td style = " + "'" + "display:none;" + "'" + ">" + _json[key].r_id + "</td>"//0
@@ -147,7 +147,7 @@
                         $("#btnUnitInfoUpdate").attr("disabled", false);
                         $("#ctn_no").attr("disabled", true);
                         $("#btnItemSelect").attr("disabled", false);
-
+                        divdisplay();
                     }
 
 
@@ -514,28 +514,28 @@
         });
 
 
-        //        function divdisappear() {
+                function divdisappear() {
 
-        //            $("#div2").hide();
+                    $("#div2").hide();
 
-        //        }
+                }
 
-        //        divdisappear();
-
-
-        //        function divdisplay() {
+                divdisappear();
 
 
-        //            $("#div2").show();
-
-        //        }
-
-        //        $("#btnItemCancel").click(function () {
-
-        //            divdisappear();
+                function divdisplay() {
 
 
-        //        });
+                    $("#div2").show();
+
+                }
+
+                $("#btnItemCancel").click(function () {
+
+                    divdisappear();
+
+
+                });
 
 
 
