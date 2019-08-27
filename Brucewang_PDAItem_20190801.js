@@ -99,7 +99,7 @@
                     $(_json).each(function (key) {
 
                         html += "<tr>";
-                        html += "<td>" + "<input type = " + "'" + "button" + "' value = " + "'" + "查看详细"
+                        html += "<td>" + "<input type = " + "'" + "button" + "' value = " + "'" + "编辑"
                       + "' onclick = '" + "return  SettlementItem(" + j + ")" + "'" + "/>" + "</td>"; //0
                         html += "<td style = " + "'" + "display:none;" + "'" + ">" + _json[key].rr_id + "</td>"//1
                         html += "<td>" + _json[key].r_pos + "</td>"; //2 位置
