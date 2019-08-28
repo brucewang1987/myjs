@@ -1,4 +1,4 @@
-     function init() {
+      function init() {
 
 
             //  $("#r_cntsize").attr("disabled", true);
@@ -104,7 +104,7 @@
                     $(_json).each(function (key) {
 
 
-                        $("#r_cntsize").val(_json[key].r_cntsize);                      
+                        $("#r_cntsize").val(_json[key].r_cntsize);
                         $("#r_cnttype").val(_json[key].r_cnttype);
                         $("#r_cntweight").val(_json[key].r_cntweight);
                         $("#r_cnt_netweight").val(_json[key].r_cnt_netweight);
@@ -448,8 +448,19 @@
             var unit_voltage = $("#unit_voltage").val();
             var pti_type = $("#pti_type").val();
             var r_id = $("#r_id").val();
-            var unit_date = $("#unit_date").val();
+            
             var pti_status = $("#pti_status").val();
+
+            var _unit_date = $("#unit_date").val();
+
+            var year = _unit_date.substr(0, 4);
+
+            var month = _unit_date.substr(4, 2);
+
+            var day = _unit_date.substr(6, 2);
+
+            var unit_date = year + "-" + month + "-" + day
+
 
             if (unit_date != "") {
 
@@ -514,28 +525,28 @@
         });
 
 
-                function divdisappear() {
+        function divdisappear() {
 
-                    $("#div2").hide();
+            $("#div2").hide();
 
-                }
+        }
 
-                divdisappear();
-
-
-                function divdisplay() {
+        divdisappear();
 
 
-                    $("#div2").show();
-
-                }
-
-                $("#btnItemCancel").click(function () {
-
-                    divdisappear();
+        function divdisplay() {
 
 
-                });
+            $("#div2").show();
+
+        }
+
+        $("#btnItemCancel").click(function () {
+
+            divdisappear();
+
+
+        });
 
 
 
