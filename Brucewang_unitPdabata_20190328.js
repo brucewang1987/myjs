@@ -452,6 +452,17 @@
             var pti_status = $("#pti_status").val();
 
             var _unit_date = $("#unit_date").val();
+              
+              if (_unit_date != "") {
+
+                var r = _unit_date.match(/^(\d{1,4})(-|\/)(\d{1,2})\2(\d{1,2})$/);
+                if (r == null) {
+                    alert("请输入格式正确的日期\n\r日期格式：yyyy-mm-dd例    如：2008-08-08");
+                    return false;
+                }
+
+            }
+              
 
             var year = _unit_date.substr(0, 4);
 
@@ -462,15 +473,7 @@
             var unit_date = year + "-" + month + "-" + day
 
 
-            if (unit_date != "") {
-
-                var r = unit_date.match(/^(\d{1,4})(-|\/)(\d{1,2})\2(\d{1,2})$/);
-                if (r == null) {
-                    alert("请输入格式正确的日期\n\r日期格式：yyyy-mm-dd例    如：2008-08-08");
-                    return false;
-                }
-
-            }
+            
 
 
 
