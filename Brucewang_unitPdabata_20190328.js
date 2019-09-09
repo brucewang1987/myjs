@@ -558,7 +558,13 @@
             var ctn_no = $("#ctn_no").val();
 
 
-
+            if(ctn_no=="")
+            {
+            
+                  alert("请录入箱号");
+                  return false;
+            
+            }
 
 
             var tempwindow = window.open('_blank');
