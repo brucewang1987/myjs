@@ -335,7 +335,7 @@
 
 
 
-        if (MACH_TYPE == "" && MODEL_NUM == "" && UNIT_SERIAL_NUM == "" && SnowSeed == "" && unit_voltage == "" && pti_type == "" && unit_date == "" && pti_status == "") {
+        if (MACH_TYPE == "" && MODEL_NUM == "" && UNIT_SERIAL_NUM == "" && SnowSeed == "" && pti_type == "" && unit_date == "--" && pti_status == "") {
 
             alert("机组信息都为空，不允许录入");
             return false;
