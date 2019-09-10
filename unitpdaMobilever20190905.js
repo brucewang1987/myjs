@@ -311,7 +311,9 @@ var _r_id="";
         var pti_status = $("#pti_status").val();
 
         var _unit_date = $("#unit_date").val();
-
+         
+         
+var unit_date="";
         if (_unit_date != "") {
 
             var r = _unit_date.match(/^(\d{1,4})(-|\/)(\d{1,2})\2(\d{1,2})$/);
@@ -319,17 +321,21 @@ var _r_id="";
                 alert("请输入格式正确的日期\n\r日期格式：yyyy-mm-dd例    如：2008-08-08");
                 return false;
             }
-
-        }
-
-
-        var year = _unit_date.substr(0, 4);
+             
+             var year = _unit_date.substr(0, 4);
 
         var month = _unit_date.substr(4, 2);
 
         var day = _unit_date.substr(6, 2);
 
-        var unit_date = year + "-" + month + "-" + day
+             unit_date = year + "-" + month + "-" + day;
+             
+        }
+
+
+        
+
+     
 
 
 
@@ -339,7 +345,7 @@ var _r_id="";
 
 
 
-        if (MACH_TYPE == "" && MODEL_NUM == "" && UNIT_SERIAL_NUM == "" && SnowSeed == "" && pti_type == "" && unit_date == "--" && pti_status == "") {
+        if (MACH_TYPE == "" && MODEL_NUM == "" && UNIT_SERIAL_NUM == "" && SnowSeed == "" && pti_type == "" && unit_date == "" && pti_status == "") {
 
             alert("机组信息都为空，不允许录入");
             return false;
