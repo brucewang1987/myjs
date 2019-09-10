@@ -98,10 +98,11 @@
 //                html += "<td>是否已被读取</td>"; //12
 //                html += "</tr>"
 
-
+var _r_id="";
+                 
                 $(_json).each(function (key) {
 
-                    var _r_id = _json[key].r_id;
+                    _r_id = _json[key].r_id;
                     html += "<tr>";
                     html += "<td style = " + "'" + "display:none;" + "'" + ">" + _json[key].r_id + "</td>"//0
                     html += "<td style = " + "'" + "display:none;" + "'" + ">" + _json[key].r_cntno + "</td>"//1
