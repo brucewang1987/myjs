@@ -1,5 +1,5 @@
 
-    $("#btnTest").click(function () {
+     $("#btnTest").click(function () {
 
 
 
@@ -12,17 +12,17 @@
 
 
 
-//        $("#btnUnitInfoUpdate").attr("disabled", true);
-//        $("#r_compcode").attr("disabled", true);
-//        $("#r_pos").attr("disabled", true);
-//        $("#r_damcode").attr("disabled", true);
-//        $("#r_repaircode").attr("disabled", true);
-//        $("#r_length").attr("disabled", true);
-//        $("#r_width").attr("disabled", true);
-//        $("#r_count").attr("disabled", true);
-//        $("#r_resp").attr("disabled", true);
-//        $("#r_desc").attr("disabled", true);
-//        $("#btnItemSelect").attr("disabled", true);
+        //        $("#btnUnitInfoUpdate").attr("disabled", true);
+        //        $("#r_compcode").attr("disabled", true);
+        //        $("#r_pos").attr("disabled", true);
+        //        $("#r_damcode").attr("disabled", true);
+        //        $("#r_repaircode").attr("disabled", true);
+        //        $("#r_length").attr("disabled", true);
+        //        $("#r_width").attr("disabled", true);
+        //        $("#r_count").attr("disabled", true);
+        //        $("#r_resp").attr("disabled", true);
+        //        $("#r_desc").attr("disabled", true);
+        //        $("#btnItemSelect").attr("disabled", true);
 
         $("#r_id").hide();
         $("#rr_id").hide();
@@ -82,21 +82,21 @@
 
                 var html = "";
                 var i = 1;
-                html += "<tr>";
-                html += "<td style = " + "'" + "display:none;" + "'" + ">" + "r_id" + "</td>"//0
-                html += "<td>箱号</td>"; //1
-                html += "<td>箱毛重</td>"; //2
-                html += "<td>箱自重</td>"; //3
-                html += "<td>箱载重</td>"; //4
-                html += "<td>箱型</td>"; //5
-                html += "<td>尺寸</td>"; //6
-                html += "<td>箱况</td>"; //7
-                html += "<td>造箱年份</td>"; //8
-                html += "<td>验箱时间</td>"; //9
-                html += "<td>验箱人</td>"; //10
-                html += "<td>验箱备注</td>"; //11
-                html += "<td>是否已被读取</td>"; //12
-                html += "</tr>"
+//                html += "<tr>";
+//                html += "<td style = " + "'" + "display:none;" + "'" + ">" + "r_id" + "</td>"//0
+//                html += "<td style = " +"'" + "display:none;" + "'" + ">" + "箱号" +"</td>"; //1
+//                html += "<td>箱毛重</td>"; //2
+//                html += "<td>箱自重</td>"; //3
+//                html += "<td>箱载重</td>"; //4
+//                html += "<td>箱型</td>"; //5
+//                html += "<td>尺寸</td>"; //6
+//                html += "<td>箱况</td>"; //7
+//                html += "<td>造箱年份</td>"; //8
+//                html += "<td>验箱时间</td>"; //9
+//                html += "<td>验箱人</td>"; //10
+//                html += "<td>验箱备注</td>"; //11
+//                html += "<td>是否已被读取</td>"; //12
+//                html += "</tr>"
 
 
                 $(_json).each(function (key) {
@@ -104,7 +104,8 @@
 
                     html += "<tr>";
                     html += "<td style = " + "'" + "display:none;" + "'" + ">" + _json[key].r_id + "</td>"//0
-                    html += "<td>" + _json[key].r_cntno + "</td>"; //1
+                    html += "<td style = " + "'" + "display:none;" + "'" + ">" + _json[key].r_cntno + "</td>"//1
+//                    html += "<td>" + _json[key].r_cntno + "</td>"; //1
                     html += "<td>" + _json[key].r_cntweight + "</td>"; //2
                     html += "<td>" + _json[key].r_cnt_netweight + "</td>"; //3
                     html += "<td>" + _json[key].r_cnt_grossweight + "</td>"; //4
@@ -327,10 +328,10 @@
 
         var unit_date = year + "-" + month + "-" + day
 
-       
 
 
-        
+
+
 
 
 
@@ -389,11 +390,10 @@
 
         var ctn_no = $("#ctn_no").val();
 
-        if(ctn_no=="")
-        {
-        
+        if (ctn_no == "") {
+
             alert("请录入箱号");
-             return false;
+            return false;
         }
 
 
