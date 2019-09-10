@@ -113,7 +113,8 @@
                     html += "<td>" + _json[key].r_cntsize + "</td>"; //6
                     html += "<td>" + _json[key].r_av + "</td>"; //7
                     html += "<td>" + _json[key].r_cntym + "</td>"; //8
-                    html += "<td>" + _json[key].r_date + "</td>"; //9
+                     html += "<td style = " + "'" + "display:none;" + "'" + ">" +  _json[key].r_date + "</td>"//1
+                    //html += "<td>" + _json[key].r_date + "</td>"; //9
                     html += "<td>" + _json[key].r_user + "</td>"; //10
                     html += "<td>" + _json[key].inspection_Remark + "</td>"; //11
                     html += "<td>" + _json[key].r_isGetData + "</td>"; //12
