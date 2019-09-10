@@ -101,7 +101,7 @@
 
                 $(_json).each(function (key) {
 
-
+                    var _r_id = _json[key].r_id;
                     html += "<tr>";
                     html += "<td style = " + "'" + "display:none;" + "'" + ">" + _json[key].r_id + "</td>"//0
                     html += "<td style = " + "'" + "display:none;" + "'" + ">" + _json[key].r_cntno + "</td>"//1
@@ -123,7 +123,8 @@
                 });
 
                 $("#RepairbillInfotable").html(html);
-                var r_id = $("#RepairbillInfotable").find("tr").eq(i).find("td").eq(0).text();
+               // var r_id = $("#RepairbillInfotable").find("tr").eq(i).find("td").eq(0).text();
+                 var r_id = _r_id ;
                 $("#r_id").val(r_id);
 
 
