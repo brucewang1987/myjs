@@ -126,3 +126,9 @@
         
         
         }
+
+$("#btnRush").click(function(){
+
+window.location.reload();
+
+});
