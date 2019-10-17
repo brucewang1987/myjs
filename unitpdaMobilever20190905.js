@@ -1,9 +1,20 @@
 
-     $("#btnTest").click(function () {
+     var isCheck = 0;
+
+    $("#btnTest").click(function () {
 
 
 
         $("#btnUnitInfoUpdate").attr("disabled", false);
+  
+
+        //        $("#btnUnitInfoUpdate").prop("disabled", false);
+
+
+
+
+
+        //        $("#btnUnitInfoUpdate").attr("disabled", "disabled");
 
     });
 
@@ -12,7 +23,7 @@
 
 
 
-        //        $("#btnUnitInfoUpdate").attr("disabled", true);
+//                $("#btnUnitInfoUpdate").attr("disabled", true);
         //        $("#r_compcode").attr("disabled", true);
         //        $("#r_pos").attr("disabled", true);
         //        $("#r_damcode").attr("disabled", true);
@@ -23,7 +34,7 @@
         //        $("#r_resp").attr("disabled", true);
         //        $("#r_desc").attr("disabled", true);
         //        $("#btnItemSelect").attr("disabled", true);
-
+      
         $("#r_id").hide();
         $("#rr_id").hide();
         $("#p_r_id").hide();
@@ -82,31 +93,31 @@
 
                 var html = "";
                 var i = 1;
-//                html += "<tr>";
-//                html += "<td style = " + "'" + "display:none;" + "'" + ">" + "r_id" + "</td>"//0
-//                html += "<td style = " +"'" + "display:none;" + "'" + ">" + "箱号" +"</td>"; //1
-//                html += "<td>箱毛重</td>"; //2
-//                html += "<td>箱自重</td>"; //3
-//                html += "<td>箱载重</td>"; //4
-//                html += "<td>箱型</td>"; //5
-//                html += "<td>尺寸</td>"; //6
-//                html += "<td>箱况</td>"; //7
-//                html += "<td>造箱年份</td>"; //8
-//                html += "<td>验箱时间</td>"; //9
-//                html += "<td>验箱人</td>"; //10
-//                html += "<td>验箱备注</td>"; //11
-//                html += "<td>是否已被读取</td>"; //12
-//                html += "</tr>"
+                //                html += "<tr>";
+                //                html += "<td style = " + "'" + "display:none;" + "'" + ">" + "r_id" + "</td>"//0
+                //                html += "<td style = " +"'" + "display:none;" + "'" + ">" + "箱号" +"</td>"; //1
+                //                html += "<td>箱毛重</td>"; //2
+                //                html += "<td>箱自重</td>"; //3
+                //                html += "<td>箱载重</td>"; //4
+                //                html += "<td>箱型</td>"; //5
+                //                html += "<td>尺寸</td>"; //6
+                //                html += "<td>箱况</td>"; //7
+                //                html += "<td>造箱年份</td>"; //8
+                //                html += "<td>验箱时间</td>"; //9
+                //                html += "<td>验箱人</td>"; //10
+                //                html += "<td>验箱备注</td>"; //11
+                //                html += "<td>是否已被读取</td>"; //12
+                //                html += "</tr>"
 
-var _r_id="";
-                 
+                var _r_id = "";
+
                 $(_json).each(function (key) {
 
                     _r_id = _json[key].r_id;
                     html += "<tr>";
                     html += "<td style = " + "'" + "display:none;" + "'" + ">" + _json[key].r_id + "</td>"//0
                     html += "<td style = " + "'" + "display:none;" + "'" + ">" + _json[key].r_cntno + "</td>"//1
-//                    html += "<td>" + _json[key].r_cntno + "</td>"; //1
+                    //                    html += "<td>" + _json[key].r_cntno + "</td>"; //1
                     html += "<td>" + _json[key].r_cntweight + "</td>"; //2
                     html += "<td>" + _json[key].r_cnt_netweight + "</td>"; //3
                     html += "<td>" + _json[key].r_cnt_grossweight + "</td>"; //4
@@ -114,7 +125,7 @@ var _r_id="";
                     html += "<td>" + _json[key].r_cntsize + "</td>"; //6
                     html += "<td>" + _json[key].r_av + "</td>"; //7
                     html += "<td>" + _json[key].r_cntym + "</td>"; //8
-                     html += "<td style = " + "'" + "display:none;" + "'" + ">" +  _json[key].r_date + "</td>"//1
+                    html += "<td style = " + "'" + "display:none;" + "'" + ">" + _json[key].r_date + "</td>"//1
                     //html += "<td>" + _json[key].r_date + "</td>"; //9
                     html += "<td>" + _json[key].r_user + "</td>"; //10
                     html += "<td>" + _json[key].inspection_Remark + "</td>"; //11
@@ -124,8 +135,8 @@ var _r_id="";
                 });
 
                 $("#RepairbillInfotable").html(html);
-               // var r_id = $("#RepairbillInfotable").find("tr").eq(i).find("td").eq(0).text();
-                 var r_id = _r_id ;
+                // var r_id = $("#RepairbillInfotable").find("tr").eq(i).find("td").eq(0).text();
+                var r_id = _r_id;
                 $("#r_id").val(r_id);
 
 
@@ -139,7 +150,7 @@ var _r_id="";
                     $("#btnItemSelect").attr("disabled", false);
 
                 }
-
+                isCheck = 1;
 
             },
             error: function (XmlHttpRequest, textStatus, errorThrown) {
@@ -233,7 +244,7 @@ var _r_id="";
                 });
                 $("#RepairbillInfotable").html(html);
 
-
+                isCheck = 1;
 
             },
             error: function (XmlHttpRequest, textStatus, errorThrown) {
@@ -300,6 +311,9 @@ var _r_id="";
 
     function UpdateUnitData() {
 
+
+
+
         var MACH_TYPE = $("#MACH_TYPE").val();
         var MODEL_NUM = $("#MODEL_NUM").val();
         var UNIT_SERIAL_NUM = $("#UNIT_SERIAL_NUM").val();
@@ -311,34 +325,34 @@ var _r_id="";
         var pti_status = $("#pti_status").val();
 
         var _unit_date = $("#unit_date").val();
-        var unit_date="";
-        
-         
+        var unit_date = "";
+
+
         if (_unit_date != "") {
-             
-              var year = _unit_date.substr(0, 4);
 
-        var month = _unit_date.substr(4, 2);
+            var year = _unit_date.substr(0, 4);
 
-        var day = _unit_date.substr(6, 2);
+            var month = _unit_date.substr(4, 2);
 
-             unit_date = year + "-" + month + "-" + day;
+            var day = _unit_date.substr(6, 2);
+
+            unit_date = year + "-" + month + "-" + day;
 
             var r = unit_date.match(/^(\d{1,4})(-|\/)(\d{1,2})\2(\d{1,2})$/);
             if (r == null) {
                 alert("请输入格式正确的日期\n\r日期格式：yyyy-mm-dd例    如：20080808");
                 return false;
             }
-            
-             
-             
-             
+
+
+
+
         }
 
 
-        
 
-     
+
+
 
 
 
@@ -392,6 +406,12 @@ var _r_id="";
 
     $("#btnUnitInfoUpdate").click(function () {
 
+        if (isCheck == 0) {
+
+            alert("请先查询箱体验箱数据");
+            return false;
+
+        }
 
         UpdateUnitData();
 
