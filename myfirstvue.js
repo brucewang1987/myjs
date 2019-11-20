@@ -1,5 +1,5 @@
-function QueryCtnInfoparam()
-{
+
+export const QueryCtnInfoparam ={
 
   var strurl='apis/RepairbillInfo/AddColdCtnInfo'
 axios.get(strurl,{
@@ -27,8 +27,7 @@ this.axiosResult = map.dt
   console.log(err);
 })
 
+
+  
 }
-export
-{
-QueryCtnInfoparam
-}
+  
