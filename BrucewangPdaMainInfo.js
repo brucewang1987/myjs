@@ -132,3 +132,17 @@ $("#btnRush").click(function(){
 window.location.reload();
 
 });
+
+
+function closeWin() {
+            window.opener = null;
+            window.open('', '_self');
+            window.close();
+        }
+
+        $("#btnClose").click(function () {
+
+
+            closeWin();
+
+        });
