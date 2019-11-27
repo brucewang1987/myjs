@@ -59,7 +59,7 @@
                       if (str == "[]") {
                           alert("无vip信息");
                           return false;
-                          //                         window.location.reload();
+                                                  window.location.reload();
                       }
 
                       var _json = eval(map.dt);
@@ -140,7 +140,7 @@
                       if (str == "[]") {
                           alert("无退租信息");
                           return false;
-                          //                         window.location.reload();
+                                                  window.location.reload();
                       }
 
 
