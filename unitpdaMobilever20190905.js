@@ -14,7 +14,7 @@ var isCheck = 0;
         var UNIT_SERIAL_NUM = $("#UNIT_SERIAL_NUM").val();
         var _UNIT_SERIAL_NUM = UNIT_SERIAL_NUM.toUpperCase();
 
-        $("#UNIT_SERIAL_NUM").val(UNIT_SERIAL_NUM);
+        $("#UNIT_SERIAL_NUM").val(_UNIT_SERIAL_NUM);
 
     });
 
