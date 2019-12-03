@@ -1,12 +1,32 @@
+var isCheck = 0;
 
-     var isCheck = 0;
+    $("#MODEL_NUM").blur(function () {
+
+        var MODEL_NUM = $("#MODEL_NUM").val();
+        var _MODEL_NUM = MODEL_NUM.toUpperCase();
+
+        $("#MODEL_NUM").val(_MODEL_NUM);
+
+    });
+
+    $("#UNIT_SERIAL_NUM").blur(function () {
+
+        var UNIT_SERIAL_NUM = $("#UNIT_SERIAL_NUM").val();
+        var _UNIT_SERIAL_NUM = UNIT_SERIAL_NUM.toUpperCase();
+
+        $("#UNIT_SERIAL_NUM").val(UNIT_SERIAL_NUM);
+
+    });
+
+
 
     $("#btnTest").click(function () {
 
+        var MODEL_NUM = $("#MODEL_NUM").val();
+        console.log("机组型号录入的值为:" + MODEL_NUM);
 
+        //        $("#btnUnitInfoUpdate").attr("disabled", false);
 
-        $("#btnUnitInfoUpdate").attr("disabled", false);
-  
 
         //        $("#btnUnitInfoUpdate").prop("disabled", false);
 
@@ -23,7 +43,7 @@
 
 
 
-//                $("#btnUnitInfoUpdate").attr("disabled", true);
+        //                $("#btnUnitInfoUpdate").attr("disabled", true);
         //        $("#r_compcode").attr("disabled", true);
         //        $("#r_pos").attr("disabled", true);
         //        $("#r_damcode").attr("disabled", true);
@@ -34,7 +54,7 @@
         //        $("#r_resp").attr("disabled", true);
         //        $("#r_desc").attr("disabled", true);
         //        $("#btnItemSelect").attr("disabled", true);
-      
+
         $("#r_id").hide();
         $("#rr_id").hide();
         $("#p_r_id").hide();
@@ -289,6 +309,12 @@
         $("#pti_status").selectmenu('refresh', true);
 
         var unit_date = $("#RepairbillInfotable").find("tr").eq(i).find("td").eq(11).text();
+        if (unit_date == "null") {
+
+            unit_date = "";
+        
+        }
+
         $("#unit_date").val(unit_date);
         var r_isGetData = $("#RepairbillInfotable").find("tr").eq(i).find("td").eq(3).text();
 
@@ -390,12 +416,11 @@
                 var response = JSON.stringify(map.Response);
 
                 alert(response);
-                
-                 if(response == "提交成功")
-                 {
-                 window.location.reload();
-                 }
-                
+
+                if (response == "提交成功") {
+                    window.location.reload();
+                }
+
 
             }
 
