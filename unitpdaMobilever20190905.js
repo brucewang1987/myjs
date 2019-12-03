@@ -390,8 +390,12 @@
                 var response = JSON.stringify(map.Response);
 
                 alert(response);
-
-                window.location.reload();
+                
+                 if(response == "提交成功")
+                 {
+                 window.location.reload();
+                 }
+                
 
             }
 
