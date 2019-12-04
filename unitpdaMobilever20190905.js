@@ -1,4 +1,30 @@
- var isCheck = 0;
+ function loading() {
+
+        
+        var sliderblank = document.getElementById("sidebar");
+        // 让需要显示结果的层显示空白
+        sliderblank.innerhtml = " ";
+
+        // 获得loading显示层
+        var loadingdiv = document.getElementById("loading");
+        // 插入loading图
+        loadingdiv.innerhtml = "<img src='images/loading.gif' />";
+        // 显示loading层
+        loadingdiv.style.display = "";
+        if (XMLHttpRequest.readyState == 4) {
+            // 数据处理完毕之后，将loading层再隐藏掉
+            loadingdiv.style.display = "none";
+            //alert(xmlreq.responsetext);
+            //document.getelementbyid('content2').innerhtml = xmlreq.responsetext;   
+            // 输出处理结果
+            runxml(xmlreq.responsetext);
+        }   
+    
+    
+    }
+
+
+    var isCheck = 0;
 
     $("#MODEL_NUM").blur(function () {
 
@@ -85,9 +111,15 @@
 
         $.ajax({
 
+            beforeSend: function () {
+                loading();
+            },
+
             type: "get",
             dataType: "json",
             url: "/RepairbillInfo/AddColdCtnInfo?val1=" + ctn_no + "&val88=" + "QueryRepInfo",
+
+
 
             success: function (ret) {
 
