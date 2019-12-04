@@ -1,4 +1,4 @@
-var isCheck = 0;
+ var isCheck = 0;
 
     $("#MODEL_NUM").blur(function () {
 
@@ -130,10 +130,15 @@ var isCheck = 0;
                 //                html += "</tr>"
 
                 var _r_id = "";
+                var _ctn_no = "";
 
                 $(_json).each(function (key) {
 
                     _r_id = _json[key].r_id;
+                    _ctn_no = _json[key].r_cntno;
+
+                    $("#ctn_no").val(_ctn_no);
+
                     html += "<tr>";
                     html += "<td style = " + "'" + "display:none;" + "'" + ">" + _json[key].r_id + "</td>"//0
                     html += "<td style = " + "'" + "display:none;" + "'" + ">" + _json[key].r_cntno + "</td>"//1
@@ -312,7 +317,7 @@ var isCheck = 0;
         if (unit_date == "null") {
 
             unit_date = "";
-        
+
         }
 
         $("#unit_date").val(unit_date);
