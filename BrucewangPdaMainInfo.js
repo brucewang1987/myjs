@@ -1,4 +1,4 @@
- function init() {
+  function init() {
 
             $("#r_id").hide();
 
@@ -12,6 +12,58 @@
 
 
             QueryCtnInfo();
+
+        });
+
+        function RepairInfoReset(i) {
+
+
+//            var r_isGetData = $("#RepairbillInfotable").find("tr").eq(i).find("td").eq(14).text();
+
+//            if (r_isGetData == "未被读取") {
+
+//                alert("数据未被读取，不能执行此操作");
+
+//                return false;
+//            
+//            }
+
+
+            var r_id = $("#r_id").val();
+
+            if (!window.confirm('验箱信息即将重置，是否确定')) {
+                return false;
+
+            }
+
+            $.ajax({
+
+                type: "get",
+                dataType: "json",
+                url: "/RepairbillInfo/AddColdCtnInfo?val1=" + r_id + "&val88=" + "RepairInfoReset",
+
+                success: function (ret) {
+
+
+                    var map = eval('(' + ret + ')');
+                    var response = JSON.stringify(map.Response);
+
+                    alert(response);
+                
+                
+                }
+
+
+            })
+
+        
+        }
+
+        $("#btnReset").click(function () {
+
+
+            RepairInfoReset(i);
+
 
         });
 
@@ -80,24 +132,29 @@
 
                     $(_json).each(function (key) {
 
-                        _r_id = _json[key].r_id;
+                        var _r_id = _json[key].r_id;
+
+                       
+
                         html += "<tr>";
                         html += "<td>" + "<input type = " + "'" + "button" + "' value = " + "'" + "查看验箱明细"
                       + "' onclick = '" + "return  Settlement(" + i + ")" + "'" + "/>" + "</td>"; //0
-                        html += "<td style = " + "'" + "display:none;" + "'" + ">" + _json[key].r_id + "</td>"//0
-                        html += "<td style = " + "'" + "display:none;" + "'" + ">" + _json[key].r_cntno + "</td>"//1
+                        html += "<td>" + "<input type = " + "'" + "button" + "' value = " + "'" + "重置验箱信息"
+                      + "' onclick = '" + "return  RepairInfoReset(" + i + ")" + "'" + "/>" + "</td>"; //1
+                        html += "<td style = " + "'" + "display:none;" + "'" + ">" + _json[key].r_id + "</td>"//2
+                        html += "<td style = " + "'" + "display:none;" + "'" + ">" + _json[key].r_cntno + "</td>"//3
                         //                    html += "<td>" + _json[key].r_cntno + "</td>"; //1
-                        html += "<td>" + _json[key].r_cntweight + "</td>"; //2
-                        html += "<td>" + _json[key].r_cnt_netweight + "</td>"; //3
-                        html += "<td>" + _json[key].r_cnt_grossweight + "</td>"; //4
-                        html += "<td>" + _json[key].r_cnttype + "</td>"; //5
-                        html += "<td>" + _json[key].r_cntsize + "</td>"; //6
-                        html += "<td>" + _json[key].r_av + "</td>"; //7
-                        html += "<td>" + _json[key].r_cntym + "</td>"; //8
-                        html += "<td>" + _json[key].r_date + "</td>"; //9
-                        html += "<td>" + _json[key].r_user + "</td>"; //10
-                        html += "<td>" + _json[key].inspection_Remark + "</td>"; //11
-                        html += "<td>" + _json[key].r_isGetData + "</td>"; //12
+                        html += "<td>" + _json[key].r_cntweight + "</td>"; //4
+                        html += "<td>" + _json[key].r_cnt_netweight + "</td>"; //5
+                        html += "<td>" + _json[key].r_cnt_grossweight + "</td>"; //6
+                        html += "<td>" + _json[key].r_cnttype + "</td>"; //7
+                        html += "<td>" + _json[key].r_cntsize + "</td>"; //8
+                        html += "<td>" + _json[key].r_av + "</td>"; //9
+                        html += "<td>" + _json[key].r_cntym + "</td>"; //10
+                        html += "<td>" + _json[key].r_date + "</td>"; //11
+                        html += "<td>" + _json[key].r_user + "</td>"; //12
+                        html += "<td>" + _json[key].inspection_Remark + "</td>"; //13
+                        html += "<td>" + _json[key].r_isGetData + "</td>"; //14
                         html += "</tr>";
                         i++;
                     });
@@ -118,23 +175,23 @@
 
         function Settlement(i) {
 
-            var r_id = $("#RepairbillInfotable").find("tr").eq(i).find("td").eq(1).text();
+            var r_id = $("#RepairbillInfotable").find("tr").eq(i).find("td").eq(2).text();
 
-            
+
             var tempwindow = window.open('_blank');
             tempwindow.location = "/PdaInfoMenu/PdaItemMenu?r_id=" + r_id;
-        
-        
+
+
         }
 
-$("#btnRush").click(function(){
+        $("#btnRush").click(function () {
 
-window.location.reload();
+            window.location.reload();
 
-});
+        });
 
 
-function closeWin() {
+        function closeWin() {
             window.opener = null;
             window.open('', '_self');
             window.close();
