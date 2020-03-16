@@ -1,6 +1,6 @@
  function loading() {
 
-        
+
         var sliderblank = document.getElementById("sidebar");
         // 让需要显示结果的层显示空白
         sliderblank.innerhtml = " ";
@@ -18,14 +18,16 @@
             //document.getelementbyid('content2').innerhtml = xmlreq.responsetext;   
             // 输出处理结果
             runxml(xmlreq.responsetext);
-        }   
-    
-    
+        }
+
+
     }
 
 
     var isCheck = 0;
 
+
+    //机组型号自动转换大小写
     $("#MODEL_NUM").blur(function () {
 
         var MODEL_NUM = $("#MODEL_NUM").val();
@@ -34,6 +36,23 @@
         $("#MODEL_NUM").val(_MODEL_NUM);
 
     });
+
+  
+
+    $("#MACH_TYPE").change(function () {
+
+        var unit_model = "";
+        var unit_brand = $("#MACH_TYPE").val();
+        if (unit_brand == "CAR") {
+            unit_model = "69NT40-";
+
+        }
+        $("#MODEL_NUM").val(unit_model);
+
+
+
+    });
+
 
     $("#UNIT_SERIAL_NUM").blur(function () {
 
