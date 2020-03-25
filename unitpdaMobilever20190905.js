@@ -416,7 +416,7 @@
 
             var month = _unit_date.substr(4, 2);
 
-            var day = _unit_date.substr(6, 2);
+            var day = "01";
 
             unit_date = year + "-" + month + "-" + day;
 
