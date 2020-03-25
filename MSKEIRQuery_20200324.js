@@ -54,12 +54,12 @@
                       window.location.reload();
                   }
 
-                  var _json = eval(map.dt);
+                 // var _json = eval(map.dt);
 
 
                   //                    console.log(_json);
 
-                  var response = JSON.stringify(map.Response);
+                //  var response = JSON.stringify(map.Response);
 
               }
 
