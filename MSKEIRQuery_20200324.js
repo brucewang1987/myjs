@@ -34,8 +34,8 @@
 
               type: "get",
               dataType: "json",
-              url: "/MSKEIR/RequestEIR?place_id=" + loc + "&startdate=" + startdate + "&enddate=" + enddate + "&val88=" + "QueryInv",
-
+            //  url: "/MSKEIR/RequestEIR?place_id=" + loc + "&startdate=" + startdate + "&enddate=" + enddate + "&val88=" + "QueryInv",
+    url: "/MSKEIR/RequestEIR?RequestName=" + "QueryInv" + "&startdate=" + startdate + "&enddate=" + enddate + "&place_id=" + "3",
               success: function (ret) {
 
                   var map = eval('(' + ret + ')');
