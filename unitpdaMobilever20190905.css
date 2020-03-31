@@ -3,3 +3,12 @@
 border: 0px solid black;
 
 }
+#sidebar
+{
+    position:relative; z-index:1
+    }
+    #loading
+    {
+        position:absolute; left:0; z-index:2;
+        
+        }
