@@ -1,4 +1,4 @@
- function loading() {
+function loading() {
 
 
         var sliderblank = document.getElementById("sidebar");
@@ -37,7 +37,7 @@
 
     });
 
-  
+
 
     $("#MACH_TYPE").change(function () {
 
@@ -137,8 +137,9 @@
             type: "get",
             dataType: "json",
             url: "/RepairbillInfo/AddColdCtnInfo?val1=" + ctn_no + "&val88=" + "QueryRepInfo",
-
-
+             beforeSend:function(XMLHttpRequest){
+              $("#loading").html("<img src='../../Content/images/loadingiframe.gif'/>");
+             },
 
             success: function (ret) {
 
@@ -229,6 +230,10 @@
                 isCheck = 1;
 
             },
+             complete:function(XMLHttpRequest,textStatus){
+              // alert('远程调用成功，状态文本值：'+textStatus);
+             $("#loading").empty();
+           },
             error: function (XmlHttpRequest, textStatus, errorThrown) {
                 alert(XmlHttpRequest.responseText);
             }
@@ -430,18 +435,6 @@
 
 
         }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
         if (MACH_TYPE == "" && MODEL_NUM == "" && UNIT_SERIAL_NUM == "" && SnowSeed == "" && pti_type == "" && unit_date == "" && pti_status == "") {
