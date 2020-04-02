@@ -113,10 +113,32 @@
               success: function (ret) {
 
                   var map = eval('(' + ret + ')');
-                  var response = JSON.stringify(map.Response);
-                  var str = JSON.stringify(map.yardStorage);           
+                  console.log(map);
+                  var rtnFlag = JSON.stringify(map.rtnFlag);
+                  rtnFlag = rtnFlag.replace(/\"/g, "") ;
+                  var rtnInfo = JSON.stringify(map.rtnInfo);
+                  rtnInfo = rtnInfo.replace(/\"/g, ""); ;
+                  console.log("处理结果:" + rtnFlag + "返回信息:" + rtnInfo);
+                  var Response = JSON.stringify(map.Response);
+                  var str = JSON.stringify(map.yardStorage);
                   console.log(JSON.stringify(str));
-                  alert(response);
+
+                  if (rtnFlag == "T") {
+
+                      alert("正确提交数据并通过");
+
+                  }
+                  if (rtnFlag == "E") {
+
+                      alert("未能完成提交失败原因为:" + rtnInfo);
+
+                  }
+                  else {
+
+                      alert(Response);
+
+                  }
+
 
 
 
