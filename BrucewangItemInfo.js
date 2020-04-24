@@ -45,8 +45,8 @@
                     html += "<td>数量</td>"; //8
                     html += "<td>费用划分</td>"; //9
                     html += "<td>明细</td>"; //10
-//                    html += "<td>内外</td>"; //11
-//                    html += "<td>材质</td>"; //12
+                    html += "<td>内外</td>"; //11
+                    html += "<td>材质</td>"; //12
                     html += "</tr>"
 
                     $(_json).each(function (key) {
@@ -64,8 +64,8 @@
                         html += "<td>" + _json[key].r_count + "</td>"; //8 数量
                         html += "<td>" + _json[key].r_resp + "</td>"; //9 费用划分
                         html += "<td>" + _json[key].r_desc + "</td>"; //10 明细
-//                        html += "<td>" + _json[key].IO_mark + "</td>"; //11 内外
-//                        html += "<td>" + _json[key].part_material_code + "</td>"; //12 材质
+                        html += "<td>" + _json[key].IO_mark + "</td>"; //11 内外
+                        html += "<td>" + _json[key].part_material_code + "</td>"; //12 材质
                         html += "</tr>";
                        
 
