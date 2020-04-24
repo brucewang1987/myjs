@@ -191,7 +191,7 @@
 
         function Settlement(i) {
 
-            var r_id = $("#RepairbillInfotable").find("tr").eq(i).find("td").eq(2).text();
+            var r_id = $("#RepairbillInfotable").find("tr").eq(i).find("td").eq(1).text();
 
 
             var tempwindow = window.open('_blank');
