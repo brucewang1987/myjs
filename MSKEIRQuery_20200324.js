@@ -128,7 +128,7 @@
                       alert("正确提交数据并通过");
 
                   }
-                  if (rtnFlag == "E") {
+                  else if (rtnFlag == "E") {
 
                       alert("未能完成提交失败原因为:" + rtnInfo);
 
