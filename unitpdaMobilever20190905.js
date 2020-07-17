@@ -183,6 +183,7 @@ function loading() {
 
                 var _r_id = "";
                 var _ctn_no = "";
+                var is_read="";
 
                 $(_json).each(function (key) {
 
@@ -190,6 +191,16 @@ function loading() {
                     _ctn_no = _json[key].r_cntno;
 
                     $("#ctn_no").val(_ctn_no);
+                        
+                        is_read = _json[key].r_isGetData ;
+                        if(is_read=="is_read")
+                        {
+                               is_read ="已被读取"; 
+                        }
+                        else
+                        {
+                                is_read = "未被读取";
+                        }
 
                     html += "<tr>";
                     html += "<td style = " + "'" + "display:none;" + "'" + ">" + _json[key].r_id + "</td>"//0
@@ -206,7 +217,7 @@ function loading() {
                     //html += "<td>" + _json[key].r_date + "</td>"; //9
                     html += "<td>" + _json[key].r_user + "</td>"; //10
                     html += "<td>" + _json[key].inspection_Remark + "</td>"; //11
-                    html += "<td>" + _json[key].r_isGetData + "</td>"; //12
+                    html += "<td>" + is_read + "</td>"; //12
                     html += "</tr>";
 
                 });
