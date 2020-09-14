@@ -1,4 +1,4 @@
-function GetRequest() {
+ function GetRequest() {
             var url = location.search; //获取url中"?"符后的字串
             if (url.indexOf("?") != -1) {    //判断是否有参数
                 var str = url.substr(1); //从第一个字符开始 因为第0个是?号 获取所有除问号的所有符串
@@ -14,6 +14,8 @@ function GetRequest() {
                 $("#Repairmenu").hide();
                 $("#WarehouseIndex").hide();
                 $("#code").hide();
+                $("#unitQuery").hide();
+                $("#RepairCompmenu").hide();
 
             }
 
@@ -22,7 +24,7 @@ function GetRequest() {
                 $("#RequestRepair").hide();
                 $("#WarehouseIndex").hide();
                 $("#code").hide();
-
+                $("#unitQuery").hide();
             }
 
             if (username.substring(0, 1) == "C") {
@@ -30,10 +32,12 @@ function GetRequest() {
                 $("#RequestRepair").hide();
                 $("#Repairmenu").hide();
                 $("#code").hide();
+                $("#unitQuery").hide();
+                $("#RepairCompmenu").hide();
 
             }
 
-            console.log(username.substring(0,1));
+            console.log(username.substring(0, 1));
 
         }
         GetRequest();
@@ -69,5 +73,12 @@ function GetRequest() {
             var username = $("#span_username").text();
 
             window.location.href = "/TruckRepair/CodeMaintenance?username=" + username;
+
+        });
+
+        $("#gotoRepairCompmenu").click(function () {
+            var username = $("#span_username").text();
+
+            window.location.href = "/TruckRepair/RepairItemComp?username=" + username;
 
         });
