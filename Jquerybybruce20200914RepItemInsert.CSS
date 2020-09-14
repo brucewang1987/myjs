@@ -1,0 +1,31 @@
+
+
+.divhead
+{
+    margin-bottom:20px;
+    
+    }
+    
+    .divhead div
+    {
+        margin:10px 2px;
+        
+        }
+        
+        .repdiv div
+        {
+            margin:10px 2px;
+            
+            }
+            
+                            table, th, td
+{
+border: 1px solid black;
+}
+            
+            td
+            {
+                
+                width:auto;
+                
+                }
