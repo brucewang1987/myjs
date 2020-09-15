@@ -1,4 +1,13 @@
- function login() {
+   $("#username").blur(function () {
+
+                var username = $("#username").val();
+                var _username = username.toUpperCase();
+
+                $("#username").val(_username);
+
+            });
+
+            function login() {
                 var username = $("#username").val();
                 var password = $("#password").val();
 
@@ -9,13 +18,17 @@
                     return false;
 
                 }
+                //登入账号自动转换大小写
+               
+
+
 
                 if (password == "") {
 
                     alert("请输入密码");
                     $("#password").focus();
                     return false;
-                
+
                 }
 
 
@@ -44,7 +57,7 @@
                     }
 
                 })
-                
+
             }
             $("#btnOK").click(function () {
 
