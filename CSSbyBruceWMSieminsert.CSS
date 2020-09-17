@@ -1,0 +1,25 @@
+  .head
+        {
+            margin: 10px 2px;
+        }
+        .menu div
+        {
+            margin: 10px 2px;
+        }
+        .divbody div
+        {
+            margin: 10px 2px;
+        }
+        .nosee
+        {
+            display: none;
+        }
+        table, th, td
+        {
+            border: 1px solid black;
+        }
+        
+        td
+        {
+            width: auto;
+        }
