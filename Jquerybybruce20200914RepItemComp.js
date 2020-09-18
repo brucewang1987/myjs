@@ -43,6 +43,13 @@
 
 
                     console.log(ret);
+                  
+                   var str = JSON.stringify(ret);
+
+                        if (str == "[]") {
+                            alert("没有数据");
+                            window.location.reload();
+                        }
 
                     var html = "";
                     var i = 1;
