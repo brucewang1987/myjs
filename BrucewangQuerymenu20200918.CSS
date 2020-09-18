@@ -1,0 +1,64 @@
+ .box1
+        {
+            width: 200px;    
+            background-color: #E8E7E3;
+            float: left;
+            color: dimgray;
+            /* font-size: 50px;
+            text-align:center; */
+           
+        }
+       
+         .father>div:hover>div
+         {
+            display: block;
+         }        
+
+
+        .box2
+        {
+            width: 200px;         
+            background-color: #E8E7E3;
+            float: left;
+            color: dimgray;
+            /* font-size: 50px;
+            text-align:center; */
+        }
+        .father
+        {
+            width: 400px;
+            margin: 100px auto;
+            overflow: hidden;
+        }
+       
+        .gameboy
+        {
+            display: none;
+        }
+        .PS
+        {
+            display: none;
+        }
+        a{
+            text-decoration: none;
+            font-size:20px ;
+            color:white;
+        }
+
+        .father div
+        {
+            font-size: 30px;
+            text-align:center;
+
+        }
+        .father div:hover
+        {
+           background-color:black;
+           color: white;
+        }
+      
+
+        body
+        {
+            background-color:#f2f6fc;
+        }
