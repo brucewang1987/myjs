@@ -106,11 +106,11 @@
            }
 
 
-           $("#is_out").blur(function () {
+          //$("#is_out").blur(function () {
 
-               $("#is_BJ").val("Y");
+            //   $("#is_BJ").val("Y");
 
-           });
+           //});
 
            function AddRepItem() {
 
