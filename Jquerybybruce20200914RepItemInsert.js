@@ -38,7 +38,10 @@
            function initItem() {
 
                $("#repItem").val("");
-               $("#is_BJ").val("NoSelect");
+                 $("#BJname").val("");
+            $("#BJcount").val("");
+           $("#is_BJ").val("NoSelect");
+             $("#is_out").val("NoSelect");
 
            }
 
@@ -111,6 +114,7 @@
             //   $("#is_BJ").val("Y");
 
            //});
+
 
            function AddRepItem() {
 
