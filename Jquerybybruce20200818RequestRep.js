@@ -41,7 +41,10 @@
                     return false;
 
                 }
+                 if (!window.confirm('是否确认修完')) {
 
+                    return false;
+                }
 
                 $.ajax({
 
@@ -194,10 +197,7 @@
 
                 }
 
-                if (!window.confirm('是否确认修完')) {
-
-                    return false;
-                }
+              
 
                 $.ajax({
 
