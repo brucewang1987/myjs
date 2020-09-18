@@ -1,4 +1,4 @@
-    $("#truck_no").blur(function () {
+  $("#truck_no").blur(function () {
 
                 var truck_no = $("#truck_no").val();
                 var _truck_no = truck_no.toUpperCase();
@@ -19,10 +19,60 @@
                 $("#username").text(username);
 
                 $("#user").hide();
+                $("#btnConfirmAV").attr('disabled', true);
 
             }
 
             init();
+
+            $("#btnConfirmAV").click(function () {
+
+                confirmtruckAV();
+
+            });
+
+            function confirmtruckAV() {
+
+                var truck_no = $("#truck_no").val();
+
+                if (truck_no == "") {
+
+                    alert("请输入车号");
+                    return false;
+
+                }
+
+
+                $.ajax({
+
+                    type: "get",
+                    dataType: "json",
+                    url: "/TruckRepair/RequestRepairbusiness?truck_no=" + truck_no + "&requestName=" + "confirmtruck",
+                    success: function (ret) {
+
+
+                        var is_success = ret.is_success;
+                       
+                        var err = ret.err;
+
+                        if (is_success == "OK") {
+
+                            alert("确认成功");
+                            window.location.reload();
+
+                        }
+                        else {
+
+                            alert(err);
+
+                        }
+                    
+                    }
+
+
+                })
+            
+            }
 
             function sendmail() {
 
@@ -72,6 +122,16 @@
                     return false;
 
                 }
+
+                var is_worked = $("#is_worked").val();
+                if (is_worked == "NoSelect") {
+
+                    alert(" 请选择是否可用");
+                    $("#is_worked").focus();
+                    return false;
+                
+                }
+
                 var email = $("#email").val();
                 var create_user = $("#username").text();
 
@@ -80,7 +140,7 @@
                     type: "get",
                     dataType: "json",
                     url: "/TruckRepair/RequestRepairbusiness?truck_no=" + truck_no + "&trouble_dec="
-                   + trouble_dec + "&create_user=" + create_user + "&receive_email=" + email + "&requestName=" + "InsertReqInfo",
+                   + trouble_dec + "&create_user=" + create_user + "&is_worked=" + is_worked + "&receive_email=" + email + "&requestName=" + "InsertReqInfo",
 
                     success: function (ret) {
 
@@ -91,7 +151,7 @@
                         if (is_success == "OK") {
 
                             alert("提交成功," + smtpResult);
-
+                            window.location.reload();
 
                         }
                         else {
@@ -114,3 +174,86 @@
 
 
             });
+
+
+            $("#btnSelectRepInfo").click(function () {
+
+                SelectRepItemByTruckNo();
+
+
+            });
+
+            function SelectRepItemByTruckNo() {
+
+                var truckNo = $("#truck_no").val();
+
+                if (truckNo == "") {
+
+                    alert("请输入车号");
+                    return false;
+
+                }
+
+                if (!window.confirm('是否确认修完')) {
+
+                    return false;
+                }
+
+                $.ajax({
+
+                    type: "get",
+                    dataType: "json",
+                    url: "/TruckRepair/SelectRepitemInfo?truck_no=" + truckNo + "&requestName=" + "selectRepitemInfoByTruckNo",
+
+                    success: function (ret) {
+
+
+                        console.log(ret);
+
+                        var str = JSON.stringify(ret);
+
+                        if (str == "[]") {
+                            alert("没有数据");
+                            window.location.reload();
+                        }
+
+                        var html = "";
+                        var i = 1;
+                        html += "<tr>";
+                        html += "<td>维修代码</td>"; //0
+                        html += "<td>是否需要备件</td>"; //1
+                      
+                        html += "<td>是否修理</td>"; //4
+                        html += "<td>备件名称</td>"; //5
+                        html += "<td>备件数量</td>"; //6
+                        html += "<td>是否外修</td>"; //7
+                       
+
+                        html += "</tr>";
+
+                        $(ret).each(function (key) {
+                            html += "<tr>";
+                            html += "<td>" + ret[key].item_code + "</td>"//0
+                            html += "<td>" + ret[key].is_need + "</td>"//1   
+                            html += "<td>" + ret[key].is_worked + "</td>"//4
+                            html += "<td>" + ret[key].BJname + "</td>"//5
+                            html += "<td>" + ret[key].BJcount + "</td>"//6
+                            html += "<td>" + ret[key].is_outRepair + "</td>"//7
+                            html += "</tr>";
+                            i++;
+
+                        });
+                        $("#repItemTab").html(html);
+                        $("#btnConfirmAV").attr('disabled', false);
+
+                    },
+                    error: function (XmlHttpRequest, textStatus, errorThrown) {
+                        alert(XmlHttpRequest.responseText);
+                    }
+
+
+                })
+
+
+
+            }
