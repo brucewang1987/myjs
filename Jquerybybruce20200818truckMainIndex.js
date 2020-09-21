@@ -14,7 +14,7 @@
                 $("#Repairmenu").hide();
                 $("#WarehouseIndex").hide();
                 $("#code").hide();
-                $("#unitQuery").hide();
+              //  $("#unitQuery").hide();
                 $("#RepairCompmenu").hide();
 
             }
@@ -24,7 +24,7 @@
                 $("#RequestRepair").hide();
                 $("#WarehouseIndex").hide();
                 $("#code").hide();
-                $("#unitQuery").hide();
+              //  $("#unitQuery").hide();
             }
 
             if (username.substring(0, 1) == "C") {
@@ -32,7 +32,7 @@
                 $("#RequestRepair").hide();
                 $("#Repairmenu").hide();
                 $("#code").hide();
-                $("#unitQuery").hide();
+             //   $("#unitQuery").hide();
                 $("#RepairCompmenu").hide();
 
             }
