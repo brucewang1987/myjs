@@ -82,3 +82,11 @@
             window.location.href = "/TruckRepair/RepairItemComp?username=" + username;
 
         });
+
+
+        $("#gotounitQuerymenu").click(function () {
+            var username = $("#span_username").text();
+
+            window.location.href = "/TruckRepair/Querymenu?username=" + username;
+
+        });
