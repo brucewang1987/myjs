@@ -1,0 +1,19 @@
+ body
+        {
+            background-color: 	#f0fdff;
+        }
+        
+         table, th, td
+        {
+            border: 1px solid black;
+        }
+        
+        td
+        {
+            width: auto;
+        }
+.box1 div
+{
+    margin:10px 0px;
+    
+    }
