@@ -1,0 +1,26 @@
+body
+        {
+            background-color: 	#f0fdff;
+        }
+       
+        .box1 div
+        {
+            margin: 10px 0px;
+        }
+
+        #class1
+        {
+            margin-left: 64px;
+        }
+        
+          table, th, td
+{
+border: 1px solid black;
+}
+            
+            td
+            {
+                
+                width:auto;
+                
+                }
