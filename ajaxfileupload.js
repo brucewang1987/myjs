@@ -219,18 +219,18 @@ jQuery.extend({
             // If you add mimetype in your response,
             // you have to delete the '<pre></pre>' tag.
             // The pre tag in Chrome has attribute, so have to use regex to remove
-         //bruce修改前的方法
-           /*
+        
             var data = r.responseText;
             var rx = new RegExp("<pre.*?>(.*?)</pre>","i");
             var am = rx.exec(data);
             //this is the desired data extracted
             var data = (am) ? am[1] : "";    //the only submatch or empty
-            eval( "data = " + data );
+           //bruce修改前
+           // eval( "data = " + data );
+         // bruce修改后
+           eval("data = \" "+data+" \" ");
             
-            */
-         //bruce修改后方法
-           data=jQuery.parseJSON(jQuery(data).text());
+          
         }
         // evaluate scripts within html
         if ( type == "html" )
