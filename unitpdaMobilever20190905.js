@@ -206,17 +206,17 @@ function loading() {
                     html += "<td style = " + "'" + "display:none;" + "'" + ">" + _json[key].r_id + "</td>"//0
                     html += "<td style = " + "'" + "display:none;" + "'" + ">" + _json[key].r_cntno + "</td>"//1
                     //                    html += "<td>" + _json[key].r_cntno + "</td>"; //1
-                    html += "<td>" + _json[key].r_cntweight + "</td>"; //2
-                    html += "<td>" + _json[key].r_cnt_netweight + "</td>"; //3
-                    html += "<td>" + _json[key].r_cnt_grossweight + "</td>"; //4
-                    html += "<td>" + _json[key].r_cnttype + "</td>"; //5
-                    html += "<td>" + _json[key].r_cntsize + "</td>"; //6
-                    html += "<td>" + _json[key].r_av + "</td>"; //7
-                    html += "<td>" + _json[key].r_cntym + "</td>"; //8
+                    html += "<td>" + _json[key].r_cntweight + ","+"</td>"; //2
+                    html += "<td>" + _json[key].r_cnt_netweight + ","+"</td>"; //3
+                    html += "<td>" + _json[key].r_cnt_grossweight +","+ "</td>"; //4
+                    html += "<td>" + _json[key].r_cnttype +","+ "</td>"; //5
+                    html += "<td>" + _json[key].r_cntsize +","+ "</td>"; //6
+                    html += "<td>" + _json[key].r_av +","+ "</td>"; //7
+                    html += "<td>" + _json[key].r_cntym +","+ "</td>"; //8
                     html += "<td style = " + "'" + "display:none;" + "'" + ">" + _json[key].r_date + "</td>"//1
                     //html += "<td>" + _json[key].r_date + "</td>"; //9
-                    html += "<td>" + _json[key].r_user + "</td>"; //10
-                    html += "<td>" + _json[key].inspection_Remark + "</td>"; //11
+                    html += "<td>" + _json[key].r_user +","+ "</td>"; //10
+                    html += "<td>" + _json[key].inspection_Remark + ","+"</td>"; //11
                     html += "<td>" + is_read + "</td>"; //12
                     html += "</tr>";
 
