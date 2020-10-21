@@ -1,14 +1,52 @@
-       table, th, td
+      
+ .box1{
+            width: 10rem;
+            height: .666667rem;
+            /* background-color: #bbffaa */
+        }
+       /*  .inputclass
+        {
+            width: 6.666667rem;
+            height: .266667rem;
+            border-radius: .133333rem .133333rem;
+            font-size:.266667rem ;
+
+        } */
+        span
+        {
+            font-size: .533333rem;
+        }
+        .nosee
+        {
+            display: none;
+        }
+        select
+        {
+            font-size: .533333rem;
+        }
+        [type="text"]
+        {
+            width: 6.666667rem;
+            height:.533333rem;
+            border-radius: .133333rem .133333rem;
+            font-size:.533333rem;
+        }
+        [type="button"]
+        {
+            width: 3.733333rem;
+            
+            border-radius: .133333rem .133333rem;
+            font-size:.533333rem;
+        }
+        .box1 div
+        {
+          margin: .266667rem 0rem;
+        }
+
+
+table, th, td
 {
 border: 0px solid black;
 
 }
-#sidebar
-{
-    position:relative; z-index:1
-    }
-    #loading
-    {
-        position:absolute; left:0; z-index:2;
-        
-        }
+
