@@ -1,4 +1,8 @@
-.mianbox{
+ body
+        {
+            background-color: #87CEFA;
+        }
+        .mianbox{
             width: 10rem;
             height: .666667rem;
             /* background-color: #bbffaa */
@@ -33,9 +37,13 @@
         [type="button"]
         {
             width: 3.733333rem;
-            
+            background-color:#EEE9E9;
             border-radius: .133333rem .133333rem;
             font-size:.533333rem;
+        }
+        [type="button"]:hover
+        {
+            box-shadow: 5px 5px 10px;
         }
         .mianbox div
         {
