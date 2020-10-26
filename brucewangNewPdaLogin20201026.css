@@ -1,0 +1,31 @@
+.box1{
+            width: 10rem;
+            height: .666667rem;
+            /* background-color: #bbffaa */
+        }
+        body
+        {
+            background-color: #87CEFA;
+        }
+        span
+        {
+            font-size: .533333rem;
+        }
+        [type="button"]
+        {
+            width: 3.733333rem;
+            background-color:#EEE9E9;
+            border-radius: .133333rem .133333rem;
+            font-size:.533333rem;
+        }
+        [type="text"]
+        {
+            width: 6.666667rem;
+            height:.533333rem;
+            border-radius: .133333rem .133333rem;
+            font-size:.533333rem;
+        }
+        .box1 div
+        {
+          margin: .266667rem 0rem;
+        }
