@@ -1,4 +1,4 @@
- function getRequest() {
+        function getRequest() {
 
             var url = location.search; //获取url中"?"符后的字串
             if (url.indexOf("?") != -1) {    //判断是否有参数
@@ -11,7 +11,7 @@
             $("#span_username").text(username);
 
             $("#file1").attr("disabled", true);
-            $("#btnOk").attr("disabled",true);
+            $("#btnOk").attr("disabled", true);
 
         }
 
@@ -20,10 +20,11 @@
 
         function ajaxFileUpload() {
             var result = "";
+            var ctn_no = $("#ctn_no").val();
             $.ajaxFileUpload
             (
                 {
-                    url: '/TaskManager/SaveImg', //用于文件上传的服务器端请求地址
+                    url: '/Pdabusiness/SaveImg?ctn_no=' + ctn_no, //用于文件上传的服务器端请求地址
                     secureuri: false, //是否需要安全协议，一般设置为false
                     fileElementId: 'file1', //文件上传域的ID
                     //dataType: 'json', //返回值类型 一般设置为json
@@ -110,6 +111,6 @@
                 }
 
             })
-        
-        
+
+
         }
