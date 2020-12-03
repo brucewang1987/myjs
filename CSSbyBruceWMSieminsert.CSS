@@ -1,6 +1,28 @@
-  .head
+  body
+        {
+            background-color: 	#f0fdff;
+        }
+
+    .head
         {
             margin: 10px 2px;
+            border:1px solid#D3D3D3;
+        }
+        .leftbox
+        {
+            width: 55%;
+           
+            border:1px solid#D3D3D3;
+            
+            float: left;
+        }
+        .rightbox
+        {
+            width: 40%;
+            
+            float: right;
+            border:1px solid#D3D3D3;
+            overflow: scroll;
         }
         .menu div
         {
@@ -22,11 +44,13 @@
         td
         {
             width: auto;
+            
         }
-
-
-  
-body
+        
+        .WMSTrucktab td
         {
-            background-color: 	#f0fdff;
-        }
+            border: 1px;
+            width: 150px;
+            text-align: right;
+            
+            }
