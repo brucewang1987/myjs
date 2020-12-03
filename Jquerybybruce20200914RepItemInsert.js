@@ -1,4 +1,4 @@
-   function init() {
+ function init() {
 
                var url = location.search; //获取url中"?"符后的字串
                if (url.indexOf("?") != -1) {    //判断是否有参数
@@ -38,10 +38,10 @@
            function initItem() {
 
                $("#repItem").val("");
-                 $("#BJname").val("");
-            $("#BJcount").val("");
-           $("#is_BJ").val("NoSelect");
-             $("#is_out").val("NoSelect");
+               $("#BJname").val("");
+               $("#BJcount").val("");
+               $("#is_BJ").val("NoSelect");
+               $("#is_out").val("NoSelect");
 
            }
 
@@ -109,9 +109,9 @@
            }
 
 
-          //$("#is_out").blur(function () {
+           //$("#is_out").blur(function () {
 
-            //   $("#is_BJ").val("Y");
+           //   $("#is_BJ").val("Y");
 
            //});
 
@@ -124,7 +124,7 @@
                var is_need = $("#is_BJ").val(); //是否需要备件
                var BJ_name = $("#BJname").val(); //备件名称
                var BJ_count = $("#BJcount").val(); //备件数量
-               var is_out = $("#is_out").val();//是否外修
+               var is_out = $("#is_out").val(); //是否外修
 
 
                if (is_out == "NoSelect") {
@@ -134,7 +134,7 @@
 
                }
 
-              
+
 
 
                var regu = /^[0-9]+\.?[0-9]*$/;
@@ -187,6 +187,14 @@
                    BJ_count = 0;
 
 
+               }
+
+
+               if (is_out == "Y" && is_need == "N") {
+
+                   alert("外修项目需要勾选需要备件,请去勾选");
+                   return false;
+               
                }
 
 
