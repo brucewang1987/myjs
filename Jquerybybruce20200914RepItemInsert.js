@@ -1,411 +1,272 @@
- var irows = 0;
+function init() {
 
+               var url = location.search; //获取url中"?"符后的字串
+               if (url.indexOf("?") != -1) {    //判断是否有参数
+                   var str = url.substr(1); //从第一个字符开始 因为第0个是?号 获取所有除问号的所有符串
+                   strs = str.split("=");   //用等号进行分隔 （因为知道只有一个参数 所以直接用等号进分隔 如果有多个参数 要用&号分隔 再用等号进行分隔）
+                   //                alert(strs[1]);          //直接弹出第一个参数 （如果有多个参数 还要进行循环的）
+               }
+               var username = strs[1];
+               $("#username").text(username);
 
-     $('#repitemTab tr td').click(
-  function () {
-      alert($(this).parent().parent().find("tr").index($(this).parent()[0])); //第几行
-      //      alert($(this).index()); //第几列
-  }
-);
+               $("#repdiv").hide();
 
-  function initrightbox() {
+           }
 
-      $.ajax({
+           init();
 
-          type: "get",
-          dataType: "json",
-          url: "/WMSbusiness/WMSinitdata?requestName=" + "selectTruckBJinfo",
+           $("#btn_query").click(function () {
 
-          success: function (ret) {
 
-              var str = JSON.stringify(ret);
+               selectReqInfo();
 
-              if (str == "[]") {
-                  console.log("没有需要备件的数据");
+           });
 
-              }
-              var html = "";
+           $("#btnAdd").click(function () {
 
-              html += "<tr>";
-              html += "<td>车号</td>"; //0
-              html += "<td>操作</td>"; //1
-              html += "</tr>";
-              var i = 1;
-              $(ret).each(function (key) {
+               AddRepItem();
 
-                  html += "<tr>";
-                  html += "<td>" + ret[key].truck_no + "</td>"//0
-                  html += "<td>" + "<input type = " + "'" + "button" + "' value = " + "'" + "查询维修项目 "
-                      + "' onclick = '" + "WMSQueryItem(" + i + ")" + "'" + "/>" + "</td>"//8
-                  html += "</tr>";
-                  console.log(i);
-                  i++;
-                 
+           });
 
-              });
-              $("#WMSTrucktab").html(html);
+           $("#btn_queryItem").click(function () {
 
-          },
-          error: function (XmlHttpRequest, textStatus, errorThrown) {
-              alert(XmlHttpRequest.responseText);
-          }
+               selectrepItem();
 
 
-      })
+           });
 
+           function initItem() {
 
-  }
-  initrightbox();
+               $("#repItem").val("");
+                 $("#BJname").val("");
+            $("#BJcount").val("");
+           $("#is_BJ").val("NoSelect");
+             $("#is_out").val("NoSelect");
 
+           }
 
-  function WMSQueryItem(i) {
+           function selectrepItem() {
 
-      
+               var rep_id = $("#rep_id").text();
 
-      var truck_no = $("#WMSTrucktab").find("tr").eq(i).find("td").eq(0).text();
-      console.log(truck_no);
-      $("#truck_no").val(truck_no);
-      selectRepitemInfo();
+               if (rep_id == "") {
 
+                   alert("无明细信息");
+                   return false;
+               }
 
 
+               $.ajax({
 
-  }
+                   type: "get",
+                   dataType: "json",
+                   url: "/TruckRepair/SelectRepitemInfo?rep_id=" + rep_id + "&requestName=" + "selectRepitemInfo",
+                   success: function (ret) {
 
 
+                       console.log(ret);
 
+                       var html = "";
 
-  function SelectWMSBjiteminfoBytruckno() {
+                       html += "<tr>";
+                       html += "<td>维修代码</td>"; //0
+                       html += "<td>是否需要备件</td>"; //1
+                       html += "<td>填报项目时间</td>"; //2
+                       html += "<td>填报项目人</td>"; //3
+                       html += "<td>是否修理</td>"; //4
+                       html += "<td>备件名称</td>"; //5
+                       html += "<td>备件数量</td>"; //6
+                       html += "<td>是否外修</td>"; //7
+                       html += "<td>是否需要仓库确认</td>"; //8
 
-      var truck_no = $("#truck_no").val();
+                       html += "</tr>";
 
-      $.ajax({
+                       $(ret).each(function (key) {
+                           html += "<tr>";
+                           html += "<td>" + ret[key].item_code + "</td>"//0
+                           html += "<td>" + ret[key].is_need + "</td>"//1
+                           html += "<td>" + ret[key].create_date + "</td>"//2
+                           html += "<td>" + ret[key].create_user + "</td>"//3
+                           html += "<td>" + ret[key].is_worked + "</td>"//4
+                           html += "<td>" + ret[key].BJname + "</td>"//5
+                           html += "<td>" + ret[key].BJcount + "</td>"//6
+                           html += "<td>" + ret[key].is_outRepair + "</td>"//7
+                           html += "<td>" + ret[key].is_WMS_confirm + "</td>"//8
+                           html += "</tr>";
 
-          type: "get",
-          dataType: "json",
-          url: "/TruckRepair/WMSSelectBJitemInfo?truck_no=" + truck_no + "&requestName=" + "WMSSelectBJitemInfoBYtruckno",
+                       });
+                       $("#repItemTab").html(html);
 
-          success: function (ret) {
+                   },
+                   error: function (XmlHttpRequest, textStatus, errorThrown) {
+                       alert(XmlHttpRequest.responseText);
+                   }
 
 
-              console.log("已添加的备件" + ret);
+               })
 
-              var str = JSON.stringify(ret);
 
-              if (str == "[]") {
-                  alert("没有数据");
-                  window.location.reload();
-              }
+           }
 
-              var html = "";
 
-              html += "<tr>";
-              html += "<td>备件名称</td>"; //0
-              html += "<td>备件数量</td>"; //1
-              html += "<td>价格</td>"; //2
-              html += "</tr>";
+          //$("#is_out").blur(function () {
 
-              $(ret).each(function (key) {
+            //   $("#is_BJ").val("Y");
 
-                  html += "<tr>";
-                  html += "<td>" + ret[key].BJname + "</td>"//0
-                  html += "<td>" + ret[key].BJcount + "</td>"//1
-                  html += "<td>" + ret[key].price + "</td>"//2
-                  html += "</tr>";
-              });
+           //});
 
-              $("#WMSitemtab").html(html);
 
-          },
-          error: function (XmlHttpRequest, textStatus, errorThrown) {
-              alert(XmlHttpRequest.responseText);
-          }
+           function AddRepItem() {
 
+               var create_user = $("#username").text(); //操作人
+               var rep_id = $("#rep_id").text(); //报修编号
+               var repItem = $("#repItem").val(); //维修项目
+               var is_need = $("#is_BJ").val(); //是否需要备件
+               var BJ_name = $("#BJname").val(); //备件名称
+               var BJ_count = $("#BJcount").val(); //备件数量
+               var is_out = $("#is_out").val();//是否外修
 
 
-      })
+               if (is_out == "NoSelect") {
 
+                   alert("请选择是否外修");
+                   return false;
 
-  }
+               }
 
+              
 
-  $("#btnBJitem").click(function () {
 
+               var regu = /^[0-9]+\.?[0-9]*$/;
 
-      SelectWMSBjiteminfoBytruckno();
+               if (repItem == "") {
 
-  });
+                   alert("请录入维修代码");
+                   $("#repItem").focus();
+                   return false;
 
+               }
 
-     function initBJinfo() {
+               if (is_need == "NoSelect") {
 
-         $("#BJname").val("");
-         $("#BJcount").val("");
-         $("#price").val("");
-         $("#item_id").val("");
-//         $("#rep_id").val("");
-     }
+                   alert("请选择是否需要备件");
+                   $("#is_BJ").focus();
+                   return false;
 
-     function init() {
+               }
 
-         var url = location.search; //获取url中"?"符后的字串
-         if (url.indexOf("?") != -1) {    //判断是否有参数
-             var str = url.substr(1); //从第一个字符开始 因为第0个是?号 获取所有除问号的所有符串
-             strs = str.split("=");   //用等号进行分隔 （因为知道只有一个参数 所以直接用等号进分隔 如果有多个参数 要用&号分隔 再用等号进行分隔）
-             //                alert(strs[1]);          //直接弹出第一个参数 （如果有多个参数 还要进行循环的）
-         }
-         var username = strs[1];
+               if (is_need == "Y") {
 
-         console.log(username);
+                   if (BJ_name == "") {
 
-         $("#span_username").text(username);
+                       alert("请录入备件名称");
+                       $("#BJname").focus();
+                       return false;
 
-         $("#divbody").hide();
+                   }
 
-     }
+                   if (BJ_count == "") {
 
-     init();
+                       alert("请录入备件数量");
+                       $("#BJcount").focus();
+                       return false;
 
+                   }
 
-     function WMSDOBJ(i) {
+                   if (!regu.test(BJ_count)) {
 
-         var rep_id = $("#repitemTab").find("tr").eq(i).find("td").eq(4).text();
-         var item_id = $("#repitemTab").find("tr").eq(i).find("td").eq(5).text();
+                       alert("请录入正确的数字");
+                       $("#BJcount").focus();
+                       return false;
+                   }
 
-         irows = i;
 
-         $("#repitemTab").find('tr').eq(irows).css('background-color', 'red');
+               }
+               else {
 
-         $("#rep_id").val(rep_id);
-         $("#item_id").val(item_id);
+                   BJ_count = 0;
 
-         console.log("rep_id:" + rep_id + ",item_id:" + item_id);
 
-         $("#divbody").show();
+               }
 
 
+               $.ajax({
 
+                   type: "get",
+                   dataType: "json",
+                   url: "/TruckRepair/AddrepItem?item_code=" + repItem + "&is_need=" + is_need + "&create_user=" + create_user +
+              "&rep_id=" + rep_id + "&BJname=" + BJ_name + "&BJcount=" + BJ_count + "&is_outRepair=" + is_out + "&requestName=" + "AddRepitem",
 
-     }
+                   success: function (ret) {
 
-     function SelectWMSBjiteminfo() {
+                       var result = ret.is_success;
+                       var err = ret.err;
+                       if (result == "OK") {
 
-         var rep_id = $("#rep_id").val();
+                           alert("新增成功");
+                           selectrepItem();
+                           initItem();
 
-         $.ajax({
+                       }
+                       else {
 
-             type: "get",
-             dataType: "json",
-             url: "/TruckRepair/WMSSelectBJitemInfo?rep_id=" + rep_id + "&requestName=" + "WMSSelectBJitemInfo",
+                           alert("新增失败,原因是" + err);
 
-             success: function (ret) {
+                       }
 
+                   }
 
-                 console.log("已添加的备件"+ret);
 
-                 var str = JSON.stringify(ret);
+               })
 
-                 if (str == "[]") {
-                     alert("没有备件数据");
-//                     window.location.reload();
-                 }
 
-                 var html = "";
+           }
 
-                 html += "<tr>";
-                 html += "<td>备件名称</td>"; //0
-                 html += "<td>备件数量</td>"; //1
-                 html += "<td>价格</td>"; //2
-                 html += "</tr>";
+           function selectReqInfo() {
 
-                 $(ret).each(function (key) {
+               var truck_no = $("#truck_no").val();
+               if (truck_no == "") {
+                   alert("请输入车号");
+                   $("#truck_no").focus();
+                   return false;
+               }
 
-                     html += "<tr>";
-                     html += "<td>" + ret[key].BJname + "</td>"//0
-                     html += "<td>" + ret[key].BJcount + "</td>"//1
-                     html += "<td>" + ret[key].price + "</td>"//2
-                     html += "</tr>";
-                 });
+               $.ajax({
+                   type: "get",
+                   dataType: "json",
+                   url: "/TruckRepair/RepairBusiness?truck_no=" + truck_no + "&requestName=" + "SelectReqInfo",
+                   success: function (ret) {
 
-                 $("#WMSitemtab").html(html);
 
-             },
-             error: function (XmlHttpRequest, textStatus, errorThrown) {
-                 alert(XmlHttpRequest.responseText);
-             }
 
+                       var QueryResult = ret.QueryResult;
+                       if (QueryResult == "OK") {
 
+                           var _truck_no = ret.truck_no;
+                           var _trouble_dec = ret.trouble_dec;
+                           var _request_date = ret.request_date;
+                           var _requester = ret.requester;
+                           var _rep_id = ret.rep_id;
 
-         })
+                           $("#rep_id").text(_rep_id);
 
+                           console.log("车号:" + _truck_no + ",故障描述: " + _trouble_dec + ",报修时间:" + _request_date + ",报修人:" + _requester);
+                           $("#reqSpan").text("车号:" + _truck_no + ",故障描述: " + _trouble_dec + ",报修时间:" + _request_date + ",报修人:" + _requester);
 
-     }
+                           $("#repdiv").show();
+                       }
+                       else {
 
+                           alert("无相关报修信息");
+                           window.location.reload();
 
-     $("#btnAdd").click(function () {
+                       }
 
-         addWMSinfo();
 
+                   }
 
-     });
 
-     function addWMSinfo() {
+               })
 
-         var BJname = $("#BJname").val();
-         var BJcount = $("#BJcount").val();
-         var price = $("#price").val();
-         var rep_id = $("#rep_id").val();
-         var item_id = $("#item_id").val();
-         var create_user = $("#span_username").text();
 
-
-         if (BJname == "") {
-
-             alert("请录入备件");
-             $("#BJname").focus();
-             return false;
-
-         }
-
-         if (BJcount == "") {
-
-             alert("请录入备件数量");
-             $("#BJcount").focus();
-             return false;
-
-         }
-         var regu = /^[0-9]+\.?[0-9]*$/;
-
-         if (!regu.test(BJcount)) {
-
-             alert("请录入正确的数字");
-             $("#BJcount").focus();
-             return false;
-         }
-
-         if (price == "") {
-
-             alert("请录入金额");
-             $("#price").focus();
-             return false;
-         }
-
-
-         if (!regu.test(price)) {
-
-             alert("请录入正确的数字");
-             $("#price").focus();
-             return false;
-         }
-
-
-         $.ajax({
-
-             type: "get",
-             dataType: "json",
-             url: "/TruckRepair/AddWMSinfo?rep_id=" + rep_id + "&item_id=" + item_id + "&BJname=" + BJname + "&BJcount=" + BJcount
-            + "&price=" + price + "&create_user=" + create_user + "&requestName=" + "AddWMSBJinfo"
-            ,
-
-             success: function (ret) {
-
-                 var result = ret.is_success;
-                 var err = ret.err;
-                 if (result == "OK") {
-
-                     alert("新增成功");
-                     SelectWMSBjiteminfo();
-
-                     initBJinfo();
-                     $("#divbody").hide();
-                     selectRepitemInfo();
-                     //                     $("#repitemTab").find('tr').eq(irows).css('background-color', 'red');
-
-                     irows = 0;
-                 }
-                 else {
-
-                     alert("新增失败,原因是" + err);
-
-                 }
-
-
-             }
-
-         })
-
-
-     }
-
-     function selectRepitemInfo() {
-
-
-         var html2 = "";
-         $("#WMSitemtab").html("");
-
-         var truck_no = $("#truck_no").val();
-         if (truck_no == "") {
-
-             alert("请录入车号");
-             return false;
-
-         }
-
-         $.ajax({
-
-             type: "get",
-             dataType: "json",
-             url: "/TruckRepair/WMSSelectRepitem?truck_no=" + truck_no + "&requestName=" + "WMSSelectRepitem",
-
-             success: function (ret) {
-
-
-                 console.log(ret);
-
-                 var str = JSON.stringify(ret);
-
-                 if (str == "[]") {
-                     alert("没有备件修理数据");
-                     // return false;
-                     initrightbox();
-                     // window.location.reload();
-                     var html2 = "";
-                     $("#repitemTab").html(html2);
-                     return false;
-                 }
-
-                 var html = "";
-                 var i = 1;
-
-                 html += "<tr>";
-                 html += "<td>维修代码</td>"; //0
-                 html += "<td>备件名称</td>"; //1
-                 html += "<td>备件数量</td>"; //2
-                 html += "<td>是否外修</td>"; //3
-                 html += "<td>操作</td>"; //4
-                 html += "</tr>";
-
-                 $(ret).each(function (key) {
-                     html += "<tr>";
-                     html += "<td>" + ret[key].item_code + "</td>"//0
-                     html += "<td>" + ret[key].BJname + "</td>"//1
-                     html += "<td>" + ret[key].BJcount + "</td>"//2
-                     html += "<td>" + ret[key].is_outRepair + "</td>"//3
-                     html += "<td style = " + "'" + "display:none;" + "'" + ">" + ret[key].rep_id + "</td>"//4
-                     html += "<td style = " + "'" + "display:none;" + "'" + ">" + ret[key].item_id + "</td>"//5
-                     html += "<td>" + "<input type = " + "'" + "button" + "' value = " + "'" + "填写备件 "
-                      + "' onclick = '" + "WMSDOBJ(" + i + ")" + "'" + "/>" + "</td>"//8
-                     html += "</tr>";
-                     i++;
-
-                 });
-                 $("#repitemTab").html(html);
-
-             },
-             error: function (XmlHttpRequest, textStatus, errorThrown) {
-                 alert(XmlHttpRequest.responseText);
-             }
-
-         })
-
-     }
+           }
