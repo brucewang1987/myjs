@@ -1,4 +1,12 @@
-$("#btnSelect").click(function () {
+   function init() {
+
+            $("#loading").hide();
+
+        }
+
+        init();
+
+        $("#btnSelect").click(function () {
 
             var datatype = $("#datatype").val();
 
@@ -30,10 +38,10 @@ $("#btnSelect").click(function () {
 
             }
 
-            if (datatype == "selectitembyPlaceanddate") { 
-            
-            
-            
+            if (datatype == "selectitembyPlaceanddate") {
+
+
+
             }
 
             //            if (datatype == "fee") {
@@ -191,8 +199,8 @@ $("#btnSelect").click(function () {
                 }
 
             })
-        
-        
+
+
         }
 
         function selectuniverdatabytruckandtime() {
@@ -394,8 +402,8 @@ $("#btnSelect").click(function () {
 
 
             })
-        
-        
+
+
         }
 
         function selectitembytruckNo() {
@@ -728,9 +736,10 @@ $("#btnSelect").click(function () {
 
 
         $("#btnexcel").click(function () {
-
+            $("#loading").show();
             exportexcel();
 
+            $("#loading").hide();
         });
 
         function exportexcel() {
