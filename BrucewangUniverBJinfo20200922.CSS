@@ -29,3 +29,11 @@ border: 1px solid black;
                 width:auto;
                 
                 }
+
+
+.loading
+        {
+            position: absolute;
+            top:200px;
+            left: 300px;
+        }
