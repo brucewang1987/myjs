@@ -767,3 +767,79 @@
 
 
         }
+
+
+
+ $("#btnSelectNotComp").click(function () {
+
+            selectNotComp();
+
+        });
+
+        function selectNotComp() {
+
+
+            $.ajax({
+                type: "get",
+                dataType: "json",
+                url: "/TruckRepair/UNCompTruckData?requestName=" + "SelectUnCompTruckInfo",
+                success: function (ret) {
+
+                    var str = JSON.stringify(ret);
+
+                    if (str == "[]") {
+                        alert("没有数据");
+                        window.location.reload();
+                    }
+
+
+                    var html = "";
+                    html += "<tr>";
+                    html += "<td>车号</td>"; //0
+                    html += "<td>堆场</td>"; //1
+                    html += "<td>报修人</td>"; //2
+                    html += "<td>报修时间</td>"; //3
+                    html += "<td>修理项目名称</td>"; //4
+                    html += "<td>修理备件名</td>"; //5
+                    html += "<td>修理备件数量</td>"; //6
+                    html += "<td>修理状态</td>"; //7
+                    html += "<td>修理人</td>"; //8
+                    html += "<td>是否需要仓库确认</td>"; //9
+                    html += "<td>仓库填写备件名</td>"; //10
+                    html += "<td>仓库填写的备件数量</td>"; //11
+                    html += "<td>价格</td>"; //12
+//                    html += "<td></td>"; //13
+                    html += "</tr>";
+
+                    $(ret).each(function (key) {
+
+                        html += "<tr>";
+                        html += "<td>" + ret[key].truck_no + "</td>"//0
+                        html += "<td>" + ret[key].place_id + "</td>"//1
+                        html += "<td>" + ret[key].requestPerson + "</td>"//2
+                        html += "<td>" + ret[key].request_date + "</td>"//3
+                        html += "<td>" + ret[key].item_code + "</td>"//4
+                        html += "<td>" + ret[key].repBjname + "</td>"//5
+                        html += "<td>" + ret[key].repBJCount + "</td>"//6
+                        html += "<td>" + ret[key].rep_isworked + "</td>"//7
+                        html += "<td>" + ret[key].repairPerson + "</td>"//8
+                        html += "<td>" + ret[key].isWMSconfirm + "</td>"//9
+                        html += "<td>" + ret[key].BJname + "</td>"//10
+                        html += "<td>" + ret[key].BJcount + "</td>"//11
+                        html += "<td>" + ret[key].price + "</td>"//12
+                        html += "</tr>";
+                    });
+
+                    $("#univerTab").html(html);
+
+                },
+                error: function (XmlHttpRequest, textStatus, errorThrown) {
+                    alert(XmlHttpRequest.responseText);
+                }
+
+
+            })
+        
+        
+        }
+
