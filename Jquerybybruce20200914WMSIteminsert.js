@@ -143,6 +143,7 @@
          $("#BJcount").val("");
          $("#price").val("0.00");
          $("#item_id").val("");
+        $("#is_out_buy").val("NoSelect");
          //         $("#rep_id").val("");
      }
 
