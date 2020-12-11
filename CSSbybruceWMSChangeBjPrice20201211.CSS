@@ -1,0 +1,33 @@
+          body
+        {
+            background-color:#f2f6fc;
+        }
+        .nosee
+        {
+            display: none;
+        }
+        .leftbox div
+        {
+           margin: 20px 0;
+        }
+                    
+        table, th, td
+{
+border: 1px solid black;
+width: auto;
+}
+.leftbox
+        {
+            width: 30%;
+           
+            border:1px solid#D3D3D3;
+            
+            float: left;
+        }
+        .rightbox
+        {
+            width: 60%;
+            float: right;
+            border:1px solid#D3D3D3;
+            overflow: scroll;
+        }
