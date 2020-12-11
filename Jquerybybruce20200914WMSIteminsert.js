@@ -1,4 +1,4 @@
-var irows = 0;
+  var irows = 0;
 
 
      $('#repitemTab tr td').click(
@@ -8,142 +8,142 @@ var irows = 0;
   }
 );
 
-  function initrightbox() {
+     function initrightbox() {
 
-      $.ajax({
+         $.ajax({
 
-          type: "get",
-          dataType: "json",
-          url: "/WMSbusiness/WMSinitdata?requestName=" + "selectTruckBJinfo",
+             type: "get",
+             dataType: "json",
+             url: "/WMSbusiness/WMSinitdata?requestName=" + "selectTruckBJinfo",
 
-          success: function (ret) {
+             success: function (ret) {
 
-              var str = JSON.stringify(ret);
+                 var str = JSON.stringify(ret);
 
-              if (str == "[]") {
-                  console.log("没有需要备件的数据");
+                 if (str == "[]") {
+                     console.log("没有需要备件的数据");
 
-              }
-              var html = "";
+                 }
+                 var html = "";
 
-              html += "<tr>";
-              html += "<td>车号</td>"; //0
-              html += "<td>操作</td>"; //1
-              html += "</tr>";
-              var i = 1;
-              $(ret).each(function (key) {
+                 html += "<tr>";
+                 html += "<td>车号</td>"; //0
+                 html += "<td>操作</td>"; //1
+                 html += "</tr>";
+                 var i = 1;
+                 $(ret).each(function (key) {
 
-                  html += "<tr>";
-                  html += "<td>" + ret[key].truck_no + "</td>"//0
-                  html += "<td>" + "<input type = " + "'" + "button" + "' value = " + "'" + "查询维修项目 "
+                     html += "<tr>";
+                     html += "<td>" + ret[key].truck_no + "</td>"//0
+                     html += "<td>" + "<input type = " + "'" + "button" + "' value = " + "'" + "查询维修项目 "
                       + "' onclick = '" + "WMSQueryItem(" + i + ")" + "'" + "/>" + "</td>"//8
-                  html += "</tr>";
-                  console.log(i);
-                  i++;
-                 
-
-              });
-              $("#WMSTrucktab").html(html);
-
-          },
-          error: function (XmlHttpRequest, textStatus, errorThrown) {
-              alert(XmlHttpRequest.responseText);
-          }
+                     html += "</tr>";
+                     console.log(i);
+                     i++;
 
 
-      })
+                 });
+                 $("#WMSTrucktab").html(html);
+
+             },
+             error: function (XmlHttpRequest, textStatus, errorThrown) {
+                 alert(XmlHttpRequest.responseText);
+             }
 
 
-  }
-  initrightbox();
+         })
 
 
-  function WMSQueryItem(i) {
+     }
+     initrightbox();
 
-      
 
-      var truck_no = $("#WMSTrucktab").find("tr").eq(i).find("td").eq(0).text();
-      console.log(truck_no);
-      $("#truck_no").val(truck_no);
-      selectRepitemInfo();
+     function WMSQueryItem(i) {
 
 
 
-
-  }
+         var truck_no = $("#WMSTrucktab").find("tr").eq(i).find("td").eq(0).text();
+         console.log(truck_no);
+         $("#truck_no").val(truck_no);
+         selectRepitemInfo();
 
 
 
 
-  function SelectWMSBjiteminfoBytruckno() {
-
-      var truck_no = $("#truck_no").val();
-
-      $.ajax({
-
-          type: "get",
-          dataType: "json",
-          url: "/TruckRepair/WMSSelectBJitemInfo?truck_no=" + truck_no + "&requestName=" + "WMSSelectBJitemInfoBYtruckno",
-
-          success: function (ret) {
-
-
-              console.log("已添加的备件" + ret);
-
-              var str = JSON.stringify(ret);
-
-              if (str == "[]") {
-                  alert("没有数据");
-                  window.location.reload();
-              }
-
-              var html = "";
-
-              html += "<tr>";
-              html += "<td>备件名称</td>"; //0
-              html += "<td>备件数量</td>"; //1
-              html += "<td>价格</td>"; //2
-              html += "</tr>";
-
-              $(ret).each(function (key) {
-
-                  html += "<tr>";
-                  html += "<td>" + ret[key].BJname + "</td>"//0
-                  html += "<td>" + ret[key].BJcount + "</td>"//1
-                  html += "<td>" + ret[key].price + "</td>"//2
-                  html += "</tr>";
-              });
-
-              $("#WMSitemtab").html(html);
-
-          },
-          error: function (XmlHttpRequest, textStatus, errorThrown) {
-              alert(XmlHttpRequest.responseText);
-          }
+     }
 
 
 
-      })
+
+     function SelectWMSBjiteminfoBytruckno() {
+
+         var truck_no = $("#truck_no").val();
+
+         $.ajax({
+
+             type: "get",
+             dataType: "json",
+             url: "/TruckRepair/WMSSelectBJitemInfo?truck_no=" + truck_no + "&requestName=" + "WMSSelectBJitemInfoBYtruckno",
+
+             success: function (ret) {
 
 
-  }
+                 console.log("已添加的备件" + ret);
+
+                 var str = JSON.stringify(ret);
+
+                 if (str == "[]") {
+                     alert("没有数据");
+                     window.location.reload();
+                 }
+
+                 var html = "";
+
+                 html += "<tr>";
+                 html += "<td>备件名称</td>"; //0
+                 html += "<td>备件数量</td>"; //1
+                 html += "<td>价格</td>"; //2
+                 html += "</tr>";
+
+                 $(ret).each(function (key) {
+
+                     html += "<tr>";
+                     html += "<td>" + ret[key].BJname + "</td>"//0
+                     html += "<td>" + ret[key].BJcount + "</td>"//1
+                     html += "<td>" + ret[key].price + "</td>"//2
+                     html += "</tr>";
+                 });
+
+                 $("#WMSitemtab").html(html);
+
+             },
+             error: function (XmlHttpRequest, textStatus, errorThrown) {
+                 alert(XmlHttpRequest.responseText);
+             }
 
 
-  $("#btnBJitem").click(function () {
+
+         })
 
 
-      SelectWMSBjiteminfoBytruckno();
+     }
 
-  });
+
+     $("#btnBJitem").click(function () {
+
+
+         SelectWMSBjiteminfoBytruckno();
+
+     });
 
 
      function initBJinfo() {
 
          $("#BJname").val("");
          $("#BJcount").val("");
-         $("#price").val("");
+         $("#price").val("0.00");
          $("#item_id").val("");
-//         $("#rep_id").val("");
+         //         $("#rep_id").val("");
      }
 
      function init() {
@@ -201,13 +201,13 @@ var irows = 0;
              success: function (ret) {
 
 
-                 console.log("已添加的备件"+ret);
+                 console.log("已添加的备件" + ret);
 
                  var str = JSON.stringify(ret);
 
                  if (str == "[]") {
                      alert("没有备件数据");
-//                     window.location.reload();
+                     //                     window.location.reload();
                  }
 
                  var html = "";
@@ -257,7 +257,7 @@ var irows = 0;
          var rep_id = $("#rep_id").val();
          var item_id = $("#item_id").val();
          var create_user = $("#span_username").text();
-
+         var is_out_buy = $("#is_out_buy").val();
 
          if (BJname == "") {
 
@@ -299,12 +299,34 @@ var irows = 0;
          }
 
 
+         if (is_out_buy == "NoSelect") {
+
+             alert("请选择是否外购")
+             ; $("#is_out_buy").focus();
+             return false;
+         
+         }
+
+         if (is_out_buy != "Y") {
+
+             if (price <= 0.00) {
+
+                 alert(" 非外购备件必须填入金额");
+                 $("#price").focus();
+                 return false;
+             
+             }
+         
+         
+         }
+
+
          $.ajax({
 
              type: "get",
              dataType: "json",
              url: "/TruckRepair/AddWMSinfo?rep_id=" + rep_id + "&item_id=" + item_id + "&BJname=" + BJname + "&BJcount=" + BJcount
-            + "&price=" + price + "&create_user=" + create_user + "&requestName=" + "AddWMSBJinfo"
+            + "&price=" + price + "&create_user=" + create_user + "&is_out_buy=" + is_out_buy + "&requestName=" + "AddWMSBJinfo"
             ,
 
              success: function (ret) {
