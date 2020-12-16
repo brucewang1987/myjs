@@ -1,12 +1,13 @@
- var irows = 0;
+  var irows = 0;
 
         function init() {
 
             $("#truck_no").attr("disabled", true);
             $("#bjname").attr("disabled", true);
             $("#BJcount").attr("disabled", true);
+            $("#remark").attr("disabled", true);
             SelectBjinfo();
-        
+
         }
 
         init();
@@ -34,7 +35,8 @@
                     html += "<td>车号</td>"; //0
                     html += "<td>备件名</td>"; //1
                     html += "<td>数量</td>"; //2
-                    html += "<td>操作</td>"; //3
+                    html += "<td>备注</td>"//3
+                    html += "<td>操作</td>"; //4
                     html += "</tr>";
 
 
@@ -44,9 +46,10 @@
                         html += "<td>" + ret[key].truck_no + "</td>"//0
                         html += "<td>" + ret[key].BJname + "</td>"//1
                         html += "<td>" + ret[key].BJcount + "</td>"//2
-                        html += "<td style = " + "'" + "display:none;" + "'" + ">" + ret[key].item_id + "</td>"//3
+                        html += "<td>" + ret[key].remark + "</td>"//3
+                        html += "<td style = " + "'" + "display:none;" + "'" + ">" + ret[key].item_id + "</td>"//4
                         html += "<td>" + "<input type = " + "'" + "button" + "' value = " + "'" + "填写价格 "
-                      + "' onclick = '" + "DOprice(" + i + ")" + "'" + "/>" + "</td>"//4
+                      + "' onclick = '" + "DOprice(" + i + ")" + "'" + "/>" + "</td>"//5
                         html += "</tr>";
                         i++;
                     });
@@ -70,7 +73,7 @@
 
             $("#feetable").find('tr').eq(irows).css('background-color', 'red');
 
-            var item_id = $("#feetable").find("tr").eq(i).find("td").eq(3).text();
+            var item_id = $("#feetable").find("tr").eq(i).find("td").eq(4).text();
             console.log(item_id);
             $("#item_id").val(item_id);
             var truck_no = $("#feetable").find("tr").eq(i).find("td").eq(0).text();
@@ -79,20 +82,22 @@
             $("#bjname").val(BJname);
             var BJcount = $("#feetable").find("tr").eq(i).find("td").eq(2).text();
             $("#BJcount").val(BJcount);
+            var remark = $("#feetable").find("tr").eq(i).find("td").eq(3).text();
+            $("#remark").val(remark);
 
         }
 
 
-        $("#btnSubmit").click(function(){
-        
-        ChangeBJprice();
-        
+        $("#btnSubmit").click(function () {
+
+            ChangeBJprice();
+
         });
 
         function ChangeBJprice() {
 
             var item_id = $("#item_id").val();
-           
+
             var price = $("#price").val();
             if (price == "") {
 
@@ -144,5 +149,5 @@
 
 
             })
-        
+
         }
