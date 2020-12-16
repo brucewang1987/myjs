@@ -1,4 +1,4 @@
-  var irows = 0;
+var irows = 0;
 
 
      $('#repitemTab tr td').click(
@@ -143,7 +143,8 @@
          $("#BJcount").val("");
          $("#price").val("0.00");
          $("#item_id").val("");
-        $("#is_out_buy").val("NoSelect");
+         $("#is_out_buy").val("NoSelect");
+         $("#remark").val("");
          //         $("#rep_id").val("");
      }
 
@@ -217,6 +218,7 @@
                  html += "<td>备件名称</td>"; //0
                  html += "<td>备件数量</td>"; //1
                  html += "<td>价格</td>"; //2
+                 html += "<td>备注</td>";//3
                  html += "</tr>";
 
                  $(ret).each(function (key) {
@@ -225,6 +227,7 @@
                      html += "<td>" + ret[key].BJname + "</td>"//0
                      html += "<td>" + ret[key].BJcount + "</td>"//1
                      html += "<td>" + ret[key].price + "</td>"//2
+                     html += "<td>" + ret[key].remark + "</td>"//3
                      html += "</tr>";
                  });
 
@@ -259,6 +262,7 @@
          var item_id = $("#item_id").val();
          var create_user = $("#span_username").text();
          var is_out_buy = $("#is_out_buy").val();
+         var remark = $("#remark").val();
 
          if (BJname == "") {
 
@@ -305,7 +309,7 @@
              alert("请选择是否外购")
              ; $("#is_out_buy").focus();
              return false;
-         
+
          }
 
          if (is_out_buy != "Y") {
@@ -315,10 +319,10 @@
                  alert(" 非外购备件必须填入金额");
                  $("#price").focus();
                  return false;
-             
+
              }
-         
-         
+
+
          }
 
 
@@ -327,7 +331,7 @@
              type: "get",
              dataType: "json",
              url: "/TruckRepair/AddWMSinfo?rep_id=" + rep_id + "&item_id=" + item_id + "&BJname=" + BJname + "&BJcount=" + BJcount
-            + "&price=" + price + "&create_user=" + create_user + "&is_out_buy=" + is_out_buy + "&requestName=" + "AddWMSBJinfo"
+            + "&price=" + price + "&create_user=" + create_user + "&is_out_buy=" + is_out_buy + "&remark=" + remark + "&requestName=" + "AddWMSBJinfo"
             ,
 
              success: function (ret) {
