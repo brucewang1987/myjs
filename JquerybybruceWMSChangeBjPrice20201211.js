@@ -122,13 +122,20 @@
                 return false;
 
             }
+          
+          var bjname = $("#bjname").val();
+          if(bjname=="")
+          {
+            alert("备件名不能为空");
+            return false;
+          }
 
 
             $.ajax({
 
                 type: "get",
                 dataType: "json",
-                url: "/TruckRepair/AddWMSinfo?item_id=" + item_id + "&price=" + price + "&requestName=" + "ChangeBJPrice",
+                url: "/TruckRepair/AddWMSinfo?item_id=" + item_id + "&price=" + price +"&bjname="+bjname+ "&requestName=" + "ChangeBJPrice",
                 success: function (ret) {
 
                     var result = ret.is_success;
