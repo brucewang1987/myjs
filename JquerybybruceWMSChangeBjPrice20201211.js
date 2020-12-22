@@ -3,7 +3,7 @@
         function init() {
 
             $("#truck_no").attr("disabled", true);
-            $("#bjname").attr("disabled", true);
+            //$("#bjname").attr("disabled", true);
             $("#BJcount").attr("disabled", true);
             $("#remark").attr("disabled", true);
             SelectBjinfo();
