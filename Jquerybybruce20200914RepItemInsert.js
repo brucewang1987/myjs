@@ -1,4 +1,4 @@
-function init() {
+ function init() {
 
                var url = location.search; //获取url中"?"符后的字串
                if (url.indexOf("?") != -1) {    //判断是否有参数
@@ -38,10 +38,10 @@ function init() {
            function initItem() {
 
                $("#repItem").val("");
-                 $("#BJname").val("");
-            $("#BJcount").val("");
-           $("#is_BJ").val("NoSelect");
-             $("#is_out").val("NoSelect");
+               $("#BJname").val("");
+               $("#BJcount").val("");
+               $("#is_BJ").val("NoSelect");
+               $("#is_out").val("NoSelect");
 
            }
 
@@ -109,9 +109,9 @@ function init() {
            }
 
 
-          //$("#is_out").blur(function () {
+           //$("#is_out").blur(function () {
 
-            //   $("#is_BJ").val("Y");
+           //   $("#is_BJ").val("Y");
 
            //});
 
@@ -124,7 +124,7 @@ function init() {
                var is_need = $("#is_BJ").val(); //是否需要备件
                var BJ_name = $("#BJname").val(); //备件名称
                var BJ_count = $("#BJcount").val(); //备件数量
-               var is_out = $("#is_out").val();//是否外修
+               var is_out = $("#is_out").val(); //是否外修
 
 
                if (is_out == "NoSelect") {
@@ -134,7 +134,7 @@ function init() {
 
                }
 
-              
+
 
 
                var regu = /^[0-9]+\.?[0-9]*$/;
@@ -237,33 +237,69 @@ function init() {
                    url: "/TruckRepair/RepairBusiness?truck_no=" + truck_no + "&requestName=" + "SelectReqInfo",
                    success: function (ret) {
 
+                       var str = JSON.stringify(ret);
 
-
-                       var QueryResult = ret.QueryResult;
-                       if (QueryResult == "OK") {
-
-                           var _truck_no = ret.truck_no;
-                           var _trouble_dec = ret.trouble_dec;
-                           var _request_date = ret.request_date;
-                           var _requester = ret.requester;
-                           var _rep_id = ret.rep_id;
-
-                           $("#rep_id").text(_rep_id);
-
-                           console.log("车号:" + _truck_no + ",故障描述: " + _trouble_dec + ",报修时间:" + _request_date + ",报修人:" + _requester);
-                           $("#reqSpan").text("车号:" + _truck_no + ",故障描述: " + _trouble_dec + ",报修时间:" + _request_date + ",报修人:" + _requester);
-
-                           $("#repdiv").show();
-                       }
-                       else {
-
-                           alert("无相关报修信息");
+                       if (str == "[]") {
+                           alert("没有相关报修数据");
                            window.location.reload();
-
                        }
 
+                       console.log(ret);
 
+
+                       var html = "";
+                       html += "<tr>";
+                       html += "<td>车号</td>"; //0
+                       html += "<td>故障描述</td>"; //1
+                       html += "<td>提交时间</td>"; //2
+                       html += "<td>提交人</td>"; //3
+                       html += "</tr>";
+
+                       $(ret).each(function (key) {
+
+                           html += "<tr>";
+                           html += "<td>" + ret[key].truck_no+ "</td>"//0
+                           html += "<td>" + ret[key].trouble_dec + "</td>"//1
+                           html += "<td>" + ret[key].request_date + "</td>"//2
+                           html += "<td>" + ret[key].requester + "</td>"//3
+
+                           var _rep_id = ret[key].rep_id;
+                           $("#rep_id").text(_rep_id);
+                           html += "</tr>";
+
+                       });
+                       $("#troubleTab").html(html);
+                       $("#repdiv").show();
+
+                       //                       var QueryResult = ret.QueryResult;
+                       //                       if (QueryResult == "OK") {
+
+                       //                           var _truck_no = ret.truck_no;
+                       //                           var _trouble_dec = ret.trouble_dec;
+                       //                           var _request_date = ret.request_date;
+                       //                           var _requester = ret.requester;
+                       //                           var _rep_id = ret.rep_id;
+
+                       //                           $("#rep_id").text(_rep_id);
+
+                       //                           console.log("车号:" + _truck_no + ",故障描述: " + _trouble_dec + ",报修时间:" + _request_date + ",报修人:" + _requester);
+                       //                           $("#reqSpan").text("车号:" + _truck_no + ",故障描述: " + _trouble_dec + ",报修时间:" + _request_date + ",报修人:" + _requester);
+
+                       //                           $("#repdiv").show();
+                       //                       }
+                       //                       else {
+
+                       //                           alert("无相关报修信息");
+                       //                           window.location.reload();
+
+                       //                       }
+
+
+                   },
+                   error: function (XmlHttpRequest, textStatus, errorThrown) {
+                       alert(XmlHttpRequest.responseText);
                    }
+
 
 
                })
