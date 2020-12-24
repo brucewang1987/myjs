@@ -44,6 +44,18 @@
 
             }
 
+
+            if (datatype == "WMSselectBJinfoBytruckNo") {
+
+                WMSSelectBJinfoBytruckNo();
+
+            }
+            if (datatype == "WMSselectBJinfoBytime") {
+
+                WMSSelectBjinfoByDate();
+
+            }
+
             //            if (datatype == "fee") {
 
             //                SelectBJAmuntByNo();
@@ -53,6 +65,264 @@
 
         });
 
+        function WMSSelectBjinfoByDate() {
+
+            var startDate = $("#startdate").val();
+
+            if (startDate == "") {
+
+                alert("请选择开始日期");
+
+                $("#startdate").focus();
+                return false;
+            }
+
+            var r = startDate.match(/^(\d{1,4})(-|\/)(\d{1,2})\2(\d{1,2})$/);
+            if (r == null) {
+                alert("请输入格式正确的日期\n\r日期格式：yyyy-mm-dd例    如：2008-08-08");
+                return false;
+            }
+
+            startDate = startDate + " 00:00:00";
+
+            var endDate = $("#enddate").val();
+
+            if (endDate == "") {
+
+                alert("请选择结束日期");
+
+                $("#endDate").focus();
+                return false;
+            }
+
+            r = endDate.match(/^(\d{1,4})(-|\/)(\d{1,2})\2(\d{1,2})$/);
+            if (r == null) {
+                alert("请输入格式正确的日期\n\r日期格式：yyyy-mm-dd例    如：2008-08-08");
+                return false;
+            }
+
+            endDate = endDate + " 23:59:59";
+
+
+            $.ajax({
+
+
+                type: "get",
+                dataType: "json",
+                url: "/TruckRepair/UniverWMSSelectBJinfo?startDate=" + startDate +
+                "&endDate=" + endDate + "&requestName=" + "SelectWMSBJinfoBYtime",
+
+                success: function (ret) {
+
+                    var str = JSON.stringify(ret);
+
+                    if (str == "[]") {
+                        alert("没有数据");
+                        window.location.reload();
+                    }
+
+                    var html = "";
+                    html += "<tr>";
+                    html += "<td>车号</td>"; //0
+                    html += "<td>备件名</td>"; //1
+                    html += "<td>备件数量</td>"; //2
+                    html += "<td>价格</td>"; //3
+                    html += "<td>是否外购</td>"; //4
+                    html += "<td>录入时间</td>"; //5
+                    html += "<td>备注</td>"; //6
+                    html += "</tr>";
+
+                    $(ret).each(function (key) {
+
+
+                        html += "<tr>";
+                        html += "<td>" + ret[key].truck_no + "</td>"//0
+                        html += "<td>" + ret[key].bjName + "</td>"//1
+                        html += "<td>" + ret[key].bjCount + "</td>"//2
+                        html += "<td>" + ret[key].price + "</td>"//3
+                        html += "<td>" + ret[key].is_out_buy + "</td>"//4
+                        html += "<td>" + ret[key].create_date + "</td>"//5
+                        html += "<td>" + ret[key].remark + "</td>"//6
+                        html += "</tr>";
+
+                    });
+                    $("#univerTab").html(html);
+                },
+                error: function (XmlHttpRequest, textStatus, errorThrown) {
+                    alert(XmlHttpRequest.responseText);
+                }
+            
+            
+            })
+        
+        }
+
+
+        function WMSSelectBJinfoBytruckNoAndDate() {
+
+            var truck_no = $("#truck_no").val();
+
+            if (truck_no == "") {
+
+                alert("请录入车号");
+                $("#truck_no").focus();
+                return false;
+
+            }
+
+            var startDate = $("#startdate").val();
+
+            if (startDate == "") {
+
+                alert("请选择开始日期");
+
+                $("#startdate").focus();
+                return false;
+            }
+
+            var r = startDate.match(/^(\d{1,4})(-|\/)(\d{1,2})\2(\d{1,2})$/);
+            if (r == null) {
+                alert("请输入格式正确的日期\n\r日期格式：yyyy-mm-dd例    如：2008-08-08");
+                return false;
+            }
+
+            startDate = startDate + " 00:00:00";
+
+            var endDate = $("#enddate").val();
+
+            if (endDate == "") {
+
+                alert("请选择结束日期");
+
+                $("#endDate").focus();
+                return false;
+            }
+
+            r = endDate.match(/^(\d{1,4})(-|\/)(\d{1,2})\2(\d{1,2})$/);
+            if (r == null) {
+                alert("请输入格式正确的日期\n\r日期格式：yyyy-mm-dd例    如：2008-08-08");
+                return false;
+            }
+
+            endDate = endDate + " 23:59:59";
+
+
+            $.ajax({
+            type: "get",
+                dataType: "json",
+                url: "/TruckRepair/UniverWMSSelectBJinfo?truck_no=" + truck_no + "&startDate=" + startDate+
+                "&endDate=" + endDate + "&requestName="+"SelectWMSBJinfoBYtruckNoAndtime",
+
+                success: function (ret) {
+
+                    var str = JSON.stringify(ret);
+
+                    if (str == "[]") {
+                        alert("没有数据");
+                        window.location.reload();
+                    }
+
+                    var html = "";
+                    html += "<tr>";
+                    html += "<td>车号</td>"; //0
+                    html += "<td>备件名</td>"; //1
+                    html += "<td>备件数量</td>"; //2
+                    html += "<td>价格</td>"; //3
+                    html += "<td>是否外购</td>"; //4
+                    html += "<td>录入时间</td>"; //5
+                    html += "<td>备注</td>"; //6
+                    html += "</tr>";
+
+                    $(ret).each(function (key) {
+
+
+                        html += "<tr>";
+                        html += "<td>" + ret[key].truck_no + "</td>"//0
+                        html += "<td>" + ret[key].bjName + "</td>"//1
+                        html += "<td>" + ret[key].bjCount + "</td>"//2
+                        html += "<td>" + ret[key].price + "</td>"//3
+                        html += "<td>" + ret[key].is_out_buy + "</td>"//4
+                        html += "<td>" + ret[key].create_date + "</td>"//5
+                        html += "<td>" + ret[key].remark + "</td>"//6
+                        html += "</tr>";
+
+                    });
+                    $("#univerTab").html(html);
+                },
+                error: function (XmlHttpRequest, textStatus, errorThrown) {
+                    alert(XmlHttpRequest.responseText);
+                }
+            
+            
+            
+            })
+
+        
+        }
+
+        function WMSSelectBJinfoBytruckNo() {
+
+            var truck_no = $("#truck_no").val();
+
+            if (truck_no == "") {
+
+                alert("请录入车号");
+                $("#truck_no").focus();
+                return false;
+
+            }
+
+            $.ajax({
+
+                type: "get",
+                datatype: "json",
+                url: "/TruckRepair/UniverWMSSelectBJinfo?truck_no=" + truck_no + "&requestName=" + "SelectWMSBJinfoBYtruckNo",
+
+                success: function (ret) {
+
+                    var str = JSON.stringify(ret);
+
+                    if (str == "[]") {
+                        alert("没有数据");
+                        window.location.reload();
+                    }
+
+                    var html = "";
+                    html += "<tr>";
+                    html += "<td>车号</td>"; //0
+                    html += "<td>备件名</td>"; //1
+                    html += "<td>备件数量</td>"; //2
+                    html += "<td>价格</td>"; //3
+                    html += "<td>是否外购</td>"; //4
+                    html += "<td>录入时间</td>"; //5
+                    html += "<td>备注</td>"; //5
+                    html += "</tr>";
+
+                     $(ret).each(function (key) {
+
+
+                         html += "<tr>";
+                         html += "<td>" + ret[key].truck_no + "</td>"//0
+                         html += "<td>" + ret[key].bjName + "</td>"//1
+                         html += "<td>" + ret[key].bjCount + "</td>"//2
+                         html += "<td>" + ret[key].price + "</td>"//3
+                         html += "<td>" + ret[key].is_out_buy + "</td>"//4
+                         html += "<td>" + ret[key].create_date + "</td>"//5
+                         html += "<td>" + ret[key].remark + "</td>"//6
+                         html += "</tr>";
+
+                     });
+                     $("#univerTab").html(html);
+                 },
+                 error: function (XmlHttpRequest, textStatus, errorThrown) {
+                     alert(XmlHttpRequest.responseText);
+                 }
+
+
+            })
+        
+        
+        }
 
         $("#btnSelectBytime").click(function () {
 
