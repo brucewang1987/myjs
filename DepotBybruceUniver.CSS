@@ -1,0 +1,21 @@
+  body
+      {
+          background-color: #6495ED;
+      }
+      .nav div
+      {
+        margin-top: 10px;
+        margin-left: 20px;
+      }
+      
+      table, th, td
+{
+border: 1px solid black;
+}
+            
+            td
+            {
+                
+                width:auto;
+                
+                }
