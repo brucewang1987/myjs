@@ -121,6 +121,7 @@ function init() {
                 if (result == "ok") {
 
                     alert("修改成功");
+                         window.location.reload();
                    
                 }
                 else {
