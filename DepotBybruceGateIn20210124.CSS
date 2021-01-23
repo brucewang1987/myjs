@@ -1,0 +1,26 @@
+ .inputDiv
+      {
+          
+          margin-left: 20px;
+          margin-top: 10px;
+      }
+      .inputDiv div{
+          margin-bottom: 10px;
+      }
+  
+      body
+      {
+          background-color: #6495ED;
+      }
+      
+       table, th, td
+{
+border: 1px solid black;
+}
+            
+            td
+            {
+                
+                width:auto;
+                
+                }
