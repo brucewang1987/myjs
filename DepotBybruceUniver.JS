@@ -324,3 +324,37 @@
               }
 
           });
+
+          $("#btnexcel").click(function () {
+             
+              exportexcel();
+
+              
+          });
+
+
+          function exportexcel() {
+
+              var fileName = prompt("请输入文件名", "");
+
+              if ($("table tr").length > 1) {
+
+                  $("#ctnInfo").table2excel({
+                      exclude: ".noExl",
+                      name: "Excel Document Name",
+                      filename: fileName,
+                      exclude_img: true,
+                      exclude_links: true,
+                      exclude_inputs: true
+                  });
+
+              }
+              else {
+
+                  alert("没有数据");
+                  return false;
+
+              }
+
+
+          }
