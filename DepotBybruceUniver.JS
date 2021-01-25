@@ -40,6 +40,8 @@
                       html += "<td>出时间场</td>"; //11
                       html += "<td>出时确认人</td>"; //12
                       html += "<td>总费用</td>"; //13
+                      html += "<td>进场备注</td>"; //14
+                      html += "<td>出场备注</td>"; //15
                       html += "</tr>";
 
 
@@ -60,7 +62,8 @@
                           html += "<td>" + ret[key].date_out + "</td>"//11
                           html += "<td>" + ret[key].confirm_out_user + "</td>"//12
                           html += "<td>" + ret[key].total_fee + "</td>"//13
-
+                          html += "<td>" + ret[key].in_remark + "</td>"//14
+                          html += "<td>" + ret[key].out_remark + "</td>"//15
 
                       });
 
@@ -75,6 +78,90 @@
               })
 
 
+          }
+
+
+          function SelectCtnInfoByPlaceId() {
+
+              var place_id = $("#place_id").val();
+              if (place_id == "") {
+                  alert("请录入堆场");
+                  $("#place_id").focus();
+                  return false;
+              
+              }
+
+
+              $.ajax({
+
+                  type: "get",
+                  dataType: "json",
+                  url: "/DepotBusiness/SelectCtnData?place_id=" + place_id + "&requestName=" + "SelectCtnInfoByPlaceID",
+
+                  success: function (ret) {
+
+                      console.log(ret);
+                      var str = JSON.stringify(ret);
+                      if (str == "[]") {
+                          console.log("没有数据");
+                          return false;
+                      }
+
+
+                      var html = "";
+                      html += "<tr>";
+                      html += "<td>箱号</td>"; //0
+                      html += "<td>进场时间</td>"; //1
+                      html += "<td>尺寸</td>"; //2
+                      html += "<td>箱型</td>"; //3
+                      html += "<td>业务类型</td>"; //4
+                      html += "<td>进场登记人</td>"; //5
+                      html += "<td>堆场</td>"; //6
+                      html += "<td>垫付金额</td>"; //7
+                      html += "<td>超期费率</td>"; //8
+                      html += "<td>上下车费</td>"; //9
+                      html += "<td>超期费用</td>"; //10
+                      html += "<td>出时间场</td>"; //11
+                      html += "<td>出时确认人</td>"; //12
+                      html += "<td>总费用</td>"; //13
+                      html += "<td>进场备注</td>"; //14
+                      html += "<td>出场备注</td>"; //15
+                      html += "</tr>";
+
+
+                      $(ret).each(function (key) {
+
+                          html += "<tr>";
+                          html += "<td>" + ret[key].ctn_no + "</td>"//0
+                          html += "<td>" + ret[key].date_in + "</td>"//1
+                          html += "<td>" + ret[key].ctn_size + "</td>"//2
+                          html += "<td>" + ret[key].ctn_type + "</td>"//3
+                          html += "<td>" + ret[key].business_tpe + "</td>"//4
+                          html += "<td>" + ret[key].create_user + "</td>"//5
+                          html += "<td>" + ret[key].place_id + "</td>"//6
+                          html += "<td>" + ret[key].advance_fee + "</td>"//7
+                          html += "<td>" + ret[key].save_fee_rate + "</td>"//8
+                          html += "<td>" + ret[key].updown_fee + "</td>"//9
+                          html += "<td>" + ret[key].save_fee + "</td>"//10
+                          html += "<td>" + ret[key].date_out + "</td>"//11
+                          html += "<td>" + ret[key].confirm_out_user + "</td>"//12
+                          html += "<td>" + ret[key].total_fee + "</td>"//13
+                          html += "<td>" + ret[key].in_remark + "</td>"//14
+                          html += "<td>" + ret[key].out_remark + "</td>"//15
+
+                      });
+
+                      $("#ctnInfo").html(html);
+
+
+                  },
+                  error: function (XmlHttpRequest, textStatus, errorThrown) {
+                      alert(XmlHttpRequest.responseText);
+                  }
+
+              })
+          
+          
           }
 
           function SelectCtnInfoByDateIn() {
@@ -149,6 +236,8 @@
                       html += "<td>出时间场</td>"; //11
                       html += "<td>出时确认人</td>"; //12
                       html += "<td>总费用</td>"; //13
+                      html += "<td>进场备注</td>"; //14
+                      html += "<td>出场备注</td>"; //15
                       html += "</tr>";
 
 
@@ -169,7 +258,8 @@
                           html += "<td>" + ret[key].date_out + "</td>"//11
                           html += "<td>" + ret[key].confirm_out_user + "</td>"//12
                           html += "<td>" + ret[key].total_fee + "</td>"//13
-
+                          html += "<td>" + ret[key].in_remark + "</td>"//14
+                          html += "<td>" + ret[key].out_remark + "</td>"//15
 
                       });
 
@@ -259,6 +349,8 @@
                       html += "<td>出时间场</td>"; //11
                       html += "<td>出时确认人</td>"; //12
                       html += "<td>总费用</td>"; //13
+                      html += "<td>进场备注</td>"; //14
+                      html += "<td>出场备注</td>"; //15
                       html += "</tr>";
 
 
@@ -279,7 +371,8 @@
                           html += "<td>" + ret[key].date_out + "</td>"//11
                           html += "<td>" + ret[key].confirm_out_user + "</td>"//12
                           html += "<td>" + ret[key].total_fee + "</td>"//13
-
+                          html += "<td>" + ret[key].in_remark + "</td>"//14
+                          html += "<td>" + ret[key].out_remark + "</td>"//15
 
                       });
 
@@ -323,13 +416,20 @@
 
               }
 
+              if (select_type == "queryByplaceId") {
+
+
+                  SelectCtnInfoByPlaceId();
+
+              }
+
           });
 
           $("#btnexcel").click(function () {
-             
+
               exportexcel();
 
-              
+
           });
 
 
