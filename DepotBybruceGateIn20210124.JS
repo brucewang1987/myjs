@@ -267,7 +267,7 @@ function init() {
 
                  if (save_fee_rate <= 0.00) {
 
-                     alert("超期费率不得低于0.00元");
+                    alert("超期费率不得低于0.00元");
                      $("#save_fee_rate").focus();
                      return false;
                  }
@@ -295,8 +295,8 @@ function init() {
                          return false;
                      }
 
-                     if (updownfee <= 0.00) {
-                         alert("暂落箱业务上下车费金额必须大于0元");
+                     if (updownfee < 0.00) {
+                         alert("暂落箱业务上下车费金额必须大于等于0元");
                          $("#updownfee").focus();
                          return false;
 
