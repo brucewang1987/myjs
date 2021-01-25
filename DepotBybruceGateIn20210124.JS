@@ -1,4 +1,4 @@
- function init() {
+function init() {
 
              $("#btnOut").attr("disabled", true);
              $("#nosee").hide();
@@ -135,6 +135,7 @@
                      html += "<td>垫付金额</td>"; //8
                      html += "<td>超期费率</td>"//9
                      html += "<td>上下车费</td>"//10
+                     html += "<td>进场备注</td>"//11
                      html += "</tr>";
 
 
@@ -153,6 +154,7 @@
                          html += "<td>" + ret[key].advance_fee + "</td>"//8
                          html += "<td>" + ret[key].save_fee_rate + "</td>"//9
                          html += "<td>" + ret[key].updown_fee + "</td>"//10
+                         html += "<td>" + ret[key].in_remark + "</td>"//11
                          html += "</tr>";
 
                      });
@@ -314,9 +316,12 @@
                  return false;
              }
 
+             var in_remark = $("#remark").val();
+
+
              if (!window.confirm('录入信息为箱号:' + ctn_no + ',尺寸:' + ctn_size + ',箱型:' + ctn_type + ',业务类型:'
                + business_type_text + ',垫付金额:' + advance_fee + '超期费率:' + save_fee_rate + ',上下车费:' + updownfee
-               + '堆场号:' + place_id + '是否确认进场')) {
+               + ',堆场号:' + place_id + ',备注:' + in_remark + '是否确认进场')) {
                  return false;
 
              }
@@ -328,7 +333,8 @@
                  dataType: "json",
                  url: "/DepotBusiness/GateInOutBusiness?ctn_no=" + ctn_no + "&ctn_size=" + ctn_size + "&ctn_type=" + ctn_type +
                 "&business_tpe=" + business_type + "&create_user=" + create_user + "&advance_fee="
-                + advance_fee + "&save_fee_rate=" + save_fee_rate + "&updownfee=" + updownfee + "&place_id=" + place_id + "&requestName=" + "submitGateInData",
+                + advance_fee + "&save_fee_rate=" + save_fee_rate + "&updownfee=" + updownfee 
+                + "&place_id=" + place_id + "&remark=" + in_remark + "&requestName=" + "submitGateInData",
 
                  success: function (ret) {
 
@@ -354,12 +360,14 @@
 
              var create_user = $("#span_username").text();
              var ctn_id = $("#ctn_id").val();
+             var out_remark = $("#remark").val();
 
              $.ajax({
 
                  type: "get",
                  dataType: "json",
-                 url: "/DepotBusiness/GateInOutBusiness?ctn_id=" + ctn_id + "&confirm_out_user=" + create_user + "&requestName=" + "confirmGateOut",
+                 url: "/DepotBusiness/GateInOutBusiness?ctn_id=" + ctn_id + "&confirm_out_user=" 
+                 + create_user + "&remark=" + out_remark + "&requestName=" + "confirmGateOut",
 
                  success: function (ret) {
 
@@ -411,6 +419,7 @@
                      html += "<td>堆场</td>"; //7
                      html += "<td>垫付金额</td>"; //8
                      html += "<td>总金额金额</td>"; //9
+                     html += "<td>出场备注</td>"; //10
                      html += "</tr>";
 
 
@@ -427,6 +436,7 @@
                          html += "<td>" + ret[key].place_id + "</td>"//7
                          html += "<td>" + ret[key].advance_fee + "</td>"//8
                          html += "<td>" + ret[key].total_fee + "</td>"//9
+                         html += "<td>" + ret[key].out_remark + "</td>"//10
                          html += "</tr>";
 
                      });
@@ -442,4 +452,3 @@
              })
 
          }
-     
