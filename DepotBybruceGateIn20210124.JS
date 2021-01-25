@@ -452,3 +452,17 @@ function init() {
              })
 
          }
+
+
+ jQuery(function () {
+            jQuery('input:text:first').focus();
+            var $inp = jQuery('input:text');
+            $inp.bind('keydown', function (e) {
+                var key = e.which;
+                if (key == 13) {
+                    e.preventDefault();
+                    var nxtIdx = $inp.index(this) + 1;
+                    jQuery(":input:text:eq(" + nxtIdx + ")").focus();
+                }
+            });
+        }); 
