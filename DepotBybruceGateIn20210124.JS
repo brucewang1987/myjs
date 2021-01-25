@@ -2,7 +2,7 @@ function init() {
 
              $("#btnOut").attr("disabled", true);
              $("#nosee").hide();
-
+             $("#ctn_no").focus();
          }
 
          init();
