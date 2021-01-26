@@ -143,6 +143,7 @@ function init() {
                     html += "<td>超期费率</td>"//9
                     html += "<td>上下车费</td>"//10
                     html += "<td>进场备注</td>"//11
+                            html += "<td>场位</td>"//12
                     html += "</tr>";
 
 
@@ -162,6 +163,7 @@ function init() {
                         html += "<td>" + ret[key].save_fee_rate + "</td>"//9
                         html += "<td>" + ret[key].updown_fee + "</td>"//10
                         html += "<td>" + ret[key].in_remark + "</td>"//11
+                                html += "<td>" + ret[key].seat + "</td>"//12
                         html += "</tr>";
 
                     });
@@ -452,6 +454,7 @@ function init() {
                     html += "<td>垫付金额</td>"; //8
                     html += "<td>总金额金额</td>"; //9
                     html += "<td>出场备注</td>"; //10
+                     html += "<td>提箱场位</td>"; //11       
                     html += "</tr>";
 
 
@@ -469,6 +472,7 @@ function init() {
                         html += "<td>" + ret[key].advance_fee + "</td>"//8
                         html += "<td>" + ret[key].total_fee + "</td>"//9
                         html += "<td>" + ret[key].out_remark + "</td>"//10
+                                html += "<td>" + ret[key].seat + "</td>"//11
                         html += "</tr>";
 
                     });
