@@ -42,6 +42,7 @@
                       html += "<td>总费用</td>"; //13
                       html += "<td>进场备注</td>"; //14
                       html += "<td>出场备注</td>"; //15
+                      html += "<td>场位</td>"; //16
                       html += "</tr>";
 
 
@@ -64,6 +65,7 @@
                           html += "<td>" + ret[key].total_fee + "</td>"//13
                           html += "<td>" + ret[key].in_remark + "</td>"//14
                           html += "<td>" + ret[key].out_remark + "</td>"//15
+                          html += "<td>" + ret[key].seat + "</td>"//16
 
                       });
 
@@ -190,7 +192,7 @@
                       if (str == "[]") {
                           alert("没有数据");
                           window.location.reload();
-//                          return false;
+                          //                          return false;
                       }
 
                       var iNum = 1;
@@ -212,7 +214,9 @@
                       //                      html += "<td>出时确认人</td>"; //12
                       //                      html += "<td>总费用</td>"; //13
                       html += "<td>进场备注</td>"; //14
+
                       //                      html += "<td>出场备注</td>"; //15
+                      html += "<td>场位</td>"; //16
                       html += "</tr>";
 
 
@@ -236,6 +240,7 @@
                           //                          html += "<td>" + ret[key].total_fee + "</td>"//13
                           html += "<td>" + ret[key].in_remark + "</td>"//14
                           //                          html += "<td>" + ret[key].out_remark + "</td>"//15
+                          html += "<td>" + ret[key].seat + "</td>"//16
                           iNum++;
                       });
 
@@ -337,6 +342,7 @@
                       html += "<td>总费用</td>"; //13
                       html += "<td>进场备注</td>"; //14
                       html += "<td>出场备注</td>"; //15
+                      html += "<td>场位</td>"; //16
                       html += "</tr>";
 
 
@@ -360,6 +366,7 @@
                           html += "<td>" + ret[key].total_fee + "</td>"//13
                           html += "<td>" + ret[key].in_remark + "</td>"//14
                           html += "<td>" + ret[key].out_remark + "</td>"//15
+                          html += "<td>" + ret[key].seat + "</td>"//16
                           iNum++;
                       });
 
@@ -373,9 +380,9 @@
 
               })
 
-          
-          
-          
+
+
+
           }
 
 
