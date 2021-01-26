@@ -70,4 +70,9 @@ function GetRequest() {
 
     });
 
-    
+        $("#gotoSetSeat").click(function () {
+        var username = $("#span_username").text();
+
+        window.location.href = "/DepotBusiness/SettingSeatIndex?username=" + username;
+
+    });
