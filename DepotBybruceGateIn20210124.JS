@@ -104,6 +104,13 @@ function init() {
         function SelectGateINData() {
 
             var ctn_no = $("#ctn_no").val();
+                    
+                    if (ctn_no == "") {
+
+                alert("请录入箱号");
+                $("#ctn_no").focus();
+                return false;
+            }
 
             $.ajax({
 
