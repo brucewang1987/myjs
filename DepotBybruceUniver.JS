@@ -19,8 +19,8 @@
                       console.log(ret);
                       var str = JSON.stringify(ret);
                       if (str == "[]") {
-                          console.log("没有数据");
-                          return false;
+                          alert("没有数据");
+                          window.location.reload();
                       }
 
 
