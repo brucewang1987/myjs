@@ -395,6 +395,12 @@ function init() {
             var create_user = $("#span_username").text();
             var ctn_id = $("#ctn_id").val();
             var out_remark = $("#remark").val();
+            var ctn_no = $("#ctn_no").val(); 
+                    
+                        if (!window.confirm('箱号:' + ctn_no + '是否确认出场')) {
+                return false;
+
+            }
 
             $.ajax({
 
