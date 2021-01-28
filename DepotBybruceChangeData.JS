@@ -25,7 +25,7 @@ function init() {
                 var str = JSON.stringify(ret);
                 if (str == "[]") {
                     alert("没有数据");
-                    return false;
+                    window.location.reload();
                 }
 
                 $(ret).each(function (key) {
