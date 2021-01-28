@@ -76,3 +76,10 @@ function GetRequest() {
         window.location.href = "/DepotBusiness/SettingSeatIndex?username=" + username;
 
     });
+
+  $("#gotoUpdatePassward").click(function () {
+        var username = $("#span_username").text();
+
+        window.location.href = "/DepotBusiness/UpdatePassward?username=" + username;
+
+    });
