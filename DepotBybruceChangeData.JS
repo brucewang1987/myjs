@@ -1,6 +1,7 @@
- function init() {
+  function init() {
            $("#nosee").hide();
            $("#btnChange").attr("disabled", true);
+           $("#btnDelete").attr("disabled", true);
        }
        init();
        function SelectCtnInfo() {
@@ -53,7 +54,7 @@
                        $("#seal_no").val(ret[key].seal_no);
                        $("#in_remark").val(ret[key].in_remark);
                        $("#btnChange").attr("disabled", false);
-
+                       $("#btnDelete").attr("disabled", false);
                    });
 
                }
@@ -67,6 +68,53 @@
            SelectCtnInfo();
 
        });
+
+
+       $("#btnDelete").click(function () {
+
+           DeleteGateINdata();
+
+       });
+
+
+       function DeleteGateINdata() {
+
+           var ctn_id = $("#ctn_id").val();
+           var ctn_no = $("#ctn_no").val();
+           if (!window.confirm('是否确认删除箱号' + ctn_no+'的进场信息')) {
+               return false;
+
+           }
+
+           $.ajax({
+           
+            type: "get",
+               dataType: "json",
+               url: "/DepotBusiness/GateInOutBusiness?ctn_id=" + ctn_id + "&requestName="+"deleteGateInfo",
+
+
+               success: function (ret) {
+
+
+                   var result = ret.strResult;
+                   if (result == "ok") {
+
+                       alert("删除成功");
+                       window.location.reload();
+
+                   }
+                   else {
+
+                       alert("删除失败");
+                   }
+
+               }
+
+           
+           })
+
+       
+       }
 
        function ChangeData() {
            var regu = /^[0-9]+\.?[0-9]*$/;
