@@ -14,6 +14,7 @@ function GetRequest() {
 
             $("#FeeIndex").hide();
             $("#ChangeDataIndex").hide();
+            $("#ChangeGateOutData").hide();
             
         }
 
@@ -83,3 +84,11 @@ function GetRequest() {
         window.location.href = "/DepotBusiness/UpdatePassward?username=" + username;
 
     });
+
+ $("#gotoChangeGateOutDataIndex").click(function () {
+        var username = $("#span_username").text();
+
+        window.location.href = "/DepotBusiness/ChangeGateOutDataIndex?username=" + username;
+
+    });
+
