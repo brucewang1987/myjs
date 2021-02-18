@@ -17,6 +17,19 @@ function GetRequest() {
             $("#ChangeGateOutData").hide();
             
         }
+        
+        if (username.substring(0, 2) == "CW") {
+
+            $("#FeeIndex").hide();
+            $("#ChangeDataIndex").hide();
+            $("#ChangeGateOutData").hide();
+            $("#GateIn").hide();
+            $("#GateOut").hide();
+            $("#SetSeat").hide();
+            $("#SetSeat").hide();   
+            
+        }
+        
 
         console.log(username.substring(0, 1));
 
