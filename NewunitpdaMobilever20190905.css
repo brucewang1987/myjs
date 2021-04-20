@@ -1,4 +1,6 @@
- body
+/**
+
+body
         {
             background-color: #87CEFA;
         }
@@ -54,6 +56,99 @@
     background-color: white;
     position: absolute;
     height: 12rem;
+    
+
+}
+
+table, th, td
+{
+border: 0px solid black;
+font-size: .4rem;
+}
+
+**/
+
+
+ body
+        {
+            background-color: #AFEEEE;
+        }
+        .box1{
+            width: 10rem;
+            height: .666667rem;
+            /* background-color: #bbffaa */
+        }
+       /*  .inputclass
+        {
+            width: 6.666667rem;
+            height: .266667rem;
+            border-radius: .133333rem .133333rem;
+            font-size:.266667rem ;
+        } */
+        span
+        {
+            font-size: .533333rem;
+        }
+        .nosee
+        {
+            display: none;
+        }
+        select
+        {
+            font-size: .533333rem;
+        }
+        /* [type="text"]
+        {
+            width: 6.666667rem;
+            height:.533333rem;
+            border-radius: .133333rem .133333rem;
+            font-size:.533333rem;
+        } */
+        .searbox{
+            width: 6.666667rem;
+            height:.533333rem;
+            border: 2px solid #c4c7ce;
+  border-radius: .133333rem .133333rem .133333rem .133333rem;
+  overflow: visible;
+  /* 并排显示 */
+  display: inline-block;
+  /* 居中 */
+  vertical-align: middle;
+  margin-bottom: 0;
+  background-color: white;
+  
+        }
+        .searbox input{
+            border: 0;
+            font-size:.433333rem;
+            outline: 0;
+            background: transparent;
+            margin: 0;
+        }
+        [type="button"]
+        {
+            width: 3.733333rem;
+            background-color:#EEE9E9;
+            border-radius: .133333rem .133333rem;
+            font-size:.533333rem;
+        }
+        [type="button"]:hover
+        {
+            box-shadow: 5px 5px 10px;
+        }
+
+        .box1 div
+        {
+          /* margin: .266667rem 0rem; */
+          margin-bottom: .133333rem;
+        }
+.box2{
+    width: 9.333333rem;
+    height: 12rem;
+    background-color: white;
+    position: absolute;
+    top: .066667rem;
+    left: .026667rem;
     
 
 }
