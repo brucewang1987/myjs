@@ -1,4 +1,4 @@
- body
+body
         {
             background-color: #87CEFA;
         }
@@ -6,6 +6,10 @@
             width: 10rem;
             height: .666667rem;
             /* background-color: #bbffaa */
+        }
+        .mianbox div
+        {
+            margin-bottom: .133333rem;
         }
        /*  .inputclass
         {
