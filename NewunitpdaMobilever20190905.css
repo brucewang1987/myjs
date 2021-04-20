@@ -83,6 +83,11 @@
 
 }
 
+.box2 div{
+margin-bottom: .133333rem;
+
+}
+
 table, th, td
 {
 border: 0px solid black;
