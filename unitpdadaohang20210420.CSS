@@ -1,0 +1,33 @@
+  *{
+           margin: 0;
+           padding: 0;
+       }
+       .head
+       {
+           width: 100%;
+           height: 80px;
+           background-color: #99CCFF;
+           line-height: 80px;
+           text-align: center;
+           font-size: 30px;
+       }
+       .box1
+       {
+           width: 100%;
+           height: 80px;
+           background-color:	#DCDCDC;
+           position: absolute;
+           bottom: 0px;
+       }
+       .box1 div
+       {
+           float: left;
+           width: 50%;
+           line-height: 80px;
+           text-align: center;
+       }
+       .box1 div:hover
+       {
+           background-color:	#A9A9A9; 
+       }
+  
