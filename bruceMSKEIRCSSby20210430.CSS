@@ -1,0 +1,46 @@
+  .box1{
+            width: 800px;
+            height: 500px;
+            background-color: #F0FFFF;
+            border: 1px solid black;
+            margin: 0 auto;
+            position: relative;
+        }
+        .box1 .btn{
+            display: inline-block;
+  width: 112px;
+  vertical-align: middle;
+  position: relative;
+  border: 0;
+  cursor: pointer;
+  height: 40px;
+  line-height: 41px;
+  line-height: 40px/9;
+  background-color: #4e63f2;
+  border-radius: 10px 10px 10px 10px;
+  font-size: 17px;
+  box-shadow: none;
+  font-weight: 400;
+  outline: 0;
+  letter-spacing: normal;
+  color: #fff;
+  text-align: center;
+        }
+        .box1 .btn:hover
+        {
+          background-color: 	#6495ED;
+        }
+        #spServe
+        {
+            position: absolute;
+            bottom: 10px;
+            left:5px;
+        }
+               #resbox {
+            margin-bottom: 20px;
+            overflow-y: scroll;
+            height: 350px;
+            margin-top: 20px;
+            border: 1px solid #F5F5F5;
+            background-color:white;
+        }
