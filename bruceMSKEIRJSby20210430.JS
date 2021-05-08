@@ -1,4 +1,4 @@
- function getNow(s) {
+  function getNow(s) {
             return s < 10 ? '0' + s : s;
         }
         //3堆场
@@ -27,7 +27,7 @@
                         $("#resbox").append("<p>" + "东三数据上传成功,时间段为:" + startdate + "-" + enddate + "</p>");
                     }
                     else {
-                        $("#resbox").append("<p>" + "东三数据上传失败,原因为" + rtnInfo+"</p>");
+                        $("#resbox").append("<p>" + "东三数据上传失败,原因为" + rtnInfo + "</p>");
                     }
 
                 }
@@ -250,10 +250,19 @@
         }
         $("#btnOpen").click(function () {
 
+
+            var spServe = $("#spServe").text();
+
+            if (spServe.indexOf( "服务未开启")>=0) {
+
+                toastData();
+            
+            }
+
             var intervalId = setInterval(function () {
                 toastData();
                 //    window.location.reload();
-            },3600000)
+            }, 3600000)
 
 
             $("#spServe").text("服务已开启");
