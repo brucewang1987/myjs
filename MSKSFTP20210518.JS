@@ -1,4 +1,4 @@
- function getNow(s) {
+  function getNow(s) {
             return s < 10 ? '0' + s : s;
         }
 
@@ -6,11 +6,11 @@
 
             $.ajax({
                 type: "get",
-                dataType:"json",
+                dataType: "json",
                 url: "/SFTPBusiness/SFTPBusiness?requestName=" + "openServe",
                 success: function (ret) {
 
-                   // var result = ret.isSucess;
+                    // var result = ret.isSucess;
 
                     var myDate = new Date();
 
@@ -35,7 +35,7 @@
                         else {
 
                             $("#resbox").append("<p>" + "传输失败" + now + "</p>");
-
+                            console.log(ret[key].strErr);
                         }
 
                     });
@@ -44,7 +44,7 @@
                     //    $("#resbox").append("<p>" + "传输成功" + now + "</p>");
 
                     //}
-                    
+
 
                 }
 
@@ -58,24 +58,24 @@
             var spServe = $("#spServe").text();
             if (spServe.indexOf("服务未开启") >= 0) {
 
-                sftpEDI();  
+                sftpEDI();
 
             }
 
-            var intervalId=  setInterval(function(){
+            var intervalId = setInterval(function () {
                 /*toastData();*/
                 sftpEDI();
-        //    window.location.reload();
-        },900000)
+                //    window.location.reload();
+            }, 900000)
 
 
-         $("#spServe").text("服务已开启");
+            $("#spServe").text("服务已开启");
 
 
         });
 
-$("#btnClose").click(function (){
+        $("#btnClose").click(function () {
 
-    window.location.reload();
+            window.location.reload();
 
-})
+        })
