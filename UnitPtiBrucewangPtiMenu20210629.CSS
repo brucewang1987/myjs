@@ -1,0 +1,74 @@
+  body{
+        background-color: #B0E0E6;
+      }
+      h2
+      {
+          margin-bottom: 5px;
+      }
+        .box1
+        {
+            margin-top: 10px;
+            margin-left: 10px;
+        }
+        .box1 div
+        {
+            margin-bottom: 10px;
+        }
+ 
+        .box1 [type="text"]
+        {
+            outline: 0;
+            border:0;
+            background: transparent;
+            font-size: 16px;
+        }
+        .box1 span
+        {
+            width: 70%;
+            border: 2px solid #c4c7ce;
+            border-radius: 10px 10px 10px 10px;
+            display: inline-block;
+            background-color: white;
+        }
+        .box1 .spgray{
+            background-color:#DCDCDC;
+        }
+
+
+
+
+        .box2
+        {
+            margin-top: 10px;
+            margin-left: 10px;
+        }
+        .box2 div
+        {
+            margin-bottom: 10px;
+        }
+ 
+        .box2 [type="text"]
+        {
+            outline: 0;
+            border:0;
+            background: transparent;
+            font-size: 16px;
+        }
+        .box2 span
+        {
+            width: 70%;
+            border: 2px solid #c4c7ce;
+            border-radius: 10px 10px 10px 10px;
+            display: inline-block;
+            background-color: white;
+        }
+
+        .spnormal
+        {
+            width: 40%;
+        }
+
+        .sRight
+        {
+            margin-left: 20px;
+        }
