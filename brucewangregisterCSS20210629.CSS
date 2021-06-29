@@ -1,0 +1,42 @@
+  body{
+        background-color: 	#B0E0E6;
+      }
+        .login {
+   overflow:hidden; 
+   width:300px;
+   font-size: 17px;
+   margin: 0 auto;
+  margin-top: 200px;
+   }
+   .login div{
+       margin-bottom: 10px;
+   }
+.login .login-item { 
+  padding:10px 0; 
+  overflow:hidden; 
+  clear:both; 
+  line-height:25px;
+  padding:0px;
+  }
+.login .login-item label { 
+  float:left; 
+text-align:right;
+ width:80px;
+ font-size: 20px;
+ }
+ .login .login-item input
+ {
+    font-size: 18px;
+ }
+.login .login-item div { 
+  float:left;
+  }
+
+.login .login-tools { 
+  text-align:center;
+  margin-top: 10px;
+  }
+  .login .login-tools button{
+    margin-right: 20px;
+    font-size: 17px;
+  }
