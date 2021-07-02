@@ -1,4 +1,4 @@
- body{
+body{
         background-color: 	#B0E0E6;
       }
       .title
@@ -11,7 +11,7 @@
    width:300px;
    font-size: 17px;
    /* margin: 0 auto; */
-  margin-top: 150px;
+  margin-top: 100px;
   margin-left: 10%;
    }
    .login div{
@@ -72,3 +72,34 @@ text-align:right;
   text-align: center;
   margin-top: 10px;
 }
+
+.box1
+{
+    margin-top:40px;
+    
+    }
+
+        .box1 [type="text"]
+        {
+            outline: 0;
+            border:0;
+            background: transparent;
+            font-size: 18px;
+        }
+        
+         .box1 [type="password"]
+        {
+            outline: 0;
+            border:0;
+            background: transparent;
+            font-size: 18px;
+        }
+        
+        .box1 span
+        {
+            width: 70%;
+            border: 2px solid #c4c7ce;
+            border-radius: 10px 10px 10px 10px;
+            display: inline-block;
+            background-color: white;
+        }
