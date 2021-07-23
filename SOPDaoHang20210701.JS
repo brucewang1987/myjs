@@ -1,92 +1,139 @@
  function GetRequest() {
-                    //                    var url = location.search; //获取url中"?"符后的字串
-                    //                    if (url.indexOf("?") != -1) {    //判断是否有参数
-                    //                        var str = url.substr(1); //从第一个字符开始 因为第0个是?号 获取所有除问号的所有符串
-                    //                        strs = str.split("=");   //用等号进行分隔 （因为知道只有一个参数 所以直接用等号进分隔 如果有多个参数 要用&号分隔 再用等号进行分隔）
-                    //                        //                alert(strs[1]);          //直接弹出第一个参数 （如果有多个参数 还要进行循环的）
-                    //                    }
-                    //                    var username = strs[1];
+                 //                    var url = location.search; //获取url中"?"符后的字串
+                 //                    if (url.indexOf("?") != -1) {    //判断是否有参数
+                 //                        var str = url.substr(1); //从第一个字符开始 因为第0个是?号 获取所有除问号的所有符串
+                 //                        strs = str.split("=");   //用等号进行分隔 （因为知道只有一个参数 所以直接用等号进分隔 如果有多个参数 要用&号分隔 再用等号进行分隔）
+                 //                        //                alert(strs[1]);          //直接弹出第一个参数 （如果有多个参数 还要进行循环的）
+                 //                    }
+                 //                    var username = strs[1];
 
-                    var urlinfo = window.location.href; //获取url
-                    var username = urlinfo.split("?")[1].split("=")[1]; //拆分url得到”=”后面的参数
+                 var urlinfo = window.location.href; //获取url
+                 var username = urlinfo.split("?")[1].split("=")[1]; //拆分url得到”=”后面的参数
 
-                    if (username.substring(0, 2) == "DK") {
+                 var job = username.substring(0, 2);
 
-                        $("#box4").hide();
-                        $("#box5").hide();
+                 $("#gw").val(job);
 
-                    }
+                 if (username.substring(0, 2) == "DK") {
 
-                    if (username.substring(0, 2) == "XG") {
+                     // $("#box4").hide();
+                     // $("#box5").hide();
 
-                        $("#box1").hide();
-                        $("#box2").hide();
-                        $("#box3").hide();
+                     $("#xgdiv").hide();
 
-                    }
+                 }
 
-                    var user = decodeURI(username);
+                 if (username.substring(0, 2) == "XG") {
 
-                    var iLen = user.length;
+                     // $("#box1").hide();
+                     // $("#box2").hide();
+                     // $("#box3").hide();
 
-                    var iLen2 = iLen - 2;
+                     $("#dkdiv").hide();
 
-                    console.log(iLen);
+                 }
 
-                    user = user.substr(2, iLen2);
+                 var user = decodeURI(username);
 
-                    $("#span_username").text(user);
+                 var iLen = user.length;
 
-                }
-                GetRequest();
+                 var iLen2 = iLen - 2;
+
+                 console.log(iLen);
+
+                 user = user.substr(2, iLen2);
+
+                 $("#span_username").text(user);
+
+                 $("#nosee").hide();
+
+             }
+             GetRequest();
+
+             function beginExam() {
+
+                 var job = $("#gw").val();
+                 var user = $("#span_username").text();
 
 
-                $("#box1").click(function () {
+                 if (job == "DK") {
+                     var dkSelect = $("#dkselect").val();
 
-                    var user = $("#span_username").text();
+                     if (dkSelect == "dk1") {
+                         window.location.href = "/TestSop/JinZhaZchkIndex?username=" + user;
+                     }
+                     if (dkSelect == "dk2") {
+                         window.location.href = "/TestSop/JinZhaTKCCIndex?username=" + user;
+                     }
+                     if (dkSelect == "dk3") {
+                         window.location.href = "/TestSop/ChuZhaSOPIndex?username=" + user;
+                     }
 
-                    console.log(user);
+                 }
+                 if (job == "XG") {
+                     var xgSelect = $("#xgselect").val();
+                     if (xgSelect == "xg1") {
+                         window.location.href = "/TestSop/XGInfoCheckIndex?username=" + user;
+                     }
+                     if (xgSelect == "xg2") {
+                         window.location.href = "/TestSop/XGTransportIndex?username=" + user;
+                     }
+                 }
 
-                    window.location.href = "/TestSop/JinZhaZchkIndex?username=" + user;
 
-                });
+             }
 
-                $("#box2").click(function () {
+             $("#login").click(function () {
 
-                    var user = $("#span_username").text();
+                 beginExam();
+             });
 
-                    console.log(user);
+             // $("#box1").click(function () {
 
-                    window.location.href = "/TestSop/JinZhaTKCCIndex?username=" + user;
+             //     var user = $("#span_username").text();
 
-                });
+             //     console.log(user);
 
-                $("#box3").click(function () {
+             //     window.location.href = "/TestSop/JinZhaZchkIndex?username=" + user;
 
-                    var user = $("#span_username").text();
+             // });
 
-                    console.log(user);
+             // $("#box2").click(function () {
 
-                    window.location.href = "/TestSop/ChuZhaSOPIndex?username=" + user;
+             //     var user = $("#span_username").text();
 
-                });
+             //     console.log(user);
 
-                $("#box4").click(function () {
+             //     window.location.href = "/TestSop/JinZhaTKCCIndex?username=" + user;
 
-                    var user = $("#span_username").text();
+             // });
 
-                    console.log(user);
+             // $("#box3").click(function () {
 
-                    window.location.href = "/TestSop/XGInfoCheckIndex?username=" + user;
+             //     var user = $("#span_username").text();
 
-                });
+             //     console.log(user);
 
-                $("#box5").click(function () {
+             //     window.location.href = "/TestSop/ChuZhaSOPIndex?username=" + user;
 
-                    var user = $("#span_username").text();
+             // });
 
-                    console.log(user);
+             // $("#box4").click(function () {
 
-                    window.location.href = "/TestSop/XGTransportIndex?username=" + user;
+             //     var user = $("#span_username").text();
 
-                });
+             //     console.log(user);
+
+             //     window.location.href = "/TestSop/XGInfoCheckIndex?username=" + user;
+
+             // });
+
+             // $("#box5").click(function () {
+
+             //     var user = $("#span_username").text();
+
+             //     console.log(user);
+
+             //     window.location.href = "/TestSop/XGTransportIndex?username=" + user;
+
+             // });
