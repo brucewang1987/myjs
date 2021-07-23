@@ -1,4 +1,4 @@
- html{
+/* html{
             background-color: #eff0f4;
            
         }
@@ -39,11 +39,55 @@
         }
          .app div:hover{
             background-color: 	#1E90FF;
-        }
+        } */
       .divuser
         {
            position: relative;
            top: 0;
            left: 0;
            font-size: 15px;
+
             }
+
+
+        .app
+        {
+            margin-top: 80px;
+            margin-left: 10%;
+        }
+        .selectexam{
+            margin-bottom: 10px;
+        }
+        .examdiv div
+        {
+           margin-bottom: 10px;
+        }
+        .examdiv select{
+            width: 70%;
+            height: 30px;
+            font-size: 25px;
+        }
+
+          .btn
+  {
+    /* display: inline-block; */
+    display: block;
+  width: 100%;
+  /* vertical-align: middle; */
+  /* position: relative; */
+  border: 0;
+  cursor: pointer;
+  height: 40px;
+  line-height: 41px;
+  line-height: 40px/9;  
+  background-color: #FB7299;
+  border-radius: 10px 10px 10px 10px;
+  font-size: 17px;
+  box-shadow: none;
+  font-weight: 400;
+  outline: 0;
+  letter-spacing: normal;
+  color: #fff;
+  text-align: center;
+  margin-top: 10px;
+}
