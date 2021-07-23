@@ -1,21 +1,31 @@
 body{
-        background-color: 	#B0E0E6;
+        background-color: 	#FFFFFF;
       }
       .title
       {
           margin-left: 100px;
-          margin-top: 50px;
+          margin-top: 40px;
+      }
+      .title h1
+      {
+          font-size: 20px;
       }
         .login {
    overflow:hidden; 
-   width:300px;
+   width:100%;
    font-size: 17px;
    /* margin: 0 auto; */
-  margin-top: 100px;
+  margin-top: 80px;
   margin-left: 10%;
    }
    .login div{
        margin-bottom: 10px;
+   }
+   #job
+   {
+       width: 70%;
+       height: 30px;
+       font-size: 25px;
    }
 /* .login .login-item { 
   padding:10px 0; 
@@ -61,7 +71,7 @@ text-align:right;
   height: 40px;
   line-height: 41px;
   line-height: 40px/9;  
-  background-color: #4e63f2;
+  background-color: #FB7299;
   border-radius: 10px 10px 10px 10px;
   font-size: 17px;
   box-shadow: none;
@@ -75,7 +85,7 @@ text-align:right;
 
 .box1
 {
-    margin-top:40px;
+    margin-top:10px;
     
     }
 
