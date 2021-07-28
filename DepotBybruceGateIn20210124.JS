@@ -286,7 +286,7 @@ function init() {
                  return false;
              }
 
-             
+
 
              var advance_fee = $("#advance_fee").val();
 
@@ -344,7 +344,7 @@ function init() {
 
              if (business_type == "ZLDC") {
 
-                 if (updownfee == "") {
+                 if (updownfee == 0.00) {
 
                      alert("暂落箱业务必须录入上下车费");
                      $("#updownfee").focus();
