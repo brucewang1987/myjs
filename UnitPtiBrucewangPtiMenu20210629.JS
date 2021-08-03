@@ -198,7 +198,7 @@
                     $("#in_edi_date").val(ret[key].in_edi_date);
                     $("#in_entrust_remark").val(ret[key].in_entrust_remark);
                     $("#in_ctn_remark").val(ret[key].in_ctn_remark);
-
+                    $("#ctn_no").val(ret[key].ctn_no);
                 });
 
                 $("#btnInputpti").attr("disabled", false);
