@@ -11,6 +11,12 @@
 
               }
               init();
+ $("#back").click(function () {
+
+            location.replace("/TestSop/LoginIndex");
+
+        });
+
               function GetRequest() {
                   var url = location.search; //获取url中"?"符后的字串
                   if (url.indexOf("?") != -1) {    //判断是否有参数
