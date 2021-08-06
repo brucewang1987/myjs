@@ -31,6 +31,12 @@
        }
        GetRequest();
 
+ $("#back").click(function () {
+
+            location.replace("/TestSop/LoginIndex");
+
+        });
+
 
        //第一题下一题
        $("#btn1Next").click(function () {
