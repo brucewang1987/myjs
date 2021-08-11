@@ -50,6 +50,15 @@
        }
 
        $("#btnInputpti").click(function () {
+        
+        var ctn_id = $("#ctn_id").val();
+        
+        if(ctn_id=="")
+        {
+        
+         alert("请先查询数据");
+         return false;
+        }
            showpti();
        });
 
