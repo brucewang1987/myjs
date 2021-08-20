@@ -22,7 +22,7 @@
             outline: 0;
             border:0;
             background: transparent;
-            font-size: 18px;
+            font-size: 20px;
         }
         .box1 span
         {
@@ -54,7 +54,7 @@
             outline: 0;
             border:0;
             background: transparent;
-            font-size: 18px;
+            font-size: 20px;
         }
         .box2 span
         {
@@ -67,13 +67,13 @@
         
         .box2 select
         {
-            font-size:18px;
+            font-size:20px;
             
             }
             
             .box2 textarea
             {
-                font-size:18px;
+                font-size:20px;
                 }
 
         .spnormal
