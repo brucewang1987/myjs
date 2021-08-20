@@ -1,4 +1,4 @@
- body{
+body{
         /* background-color: #B0E0E6; */
         background-color: #FFFFFF;
       }
@@ -10,6 +10,7 @@
         {
             margin-top: 10px;
             margin-left: 10px;
+            font-size: 20px;
         }
         .box1 div
         {
@@ -22,7 +23,7 @@
             outline: 0;
             border:0;
             background: transparent;
-            font-size: 16px;
+            font-size: 20px;
         }
         .box1 span
         {
@@ -43,6 +44,7 @@
         {
             margin-top: 10px;
             margin-left: 10px;
+            font-size: 20px;
         }
         .box2 div
         {
@@ -54,7 +56,7 @@
             outline: 0;
             border:0;
             background: transparent;
-            font-size: 16px;
+            font-size: 20px;
         }
         .box2 span
         {
@@ -64,7 +66,17 @@
             display: inline-block;
             background-color: white;
         }
-
+        .box2 select
+        {
+           font-size: 20px;
+            
+            }
+        
+        .box2 textarea
+        {
+            font-size: 20px;
+            border:1px solid black;
+            }
         .spnormal
         {
             width: 40%;
