@@ -24,6 +24,7 @@
            $("#pti_type_look").attr("disabled", true);
            $("#temperature_look").attr("disabled", true);
            $("#humidity_look").attr("disabled", true);
+           $("#ventilation_look").attr("disabled", true);
            $("#btnInputpti").attr("disabled", true);
            $("#ctn_id").hide();
            $("#box2").hide();
@@ -152,14 +153,16 @@
 
            var ctn_no = $("#ctn_no").val();
 
+           var ventilation = $("#ventilation").val();
+
            console.log('ctn_id:' + ctn_id + ',箱号:' + ctn_no + ',箱主:' + ope + ',机组状态:' + unit_status + ',电工:' + electrician_user_name + ',pti动作:'
-        + pti_type + ',pti状态:' + pti_status + ',温度:' + temperature + ',湿度:' + humidity + ',备注:' + remark);
+        + pti_type + ',pti状态:' + pti_status + ',温度:' + temperature + ',湿度:' + humidity + ',通风窗:' + ventilation + ',备注:' + remark);
 
            var logInfo = '箱号:' + ctn_no + ',箱主:' + ope + ',机组状态:' + unit_status + ',电工:' + electrician_user_name + ',pti动作:'
-        + pti_type + ',pti状态:' + pti_status + ',温度:' + temperature + ',湿度:' + humidity + ',备注:' + remark;
+        + pti_type + ',pti状态:' + pti_status + ',温度:' + temperature + ',湿度:' + humidity + ',通风窗:' + ventilation + ',备注:' + remark;
 
            if (!window.confirm('箱号:' + ctn_no + ',箱主:' + ope + ',机组状态:' + unit_status + ',电工:' + electrician_user_name + ',pti动作:'
-        + pti_type + ',pti状态:' + pti_status + ',温度:' + temperature + ',湿度:' + humidity + ',备注:' + remark + ',请确认信息是否提交')) {
+        + pti_type + ',pti状态:' + pti_status + ',温度:' + temperature + ',湿度:' + humidity + ',通风窗:' + ventilation + ',备注:' + remark + ',请确认信息是否提交')) {
 
                return false;
 
@@ -172,7 +175,7 @@
                url: "/Unitbusiness/PtiBusiness?ctn_id=" + ctn_id + "&ope=" + ope + "&temperature=" + temperature
          + "&pti_status=" + pti_status + "&pti_type=" + pti_type + "&electrician_user_name=" + electrician_user_name
          + "&unit_status=" + unit_status + "&remark=" + remark + "&logInfo=" + logInfo
-         + "&humidity=" + humidity + "&requestName=" + "SubmitPtiData",
+         + "&humidity=" + humidity + "&ventilation=" + ventilation + "&requestName=" + "SubmitPtiData",
 
                success: function (ret) {
 
@@ -239,6 +242,7 @@
                        $("#pti_type_look").val(ret[key].pti_type);
                        $("#temperature_look").val(ret[key].temperature);
                        $("#humidity_look").val(ret[key].humidity);
+                       $("#ventilation_look").val(ret[key].ventilation);
                        $("#ctn_no").val(ret[key].ctn_no);
                    });
 
