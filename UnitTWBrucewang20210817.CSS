@@ -164,3 +164,21 @@
             width: 150px;
             height: 150px;
         }
+
+  #loading
+        {
+            width:500px;
+            height:500px;
+             position: absolute;
+        top:15px;
+        background-color:#F5F5F5;
+            }
+            
+          #loading  #imgload
+          {
+              
+              position: relative;
+              top:120px;
+              left:80px;
+              
+              }
