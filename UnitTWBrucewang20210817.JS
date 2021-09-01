@@ -699,7 +699,8 @@
 
                     alert("提交成功");
                     SelectInfoByCtnNo();
-
+                     $("#businessdiv").hide();
+        $("#selectContent").show();
                 }
                 else {
 
