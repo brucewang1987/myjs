@@ -10,7 +10,6 @@ body{
         {
             margin-top: 10px;
             margin-left: 10px;
-            font-size: 18px;
         }
         .box1 div
         {
@@ -36,8 +35,8 @@ body{
         .box1 .spgray{
             background-color:#DCDCDC;
         }
-        
-        .box1 .spgray2
+
+         .box1 .spgray2
         {
             width: 20%;
             border: 2px solid #c4c7ce;
@@ -46,17 +45,16 @@ body{
             background-color:#DCDCDC;
         }
 
-      #businessdiv
+           #businessdiv
       {
         position: absolute;
-        top:10px;
+        top:15px;
       }
 
         .box2
         {
             margin-top: 10px;
             margin-left: 10px;
-            font-size: 18px;
         }
         .box2 div
         {
@@ -72,27 +70,29 @@ body{
         }
         .box2 span
         {
-            width: 50%;
+            width: 70%;
             border: 2px solid #c4c7ce;
             border-radius: 10px 10px 10px 10px;
             display: inline-block;
             background-color: white;
         }
+        
         .box2 select
         {
-           font-size: 20px;
+            font-size:18px;
             
             }
-        
-        .box2 textarea
+            
+            .box2 textarea
+            {
+                font-size:18px;
+                }
+
+         .box2 .spnormal
         {
-            font-size: 18px;
-            border:1px solid black;
-            }
-        .spnormal
-        {
-            width: 30%;
+            width: 60%;
         }
+      
 
         .sRight
         {
@@ -103,7 +103,7 @@ body{
   {
     display: inline-block;
     /* display: block; */
-  width: 30%;
+  width: 40%;
   /* vertical-align: middle; */
   /* position: relative; */
   border: 0;
@@ -122,3 +122,63 @@ body{
   text-align: center;
   margin-top: 10px;
 }
+
+       #showimg{
+            width: 150px;
+            height: 150px;
+        }
+        
+         #showimg2{
+            width: 150px;
+            height: 150px;
+        }
+          #showimg3{
+            width: 150px;
+            height: 150px;
+        }
+         #showimg4{
+            width: 150px;
+            height: 150px;
+        }
+         #showimg5{
+            width: 150px;
+            height: 150px;
+        }
+         #showimg6{
+            width: 150px;
+            height: 150px;
+        }
+         #showimg7{
+            width: 150px;
+            height: 150px;
+        }
+         #showimg8{
+            width: 150px;
+            height: 150px;
+        }
+         #showimg9{
+            width: 150px;
+            height: 150px;
+        }
+          #showimg10{
+            width: 150px;
+            height: 150px;
+        }
+        
+        #loading
+        {
+            width:500px;
+            height:500px;
+             position: absolute;
+        top:15px;
+        background-color:#F5F5F5;
+            }
+            
+          #loading  #imgload
+          {
+              
+              position: relative;
+              top:120px;
+              left:80px;
+              
+              }
