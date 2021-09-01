@@ -583,6 +583,7 @@
             success: function (ret) {
 
                 var str = JSON.stringify(ret);
+                console.log(str);
                 if (str == "[]") {
                     alert("没有符合条件的数据");
                     window.location.reload();
