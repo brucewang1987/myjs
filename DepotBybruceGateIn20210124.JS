@@ -208,14 +208,14 @@ function init() {
 
              }
 
-             var ctn4_4 = ctn_no.substr(3, 1);
-             if (ctn4_4 != "U") {
+//              var ctn4_4 = ctn_no.substr(3, 1);
+//              if (ctn4_4 != "U") {
 
-                 alert("箱号第4位有误");
-                 $("#ctn_no").focus();
-                 return false;
+//                  alert("箱号第4位有误");
+//                  $("#ctn_no").focus();
+//                  return false;
 
-             }
+//              }
 
              if (isNaN(ctn7)) {
                  alert("箱号后7位必须为数字");
