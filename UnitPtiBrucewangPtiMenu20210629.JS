@@ -283,6 +283,13 @@
      }
 
      $("#btnUpload").click(function () {
+      
+      if (!window.confirm('确定上传照片？')) {
+
+                 return false;
+
+             }
+      
          $("#loading").show();
          ajaxFileUpload("file_input");
 
@@ -302,6 +309,13 @@
      });
 
      $("#btnUpload3").click(function () {
+      
+      if (!window.confirm('确定上传照片？')) {
+
+                 return false;
+
+             }
+      
          $("#loading").show();
          ajaxFileUpload("file_input3");
          $("#photodiv4").show();
@@ -320,6 +334,14 @@
      });
 
      $("#btnUpload5").click(function () {
+      
+      if (!window.confirm('确定上传照片？')) {
+
+                 return false;
+
+             }
+      
+      
          $("#loading").show();
          ajaxFileUpload("file_input5");
          $("#photodiv6").show();
@@ -330,6 +352,13 @@
 
 
      $("#btnUpload6").click(function () {
+      
+      if (!window.confirm('确定上传照片？')) {
+
+                 return false;
+
+             }
+      
          $("#loading").show();
          ajaxFileUpload("file_input6");
          $("#photodiv7").show();
@@ -339,6 +368,12 @@
 
 
      $("#btnUpload7").click(function () {
+      
+      if (!window.confirm('确定上传照片？')) {
+
+                 return false;
+
+             }
          $("#loading").show();
          ajaxFileUpload("file_input7");
          $("#photodiv8").show();
@@ -347,6 +382,13 @@
      });
 
      $("#btnUpload8").click(function () {
+      
+      if (!window.confirm('确定上传照片？')) {
+
+                 return false;
+
+             }
+      
          $("#loading").show();
          ajaxFileUpload("file_input8");
          $("#photodiv9").show();
@@ -363,6 +405,13 @@
      });
 
      $("#btnUpload10").click(function () {
+      
+      if (!window.confirm('确定上传照片？')) {
+
+                 return false;
+
+             }
+      
          $("#loading").show();
          ajaxFileUpload("file_input10");
 
