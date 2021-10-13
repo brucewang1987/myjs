@@ -300,6 +300,13 @@
 
 
      $("#btnUpload2").click(function () {
+          
+          if (!window.confirm('确定上传照片？')) {
+
+                 return false;
+
+             }
+          
          $("#loading").show();
          ajaxFileUpload("file_input2");
          $("#photodiv3").show();
@@ -325,6 +332,13 @@
      });
 
      $("#btnUpload4").click(function () {
+          
+          if (!window.confirm('确定上传照片？')) {
+
+                 return false;
+
+             }
+          
          $("#loading").show();
          ajaxFileUpload("file_input4");
          $("#photodiv5").show();
