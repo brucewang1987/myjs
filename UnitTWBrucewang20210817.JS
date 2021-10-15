@@ -1,4 +1,4 @@
- $("#btnBack").click(function () {
+  $("#btnBack").click(function () {
 
         $("#businessdiv").hide();
         $("#selectContent").show();
@@ -579,11 +579,10 @@
 
             type: "get",
             dataType: "json",
-            url: "/Unitbusiness/QueryCtnInfo?ctn_no=" + ctn_no + "&requestName=" + "selectDataByNo",
+            url: "/Unitbusiness/QueryCtnInfo?ctn_no=" + ctn_no + "&requestName=" + "selectTWDataByNo",
             success: function (ret) {
 
                 var str = JSON.stringify(ret);
-                console.log(str);
                 if (str == "[]") {
                     alert("没有符合条件的数据");
                     window.location.reload();
@@ -601,7 +600,10 @@
                     $("#temperature_look").val(ret[key].temperature);
                     $("#humidity_look").val(ret[key].humidity);
                     $("#ventilation_look").val(ret[key].ventilation);
+                    $("#electrician").val(ret[key].electrician);
+                    $("#create_date").val(ret[key].tw_date);
                 });
+
 
 
 
@@ -699,8 +701,9 @@
 
                     alert("提交成功");
                     SelectInfoByCtnNo();
-                     $("#businessdiv").hide();
-        $("#selectContent").show();
+                    $("#businessdiv").hide();
+                    $("#selectContent").show();
+
                 }
                 else {
 
