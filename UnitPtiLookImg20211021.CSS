@@ -1,0 +1,80 @@
+  #outer
+        {
+            width: 500px;
+            margin: 0 auto;
+            text-align: center;
+            margin-top: 30px;
+        }
+        img
+        {
+            width: 90%;
+            height: 300px;
+        }
+        .navhead
+        {
+            margin-top: 50px;
+        }
+        .navhead [type="text"]
+        {
+            outline: 0;
+            border:0;
+            background: transparent;
+            font-size: 18px;
+        }
+
+        .navhead span
+        {
+            width: 60%;
+            border: 2px solid #c4c7ce;
+            border-radius: 10px 10px 10px 10px;
+            display: inline-block;
+            background-color: white;
+        }
+
+        .btn
+  {
+    /* display: inline-block; */
+    display: block;
+  width: 50%;
+  /* vertical-align: middle; */
+  /* position: relative; */
+  border: 0;
+  cursor: pointer;
+  height: 40px;
+  line-height: 41px;
+  line-height: 40px/9;
+  background-color: #FB7299;
+  border-radius: 10px 10px 10px 10px;
+  font-size: 17px;
+  box-shadow: none;
+  font-weight: 400;
+  outline: 0;
+  letter-spacing: normal;
+  color: #fff;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.btn2
+  {
+    /* display: inline-block; */
+    display: block;
+  width: 30%;
+  /* vertical-align: middle; */
+  /* position: relative; */
+  border: 0;
+  cursor: pointer;
+  height: 40px;
+  line-height: 41px;
+  line-height: 40px/9;
+  background-color: #FB7299;
+  border-radius: 10px 10px 10px 10px;
+  font-size: 17px;
+  box-shadow: none;
+  font-weight: 400;
+  outline: 0;
+  letter-spacing: normal;
+  color: #fff;
+  text-align: center;
+  margin-top: 10px;
+}
