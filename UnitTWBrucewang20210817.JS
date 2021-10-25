@@ -602,6 +602,7 @@
                     $("#ventilation_look").val(ret[key].ventilation);
                     $("#electrician").val(ret[key].electrician);
                     $("#create_date").val(ret[key].tw_date);
+                    $("#pti_remark").val(ret[key].pti_remark);
                 });
 
 
