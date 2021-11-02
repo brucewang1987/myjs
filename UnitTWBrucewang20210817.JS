@@ -670,17 +670,21 @@
         var ventilation = $("#ventilation").val();
 
         var remark = $("#remark").val();
+      
+       var _remark = remark.toUpperCase();
+
+           $("#remark").val(_remark);
 
         var ctn_no = $("#ctn_no").val();
 
         console.log('ctn_id:' + ctn_id + ',箱号:' + ctn_no + ',箱主:' + ope + ',排风窗:' + ventilation + ',电工:' + electrician_user_name + ',pti动作:'
-        + pti_type + ',pti状态:' + pti_status + ',温度:' + temperature + ',湿度:' + humidity + ',备注:' + remark);
+        + pti_type + ',pti状态:' + pti_status + ',温度:' + temperature + ',湿度:' + humidity + ',备注:' + _remark);
 
         var logInfo = '箱号:' + ctn_no + ',箱主:' + ope + ',排风窗:' + ventilation + ',电工:' + electrician_user_name + ',pti动作:'
-        + pti_type + ',pti状态:' + pti_status + ',温度:' + temperature + ',湿度:' + humidity + ',备注:' + remark;
+        + pti_type + ',pti状态:' + pti_status + ',温度:' + temperature + ',湿度:' + humidity + ',备注:' + _remark;
 
         if (!window.confirm('箱号:' + ctn_no + ',箱主:' + ope + ',排风窗:' + ventilation + ',电工:' + electrician_user_name + ',pti动作:'
-        + pti_type + ',pti状态:' + pti_status + ',温度:' + temperature + ',湿度:' + humidity + ',备注:' + remark + ',请确认信息是否提交')) {
+        + pti_type + ',pti状态:' + pti_status + ',温度:' + temperature + ',湿度:' + humidity + ',备注:' + _remark + ',请确认信息是否提交')) {
 
             return false;
 
@@ -692,7 +696,7 @@
             dataType: "json",
             url: "/Unitbusiness/PtiBusiness?ctn_id=" + ctn_id + "&ope=" + ope + "&temperature=" + temperature
          + "&pti_status=" + pti_status + "&pti_type=" + pti_type + "&electrician_user_name=" + electrician_user_name
-         + "&ventilation=" + ventilation + "&remark=" + remark + "&logInfo=" + logInfo
+         + "&ventilation=" + ventilation + "&remark=" + _remark + "&logInfo=" + logInfo
          + "&humidity=" + humidity + "&requestName=" + "SubmitTWData",
 
             success: function (ret) {
