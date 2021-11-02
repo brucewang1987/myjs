@@ -317,7 +317,7 @@
         $.ajaxFileUpload
             (
                 {
-                    url: '/Unitbusiness/SaveImg?ctn_no=' + ctn_no, //用于文件上传的服务器端请求地址
+                    url: '/Unitbusiness/SaveTWImg?ctn_no=' + ctn_no, //用于文件上传的服务器端请求地址
                     secureuri: false, //是否需要安全协议，一般设置为false
                     //                    fileElementId: 'file_input', //文件上传域的ID
                     fileElementId: id, //文件上传域的ID
