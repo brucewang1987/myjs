@@ -752,7 +752,10 @@
            console.log('ctn_id:' + ctn_id + ',箱号:' + ctn_no + ',箱主:' + ope + ',机组状态:' + unit_status + ',电工:' + electrician_user_name + ',pti动作:'
         + pti_type + ',pti状态:' + pti_status + ',温度:' + temperature + ',湿度:' + humidity + ',通风窗:' + ventilation + ',备注:' + _remark);
 
-           var logInfo = '箱号:' + ctn_no + ',箱主:' + ope + ',机组状态:' + unit_status + ',电工:' + electrician_user_name + ',pti动作:'
+//            var logInfo = '箱号:' + ctn_no + ',箱主:' + ope + ',机组状态:' + unit_status + ',电工:' + electrician_user_name + ',pti动作:'
+//         + pti_type + ',pti状态:' + pti_status + ',温度:' + temperature + ',湿度:' + humidity + ',通风窗:' + ventilation + ',备注:' + _remark;
+         
+         var logInfo = '' + ctn_no + ',箱主:' + ope + ',机组状态:' + unit_status + ',电工:' + electrician_user_name + ',pti动作:'
         + pti_type + ',pti状态:' + pti_status + ',温度:' + temperature + ',湿度:' + humidity + ',通风窗:' + ventilation + ',备注:' + _remark;
 
            if (!window.confirm('箱号:' + ctn_no + ',箱主:' + ope + ',机组状态:' + unit_status + ',电工:' + electrician_user_name + ',pti动作:'
