@@ -735,6 +735,13 @@
            var ope = $("#ship_corp").val();
 
            var unit_status = $("#unit_status").val();
+         
+           if(unit_status.substring(0,2)=="AV")
+           {
+           
+             unit_status = "AV";
+           
+           }
 
            var remark = $("#remark").val();
 
