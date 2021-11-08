@@ -543,6 +543,17 @@
              alert("机组状态不是AV，不能进行调温");
              return false;
          }
+      
+        var pti_type = $("#pti_type_look").val();
+
+         if(pti_type =="EPTI")
+         {
+
+             alert("动作为EPTI的箱子不能进行调温");
+             return false;
+
+
+          }
 
          var myDate = new Date;
          var year = myDate.getFullYear(); //获取当前年
