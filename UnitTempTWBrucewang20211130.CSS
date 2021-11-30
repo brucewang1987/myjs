@@ -1,0 +1,52 @@
+  .nav
+        {
+            margin-left: 10px;
+            margin-top: 20px;
+        }
+.sear-box{
+  width: 200px;
+  height: 36px;
+  border: 2px solid #c4c7ce;
+  border-radius: 10px 10px 10px 10px;
+  overflow: visible;
+  /* 并排显示 */
+  display: inline-block;
+  /* 居中 */
+  vertical-align: middle;
+  font-size: 28px;
+}
+
+          .btn
+  {
+    display: inline-block;
+  width: 168px;
+  vertical-align: middle;
+  position: relative;
+  border: 0;
+  cursor: pointer;
+  height: 40px;
+  line-height: 41px;
+  line-height: 40px/9;
+  background-color: #FB7299;
+  border-radius: 10px 10px 10px 10px;
+  font-size: 17px;
+  box-shadow: none;
+  font-weight: 400;
+  outline: 0;
+  letter-spacing: normal;
+  color: #fff;
+  text-align: center;
+}
+
+table, th, td
+{
+border: 1px solid black;
+}
+            
+            td
+            {
+                
+                width:auto;
+                padding: 0px 10px 0px 10px;
+                
+                }
