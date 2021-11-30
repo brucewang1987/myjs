@@ -765,7 +765,7 @@
                       $("#temperature_look").val(ret[key].temperature);
                       $("#humidity_look").val(ret[key].humidity);
                       $("#ventilation_look").val(ret[key].ventilation);
-                      $("#electrician").val(ret[key].electrician);
+                      $("#electrician").val(ret[key].electrician_user_name);
                       $("#create_date").val(ret[key].tw_date);
                       $("#pti_remark").val(ret[key].pti_remark);
                   });
