@@ -88,14 +88,18 @@
                  var _unit_model = unit_model.toUpperCase();
                  $("#unit_model").val(_unit_model);
 
+               
                  var unit_serial = $("#unit_serial").val();
-
+               
+                  /*
                  if (unit_serial == "") {
 
                      alert("请录入机组序列号");
                      $("#unit_serial").focus();
                      return false;
                  }
+                 
+                 */
 
                  var _unit_serial = unit_serial.toUpperCase();
                  $("#unit_serial").val(_unit_serial);
