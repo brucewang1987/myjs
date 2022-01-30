@@ -779,7 +779,11 @@
         }
         else {
 
-
+             if(unit_model_look.indexOf("+")!=-1)
+             {
+               
+              unit_model_look = unit_model_look.replace("+","ZZZ");
+             }
             unit_model2 = unit_model_look;
         
         }
