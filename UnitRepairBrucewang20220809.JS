@@ -67,11 +67,14 @@
                         $(ret).each(function (key) {
 
                             $("#ship_corp").val(ret[key].ope);
-                            $("#box_status").val(ret[key].box_status);
+                            //$("#box_status").val(ret[key].box_status);
                             $("#ST").val(ret[key].ST);
                             $("#seat").val(ret[key].seat);
                             $("#in_edi_date").val(ret[key].in_edi_date);
                             $("#ctn_make_date").val(ret[key].ctn_make_date);
+                            $("#checkman").val(ret[key].checkman);
+                            $("#manhour").val(ret[key].manhour);
+                          
                         });
 
 
