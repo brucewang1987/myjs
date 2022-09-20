@@ -142,7 +142,7 @@
                          html += "<td style = " + "'" + "display:none;" + "'" + ">" + ret[key].item_id + "</td>"//0
                          html += "<td>"
                          html += "<div style=" + "'" + "background-color:" + tempcolor + "'" + ">";
-                         html += "<p>" + iNum + "</p>"
+                         html += "<p>" + iNum2 + "</p>"
                          html += "<p>" + "部位:" + ret[key].part_code + "</p>"
                          html += "<p>" + "位置:" + ret[key].location_code + "</p>"
                          html += "<p>" + "修理代码:" + ret[key].repair_code + "</p>"
