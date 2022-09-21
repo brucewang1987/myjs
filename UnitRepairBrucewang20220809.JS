@@ -232,3 +232,34 @@
 
          });
      
+
+ function showbox2() {
+
+              var ctn_id = $("#ctn_id").val();
+              if (ctn_id == "") {
+
+
+                  alert("请先查询数据");
+                  return false;
+
+              }
+              else {
+
+                  $("#box2").show();
+              
+              }
+             
+          }
+
+
+          $("#btnComp").click(function () {
+
+              showbox2();
+
+          });
+
+          $("#btnCancel").click(function () {
+
+              $("#box2").hide();
+
+          });
