@@ -6,6 +6,7 @@
              $("#in_edi_date").attr("disabled", true);
              $("#ctn_make_date").attr("disabled", true);
              $("#nosee").hide();
+  $("#box2").hide();
 
          }
 
