@@ -32,6 +32,7 @@
                          $("#unit_status").val(ret[key].unit_status);
                          $("#ctn_size").val(ret[key].ctn_size);
                          $("#ctn_type").val(ret[key].ctn_type);
+                         $("#box_status").val(ret[key].box_status);
 
                      });
 
@@ -55,13 +56,16 @@
              var ctn_size = $("#ctn_size").val();
 
              var ctn_type = $("#ctn_type").val();
+          
+             var box_status = $("#box_status").val();
 
              $.ajax({
                  type: "get",
                  dataType: "json",
                  url: "/Unitbusiness/PtiBusiness?ctn_id=" + ctn_id + "&repair_external_status="
                + repair_external_status + "&repair_internal_status=" + repair_internal_status
-                + "&unit_status=" + unit_status + "&ctn_size=" + ctn_size + "&ctn_type=" + ctn_type + "&requestName=" + "changeCtnInfo",
+                + "&unit_status=" + unit_status + "&ctn_size=" + ctn_size + "&ctn_type=" + ctn_type +"&box_status="+box_status
+              + "&requestName=" + "changeCtnInfo",
 
                  success: function (ret) {
 
