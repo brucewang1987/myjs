@@ -32,7 +32,8 @@
                       html += "<td>费用名称</td>"; //1
                       html += "<td>金额</td>"; //2
                       html += "<td>收费方式</td>"; //3
-                      html += "<td>删除</td>"; //4
+                      html += "<td>收费时间</td>"; //4
+                      html += "<td>删除</td>"; //5
                       html += "</tr>";
 
                       $(ret).each(function (key) {
@@ -42,7 +43,8 @@
                           html += "<td>" + ret[key].fee_name + "  " + "</td>"//1
                           html += "<td>" + ret[key].price + "  " + "</td>"//2
                           html += "<td>" + ret[key].cost_type + "  " + "</td>"//3
-                          html += "<td style = " + "'" + "display:none;" + "'" + ">" + ret[key].fee_id + "</td>"//4
+                          html += "<td>" + ret[key].fee_date + "  " + "</td>"//4
+                          html += "<td style = " + "'" + "display:none;" + "'" + ">" + ret[key].fee_id + "</td>"//5
                           html += "<td>" + "<input type = " + "'" + "button" + "' value = " + "'" + "删除 "
                       + "' onclick = '" + "deleteFee(" + i + ")" + "'" + "/>" + "</td>"//5
                           html += "</tr>";
@@ -66,7 +68,7 @@
 
           function deleteFee(i) {
 
-              var fee_id = $("#FeeTab").find("tr").eq(i).find("td").eq(4).text();
+              var fee_id = $("#FeeTab").find("tr").eq(i).find("td").eq(5).text();
               var ctn_no = $("#FeeTab").find("tr").eq(i).find("td").eq(0).text();
               var fee_name = $("#FeeTab").find("tr").eq(i).find("td").eq(1).text();
 
