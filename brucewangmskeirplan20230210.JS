@@ -40,7 +40,8 @@
       $("#btnSend").click(function () {
 
 
-          window.location.href = "/MskEirPlan/SendByMan";
+          //window.location.href = "/MskEirPlan/SendByMan";
+            window.open("/MskEirPlan/SendByMan");
 
       });
 
