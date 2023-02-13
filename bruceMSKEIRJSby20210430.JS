@@ -168,10 +168,10 @@
 
                     if (rtnFlag == "T") {
 
-                        $("#resbox").append("<p>" + "东7数据上传成功,时间段为:" + startdate + "-" + enddate + "</p>");
+                        $("#resbox").append("<p>" + "东七数据上传成功,时间段为:" + startdate + "-" + enddate + "</p>");
                     }
                     else {
-                        $("#resbox").append("<p>" + "东7数据上传失败,原因为" + rtnInfo + "</p>");
+                        $("#resbox").append("<p>" + "东七数据上传失败,原因为" + rtnInfo + "</p>");
                     }
 
                 }
