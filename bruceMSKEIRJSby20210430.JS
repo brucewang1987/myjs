@@ -145,10 +145,10 @@
 
         }
 
-        //5堆场
+        //7堆场
         function AutoSendLOC5Data(startdate, enddate) {
 
-            var place_id = "5";
+            var place_id = "7";
 
             console.log("起始时间:" + startdate + ",终止时间:" + enddate + ",堆场:" + place_id);
 
@@ -168,10 +168,10 @@
 
                     if (rtnFlag == "T") {
 
-                        $("#resbox").append("<p>" + "东五数据上传成功,时间段为:" + startdate + "-" + enddate + "</p>");
+                        $("#resbox").append("<p>" + "东7数据上传成功,时间段为:" + startdate + "-" + enddate + "</p>");
                     }
                     else {
-                        $("#resbox").append("<p>" + "东五数据上传失败,原因为" + rtnInfo + "</p>");
+                        $("#resbox").append("<p>" + "东7数据上传失败,原因为" + rtnInfo + "</p>");
                     }
 
                 }
