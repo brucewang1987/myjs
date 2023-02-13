@@ -183,7 +183,7 @@
 
                   console.log(ret);
                   var str = JSON.stringify(ret);
-                  if (str == "[]") {
+                  if (ret == "[]") {
 
                       $("#resbox").append("<p>" + startDate + "-" + endDate + "无数据需要发送" + "</p>");
                       return false;
