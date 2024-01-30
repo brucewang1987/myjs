@@ -1,4 +1,4 @@
-  function getNow(s) {
+function getNow(s) {
             return s < 10 ? '0' + s : s;
         }
         //3堆场
@@ -218,6 +218,51 @@
 
         }
 
+
+
+        //I堆场
+
+        function AutoSendLOCIData(startdate, enddate) {
+
+            var place_id = "I";
+
+            console.log("起始时间:" + startdate + ",终止时间:" + enddate + ",堆场:" + place_id);
+
+            $.ajax({
+
+                type: "get",
+                dataType: "json",
+                url: "/EirUrl/AutoSendEir/?RequestName=" + "SendData" + "&place_id=" + place_id + "&startdate=" + startdate + "&endDate=" + enddate,
+                success: function (ret) {
+
+                    var map = eval('(' + ret + ')');
+
+                    var rtnFlag = JSON.stringify(map.rtnFlag);
+                    rtnFlag = rtnFlag.replace(/\"/g, "");
+                    var rtnInfo = JSON.stringify(map.rtnInfo);
+                    rtnInfo = rtnInfo.replace(/\"/g, "");
+
+                    if (rtnFlag == "T") {
+
+                        $("#resbox").append("<p>" + "凌海数据上传成功,时间段为:" + startdate + "-" + enddate + "</p>");
+                    }
+                    else {
+                        $("#resbox").append("<p>" + "凌海数据上传失败,原因为" + rtnInfo + "</p>");
+                    }
+
+                }
+
+            })
+
+
+        }
+
+
+
+
+
+
+
         function toastData() {
             //            alert("垃圾公司");
 
@@ -246,6 +291,7 @@
             AutoSendLOC6Data(startDate, endDate);
             AutoSendLOC5Data(startDate, endDate);
             AutoSendLOCYData(startDate, endDate);
+            AutoSendLOCIData(startDate, endDate);
 
         }
         $("#btnOpen").click(function () {
