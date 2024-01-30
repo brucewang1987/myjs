@@ -291,7 +291,7 @@ function getNow(s) {
             AutoSendLOC6Data(startDate, endDate);
             AutoSendLOC5Data(startDate, endDate);
             AutoSendLOCYData(startDate, endDate);
-            AutoSendLOCIData(startDate, endDate);
+           // AutoSendLOCIData(startDate, endDate);
 
         }
         $("#btnOpen").click(function () {
