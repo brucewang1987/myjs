@@ -121,7 +121,8 @@
 
             var intervalId = setInterval(function () {
                 /*toastData();*/
-                sftpEDI();
+                oneYSftpEDI();
+                oneftpEDI();
                 //    window.location.reload();
             }, 900000)
 
