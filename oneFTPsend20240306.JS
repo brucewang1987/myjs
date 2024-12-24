@@ -78,7 +78,7 @@
                     var s = myDate.getSeconds();
 
                     var now = year + '-' + getNow(month) + "-" + getNow(date) + " " + getNow(h) + ':' + getNow(m) + ":" + getNow(s);
-
+                    console.log("当前时间:"+now);
                     $(ret).each(function (key) {
 
                         if (ret[key].isSucess == "YES") {
@@ -124,7 +124,7 @@
                 oneYSftpEDI();
                 oneftpEDI();
                 //    window.location.reload();
-            }, 900000)
+            }, 3600000)
 
 
             $("#spServe").text("服务已开启");
