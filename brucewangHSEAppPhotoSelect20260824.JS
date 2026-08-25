@@ -110,6 +110,18 @@
 
         });
 
+ $("#btnReturn").click(function () {
+
+            if (!window.confirm('确定返回主页？')) {
+
+                return false;
+
+            }
+
+            window.location.href = "/Material/NewDaohangIndex";
+
+        });
+
 
         $("#preBtn").click(function () {
 
