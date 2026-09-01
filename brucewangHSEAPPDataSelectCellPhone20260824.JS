@@ -4,7 +4,7 @@
         laydate.render({
             elem: '#startDate' //指定元素
 
-        , type: 'datetime'
+            , type: 'datetime'
 
         });
 
@@ -13,12 +13,12 @@
         //执行一个laydate实例
         laydate.render({
             elem: '#endDate' //指定元素
-          , type: 'datetime'
+            , type: 'datetime'
         });
 
-      
 
-  
+
+
         $("#btnReturn").click(function () {
 
             if (!window.confirm('确定返回主页？')) {
@@ -83,36 +83,52 @@
 
 
 
-           
+
 
             $.ajax({
 
-             type: "get",
+                type: "get",
                 dataType: "json",
-                url: "/Material/HSEInfoSelect?start_date=" + startDate + "&end_date=" + endDate + "&loc=" + loc+ "&requestName=" + "selectHSEInfo",
+                url: "/Material/HSEInfoSelect?start_date=" + startDate + "&end_date=" + endDate + "&loc=" + loc + "&requestName=" + "selectHSEInfo",
 
                 success: function (ret) {
 
 
-                                        var str = JSON.stringify(ret);
-                                        if (str == "[]") {
-                                            alert("没有数据");
-                                            window.location.reload();
+                    var str = JSON.stringify(ret);
+                    if (str == "[]") {
+                        alert("没有数据");
+                        window.location.reload();
                     }
 
 
                     var html = "";
-                  
 
-                   
+                    var tempcolor = "";
+
+
 
 
                     $(ret).each(function (key) {
 
 
+                        if (ret[key].check_result == "不合格") {
+
+
+                            tempcolor = "red";
+
+                        }
+                        else {
+
+                            tempcolor = "Yellow  ";
+
+                        }
+
+
+
                         html += "<tr>"
                         html += "<td>"
-                        html += "<div>"
+                        html += "<div style=" + "'" + "background-color:" + tempcolor + "'" + ">";
+
 
                         html += "<p>" + "检查人:" + ret[key].check_name + "</p>"
                         html += "<p>" + "检查日期:" + ret[key].check_date + "</p>"
@@ -127,7 +143,7 @@
                         html += "</td>"
                         html += "</tr>"
 
-                       
+
 
 
 
