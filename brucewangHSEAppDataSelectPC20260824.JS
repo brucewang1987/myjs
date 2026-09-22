@@ -1,5 +1,4 @@
-
-        lay('#version').html('-v' + laydate.v);
+ lay('#version').html('-v' + laydate.v);
 
         //执行一个laydate实例
         laydate.render({
@@ -25,18 +24,71 @@
 
         function exportexcel() {
 
-            var fileName = prompt("请输入文件名", "");
+           
 
             if ($("table tr").length > 1) {
 
-                $("#ctnInfo").table2excel({
-                    exclude: ".noExl",
-                    name: "Excel Document Name",
-                    filename: fileName,
-                    exclude_img: true,
-                    exclude_links: true,
-                    exclude_inputs: true
+                //$("#ctnInfo").table2excel({
+                //    exclude: ".noExl",
+                //    name: "Excel Document Name",
+                //    filename: fileName,
+                //    exclude_img: true,
+                //    exclude_links: true,
+                //    exclude_inputs: true
+                //});
+
+
+                var fileName = prompt("请输入文件名", "");
+
+                // 1. 克隆表格，避免影响页面显示
+                var table = document.getElementById('ctnInfo');
+                var clone = table.cloneNode(true);
+
+                // 2. 给每个单元格加"内联样式"边框和内边距
+                //    Excel解析HTML表格时，内联样式兼容性最好（CSS选择器可能不生效）
+                var tds = clone.getElementsByTagName('td');
+                for (var i = 0; i < tds.length; i++) {
+                    tds[i].style.border = '1px solid #333';
+                    tds[i].style.padding = '8px 10px';
+                }
+
+                // 3. 第一行居中 + 加粗（内联样式，保证Excel识别）
+                var firstRow = clone.getElementsByTagName('tr')[0];
+                if (firstRow) {
+                    var firstTds = firstRow.getElementsByTagName('td');
+                    for (var j = 0; j < firstTds.length; j++) {
+                        firstTds[j].style.textAlign = 'center';
+                        firstTds[j].style.fontWeight = 'bold';
+                    }
+                }
+
+                // 4. 用Excel命名空间的HTML包装表格
+                var excelHtml =
+                    '<html xmlns:o="urn:schemas-microsoft-com:office:office" ' +
+                    'xmlns:x="urn:schemas-microsoft-com:office:excel" ' +
+                    'xmlns="http://www.w3.org/TR/REC-html40">' +
+                    '<head><meta charset="utf-8">' +
+                    '<!--[if gte mso 9]>' +
+                    '<xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet>' +
+                    '<x:Name>Sheet1</x:Name>' +
+                    '<x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions>' +
+                    '</x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml>' +
+                    '<![endif]-->' +
+                    '</head><body>' + clone.outerHTML + '</body></html>';
+
+                // 5. 生成 .xls 文件并触发下载（加BOM防止中文乱码）
+                var blob = new Blob(['\uFEFF' + excelHtml], {
+                    type: 'application/vnd.ms-excel;charset=utf-8'
                 });
+                var link = document.createElement('a');
+                link.href = URL.createObjectURL(blob);
+                link.download = fileName + '.xls';
+
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                URL.revokeObjectURL(link.href);
+
 
             }
             else {
@@ -126,7 +178,7 @@
 
 
                     html += "<tr>";
-                    html += "<td colspan="+"'"+"7"+"'"+">" + "中集世联达物流服务（上海）有限公司巡检记录" +"</td>";
+                    html += "<td colspan=" + "'" + "7" + "'" + ">" + "中集世联达物流服务（上海）有限公司巡检记录" + "</td>";
                     html += "</tr>"
 
 
@@ -164,18 +216,18 @@
 
 
 
-                        html += "<tr style=" + "'" + "background-color:" + tempcolor + "'" + ">";
+                     /*   html += "<tr style=" + "'" + "background-color:" + tempcolor + "'" + ">";*/
 
 
 
-                        html += "<td>" + ret[key].check_name + "  " + "</td>"//0
-                        html += "<td>" + ret[key].check_date + "  " + "</td>"//1
-                        html += "<td>" + ret[key].check_type + "  " + "</td>"//2
+                        html += "<td style=" + "'" + "background-color:" + tempcolor + "'" + ">" + ret[key].check_name + "  " + "</td>"//0
+                        html += "<td style=" + "'" + "background-color:" + tempcolor + "'" + ">" + ret[key].check_date + "  " + "</td>"//1
+                        html += "<td style=" + "'" + "background-color:" + tempcolor + "'" + ">" + ret[key].check_type + "  " + "</td>"//2
 
-                        html += "<td>" + ret[key].loc + "  " + "</td>"//4
-                        html += "<td>" + ret[key].area + "  " + "</td>"//5
-                        html += "<td>" + ret[key].remark + "  " + "</td>"//6
-                        html += "<td>" + ret[key].check_result + "  " + "</td>"//3
+                        html += "<td style=" + "'" + "background-color:" + tempcolor + "'" + ">" + ret[key].loc + "  " + "</td>"//4
+                        html += "<td style=" + "'" + "background-color:" + tempcolor + "'" + ">" + ret[key].area + "  " + "</td>"//5
+                        html += "<td style=" + "'" + "background-color:" + tempcolor + "'" + ">" + ret[key].remark + "  " + "</td>"//6
+                        html += "<td style=" + "'" + "background-color:" + tempcolor + "'" + ">" + ret[key].check_result + "  " + "</td>"//3
                         html += "</tr>";
                         i++;
 
