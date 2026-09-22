@@ -1,4 +1,5 @@
-  lay('#version').html('-v' + laydate.v);
+
+        lay('#version').html('-v' + laydate.v);
 
         //执行一个laydate实例
         laydate.render({
@@ -124,24 +125,24 @@
 
 
 
-                   html += "<tr>中集世联达物流服务（上海）有限公司巡检记录</tr>";
-           
-
+                    html += "<tr>";
+                    html += "<td colspan="+"'"+"7"+"'"+">" + "中集世联达物流服务（上海）有限公司巡检记录" +"</td>";
+                    html += "</tr>"
 
 
                     html += "<tr>";
-                   
+
 
                     html += "<td>检查人</td>"; //0
                     html += "<td>检查日期</td>"; //1
                     html += "<td>检查类型</td>"; //2
-                    
+
                     html += "<td>堆场</td>"; //4
                     html += "<td>区域</td>"; //5
                     html += "<td>不合格内容</td>"; //6
 
                     html += "<td>检查结果</td>"; //3
-                 
+
 
                     html += "</tr>";
 
@@ -165,12 +166,12 @@
 
                         html += "<tr style=" + "'" + "background-color:" + tempcolor + "'" + ">";
 
-                     
+
 
                         html += "<td>" + ret[key].check_name + "  " + "</td>"//0
                         html += "<td>" + ret[key].check_date + "  " + "</td>"//1
                         html += "<td>" + ret[key].check_type + "  " + "</td>"//2
-                       
+
                         html += "<td>" + ret[key].loc + "  " + "</td>"//4
                         html += "<td>" + ret[key].area + "  " + "</td>"//5
                         html += "<td>" + ret[key].remark + "  " + "</td>"//6
@@ -182,7 +183,7 @@
 
                     });
                     $("#ctnInfo").html(html);
-                   
+
 
                 },
                 error: function (XmlHttpRequest, textStatus, errorThrown) {
