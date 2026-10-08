@@ -89,12 +89,12 @@ function init() {
                     var result = ret.strResult;
                     if (result == "ok") {
 
-                        alert("提交成功");
+                        alert("数据提交成功");
 
                     }
                     else {
 
-                        alert("提交失败");
+                        alert("数据提交失败");
                     }
 
                 }
@@ -402,7 +402,7 @@ function init() {
                             console.log(_result);
                             if (_result.IsSuccess == "OK") {
 
-                                alert("上传成功");
+                                alert("照片上传成功");
                                 //                            $("#file_input").val("");
 
                                 $("#loading").hide();
@@ -410,7 +410,7 @@ function init() {
                             }
                             else {
 
-                                alert("上传失败，失败原因：" + _result.Err);
+                                alert("照片上传失败，失败原因：" + _result.Err);
                                 $("#loading").hide();
 
                             }
