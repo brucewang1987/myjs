@@ -24,7 +24,7 @@
 
         function exportexcel() {
 
-           
+
 
             if ($("table tr").length > 1) {
 
@@ -194,14 +194,17 @@
                     html += "<td>不合格内容</td>"; //6
 
                     html += "<td>检查结果</td>"; //3
-
+                    html += "<td>整改信息</td>"; //3
+                    html += "<td>整改人</td>"; //3
+                    html += "<td>整改代码</td>"; //3
+                    html += "<td>整改时间</td>"; //3
 
                     html += "</tr>";
 
 
                     $(ret).each(function (key) {
 
-                        if (ret[key].check_result == "不合格") {
+                        if (ret[key].check_result == "不合格" && ret[key].bak2=="未整改") {
 
 
                             tempcolor = "red";
@@ -216,7 +219,7 @@
 
 
 
-                     /*   html += "<tr style=" + "'" + "background-color:" + tempcolor + "'" + ">";*/
+                        /*   html += "<tr style=" + "'" + "background-color:" + tempcolor + "'" + ">";*/
 
 
 
@@ -228,6 +231,11 @@
                         html += "<td style=" + "'" + "background-color:" + tempcolor + "'" + ">" + ret[key].area + "  " + "</td>"//5
                         html += "<td style=" + "'" + "background-color:" + tempcolor + "'" + ">" + ret[key].remark + "  " + "</td>"//6
                         html += "<td style=" + "'" + "background-color:" + tempcolor + "'" + ">" + ret[key].check_result + "  " + "</td>"//3
+
+                        html += "<td style=" + "'" + "background-color:" + tempcolor + "'" + ">" + ret[key].bak2 + "  " + "</td>"//3
+                        html += "<td style=" + "'" + "background-color:" + tempcolor + "'" + ">" + ret[key].bak1 + "  " + "</td>"//3
+                        html += "<td style=" + "'" + "background-color:" + tempcolor + "'" + ">" + ret[key].bak3 + "  " + "</td>"//3
+                        html += "<td style=" + "'" + "background-color:" + tempcolor + "'" + ">" + ret[key].zg_date + "  " + "</td>"//3
                         html += "</tr>";
                         i++;
 
